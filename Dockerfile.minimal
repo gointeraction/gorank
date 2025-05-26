@@ -1,0 +1,23 @@
+# Usar una imagen de Node.js para construir la aplicación
+FROM node:20-alpine as builder
+WORKDIR /app
+
+# Copiar archivos de paquetes e instalar dependencias
+COPY package*.json ./
+RUN npm ci
+
+# Copiar el resto de la aplicación y construir
+COPY . .
+RUN npm run build
+
+# Usar Nginx para servir la aplicación
+FROM nginx:alpine
+
+# Copiar los archivos construidos a la carpeta de Nginx
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Exponer el puerto 80
+EXPOSE 80
+
+# Iniciar Nginx
+CMD ["nginx", "-g", "daemon off;"]

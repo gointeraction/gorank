@@ -4,12 +4,14 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  // Configuración del sitio para producción
-  site: 'https://gointeraction.github.io/gorank',
-  base: '/gorank/',
-  // Configuración para el servidor de desarrollo
+  // Configuración del sitio
+  site: process.env.NODE_ENV === 'production' 
+    ? 'https://gointeraction.github.io/gorank' 
+    : 'http://localhost:3003',
+  base: process.env.NODE_ENV === 'production' ? '/gorank/' : '/',
+  // Configuración del servidor
   server: {
-    port: 3000,
+    port: 3003,
     host: true,
     headers: {
       'X-Frame-Options': 'SAMEORIGIN',
@@ -18,8 +20,6 @@ export default defineConfig({
     },
     // Configuración para manejar rutas con/sin barra final
     trailingSlash: 'ignore',
-    // Forzar el uso de URLs relativas
-    hostname: 'localhost',
     // Configuración para desarrollo local
     open: '/',
     // Configuración para hot module replacement
@@ -32,21 +32,6 @@ export default defineConfig({
   
   // Configuración de salida
   output: 'static',
-  
-  // Configuración del servidor
-  server: {
-    port: 3000,
-    host: true,
-    headers: {
-      'X-Frame-Options': 'SAMEORIGIN',
-      'X-Content-Type-Options': 'nosniff',
-      'Referrer-Policy': 'strict-origin-when-cross-origin'
-    },
-    // Forzar el uso del puerto en las URLs generadas
-    hostname: 'localhost:3000',
-    // Configuración para manejar rutas con/sin barra final
-    trailingSlash: 'ignore'
-  },
   
   // Integraciones
   integrations: [

@@ -4,32 +4,8 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile
-    container_name: ai-services-web
+      dockerfile: Dockerfile.minimal
+    container_name: ai-website
     ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
-      - TZ=America/Santiago
-    volumes:
-      - ./dist:/usr/share/nginx/html:ro
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./default.conf:/etc/nginx/conf.d/default.conf:ro
+      - "3003:80"
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 5s
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-    networks:
-      - ai-network
-
-networks:
-  ai-network:
-    driver: bridge

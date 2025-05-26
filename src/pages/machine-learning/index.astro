@@ -1,0 +1,96 @@
+---
+// src/pages/machine-learning/index.astro
+const title = "Machine Learning";
+const description = "Soluciones avanzadas de Machine Learning para impulsar tu negocio.";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+</head>
+<body>
+  <main class="container">
+    <h1>{title}</h1>
+    
+    <section class="content">
+      <article>
+        <h2>Nuestros Servicios de Machine Learning</h2>
+        <p>Ofrecemos soluciones personalizadas de Machine Learning adaptadas a las necesidades específicas de tu negocio.</p>
+        
+        <h3>Áreas de Especialización</h3>
+        <ul>
+          <li>Modelos predictivos</li>
+          <li>Procesamiento de lenguaje natural (NLP)</li>
+          <li>Visión por computadora</li>
+          <li>Sistemas de recomendación</li>
+          <li>Análisis de series temporales</li>
+        </ul>
+        
+        <div class="cta">
+          <a href="/contacto" class="btn">Solicitar Cotización</a>
+        </div>
+      </article>
+    </section>
+  </main>
+  
+  <style>
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .content {
+      margin-top: 2rem;
+      line-height: 1.6;
+    }
+    
+    h1 {
+      color: #1e40af;
+      margin-bottom: 1.5rem;
+    }
+    
+    h2 {
+      color: #1e40af;
+      margin: 2rem 0 1rem;
+    }
+    
+    h3 {
+      color: #1e40af;
+      margin: 1.5rem 0 0.5rem;
+    }
+    
+    ul {
+      padding-left: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .cta {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    
+    .btn:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</body>
+</html>

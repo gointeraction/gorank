@@ -1,0 +1,26 @@
+# Etapa de construcción
+FROM node:20-alpine as builder
+WORKDIR /app
+
+# Instalar dependencias de compilación
+RUN apk add --no-cache python3 make g++
+
+# Instalar dependencias
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Copiar archivos y construir
+COPY . .
+RUN npm run build
+
+# Etapa de producción
+FROM nginx:alpine
+
+# Copiar archivos estáticos
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Exponer puerto
+EXPOSE 3003
+
+# Iniciar Nginx
+CMD ["nginx", "-g", "daemon off;"]
