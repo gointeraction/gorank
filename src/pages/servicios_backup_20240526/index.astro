@@ -5,78 +5,137 @@ import MainLayout from '../../layouts/MainLayout.astro';
 const title = "Nuestros Servicios de IA";
 const description = "Soluciones avanzadas de inteligencia artificial y transformación digital para impulsar tu negocio.";
 
-const services = [
+// Datos de las categorías de servicios
+const serviceCategories = [
   {
-    title: "ChatBots Empresariales",
-    description: "Soluciones de inteligencia conversacional para mejorar la atención al cliente y automatizar procesos.",
+    id: "automatizacion",
+    title: "Automatización Inteligente",
+    description: "Soluciones avanzadas para optimizar y escalar tus operaciones empresariales.",
     icon: "🤖",
-    link: "/bots/empresas",
-    features: [
-      "Atención 24/7 sin costos adicionales",
-      "Integración con WhatsApp y otras plataformas",
-      "Análisis de conversaciones en tiempo real"
-    ],
-    image: "/images/bots/empresas/hero.jpg"
+    services: [
+      {
+        title: "ChatBots Empresariales",
+        description: "Asistentes virtuales con IA para atención al cliente 24/7 y soporte automatizado.",
+        features: [
+          "Integración con WhatsApp, Messenger y canales propios",
+          "Análisis de sentimiento en tiempo real",
+          "Personalización según perfil del cliente",
+          "Soporte multilingüe"
+        ],
+        image: "/images/bots/empresas/hero.jpg",
+        link: "/bots/empresas"
+      },
+      {
+        title: "Automatización de Procesos (RPA)",
+        description: "Automatización de tareas repetitivas para aumentar la productividad y reducir errores.",
+        features: [
+          "Automatización de procesos de back-office",
+          "Integración con sistemas ERP/CRM",
+          "Procesamiento automático de documentos",
+          "Monitoreo en tiempo real"
+        ],
+        image: "/images/rpa-hero.jpg",
+        link: "/rpa"
+      }
+    ]
   },
   {
-    title: "Inteligencia de Negocios",
-    description: "Transforma datos en decisiones estratégicas con dashboards interactivos y análisis predictivos.",
+    id: "analitica",
+    title: "Análisis de Datos e Inteligencia de Negocios",
+    description: "Transforma tus datos en información valiosa para la toma de decisiones estratégicas.",
     icon: "📊",
-    link: "/inteligencia-de-negocios",
-    features: [
-      "Visualización de datos en tiempo real",
-      "Reportes personalizados",
-      "Análisis predictivo"
-    ],
-    image: "/images/bi-hero.jpg"
+    services: [
+      {
+        title: "Business Intelligence",
+        description: "Dashboards interactivos y reportes personalizados para visualizar KPIs clave.",
+        features: [
+          "Visualización de datos en tiempo real",
+          "Alertas y notificaciones automáticas",
+          "Análisis predictivo",
+          "Acceso móvil"
+        ],
+        image: "/images/bi-hero.jpg",
+        link: "/business-intelligence"
+      },
+      {
+        title: "Ingeniería de Datos",
+        description: "Infraestructura escalable para el procesamiento de grandes volúmenes de información.",
+        features: [
+          "Arquitecturas Big Data",
+          "Limpieza y preparación de datos",
+          "Pipelines de ETL/ELT",
+          "Almacenamiento en la nube"
+        ],
+        image: "/images/data-engineering.jpg",
+        link: "/ingenieria-de-datos"
+      }
+    ]
   },
   {
-    title: "Ingeniería de Datos",
-    description: "Infraestructura escalable para el procesamiento y análisis de grandes volúmenes de información.",
-    icon: "🔍",
-    link: "/ingenieria-de-datos",
-    features: [
-      "Arquitecturas Big Data",
-      "Limpieza y preparación de datos",
-      "Pipelines de datos automatizados"
-    ],
-    image: "/images/data-engineering.jpg"
+    id: "transformacion-digital",
+    title: "Transformación Digital",
+    description: "Soluciones integrales para la transformación tecnológica de tu negocio.",
+    icon: "🚀",
+    services: [
+      {
+        title: "Consultoría en IA",
+        description: "Asesoramiento experto para implementar IA en tu organización.",
+        features: [
+          "Análisis de madurez digital",
+          "Diseño de hoja de ruta",
+          "Selección de tecnologías",
+          "Acompañamiento en implementación"
+        ],
+        image: "/images/consulting.jpg",
+        link: "/consultoria-ia"
+      },
+      {
+        title: "Desarrollo de Aplicaciones con IA",
+        description: "Soluciones personalizadas impulsadas por inteligencia artificial.",
+        features: [
+          "Aplicaciones web y móviles",
+          "Integración de modelos de ML",
+          "Chatbots avanzados",
+          "Sistemas de recomendación"
+        ],
+        image: "/images/app-development.jpg",
+        link: "/desarrollo-aplicaciones-ia"
+      },
+      {
+        title: "Capacitación en IA",
+        description: "Programas de formación para equipos técnicos y gerenciales.",
+        features: [
+          "Cursos personalizados",
+          "Talleres prácticos",
+          "Certificación internacional",
+          "Mentorías personalizadas"
+        ],
+        image: "/images/training.jpg",
+        link: "/capacitacion-ia"
+      }
+    ]
+  }
+];
+
+// Testimonios de clientes
+const testimonials = [
+  {
+    quote: "Implementamos los chatbots y redujimos el tiempo de respuesta a clientes en un 80%.",
+    author: "Carlos Méndez",
+    position: "Director de Servicio al Cliente",
+    company: "Empresa Retail"
   },
   {
-    title: "Capacitación en IA",
-    description: "Programas de formación especializados en inteligencia artificial para equipos técnicos y gerenciales.",
-    icon: "🎓",
-    link: "/capacitacion",
-    features: [
-      "Cursos personalizados",
-      "Talleres prácticos",
-      "Certificación internacional"
-    ],
-    image: "/images/training.jpg"
+    quote: "La solución de BI nos permitió tomar decisiones basadas en datos en tiempo real.",
+    author: "Ana Torres",
+    position: "Gerente de Operaciones",
+    company: "Cadena de Restaurantes"
   },
   {
-    title: "Automatización con RPA",
-    description: "Robotic Process Automation para optimizar procesos empresariales y reducir costos operativos.",
-    icon: "⚙️",
-    link: "/rpa",
-    features: [
-      "Automatización de tareas repetitivas",
-      "Integración con sistemas existentes",
-      "ROI medible desde el primer mes"
-    ],
-    image: "/images/rpa-hero.jpg"
-  },
-  {
-    title: "Consultoría en IA",
-    description: "Asesoramiento experto para identificar e implementar soluciones de IA en tu organización.",
-    icon: "💡",
-    link: "/consultoria",
-    features: [
-      "Análisis de madurez digital",
-      "Hoja de ruta de implementación",
-      "Acompañamiento en la transformación"
-    ],
-    image: "/images/consulting.jpg"
+    quote: "Excelente servicio de consultoría que nos ayudó a definir nuestra estrategia de IA.",
+    author: "Roberto Sánchez",
+    position: "CEO",
+    company: "Startup Fintech"
   }
 ];
 ---
@@ -104,56 +163,112 @@ const services = [
     <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
   </section>
 
-  <!-- Servicios Grid -->
+  <!-- Categorías de Servicios -->
   <section id="servicios" class="py-20 px-4 sm:px-6 lg:px-8 bg-background">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Nuestros Servicios</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Soluciones a medida para tu negocio</h2>
-        <p class="text-text-secondary max-w-2xl mx-auto">
-          Ofrecemos servicios especializados que se adaptan a las necesidades específicas de tu empresa.
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Nuestras Soluciones</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Servicios de Transformación Digital</h2>
+        <p class="text-text-secondary max-w-3xl mx-auto text-lg">
+          Ofrecemos un portafolio integral de servicios diseñados para impulsar la innovación y eficiencia en tu negocio mediante la tecnología más avanzada.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 gap-12">
-        {services.map((service, index) => (
-          <div class={`group relative overflow-hidden rounded-2xl bg-surface/50 backdrop-blur-sm border border-accent/10 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-            <div class="md:w-1/2 p-8 md:p-12">
-              <div class="w-16 h-16 flex items-center justify-center text-3xl bg-accent/10 text-accent rounded-xl mb-6 group-hover:bg-accent/20 transition-colors">
-                {service.icon}
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-4">{service.title}</h3>
-              <p class="text-text-secondary mb-6 text-lg">{service.description}</p>
-              
-              <ul class="space-y-3 mb-8">
-                {service.features.map(feature => (
-                  <li class="flex items-start">
-                    <svg class="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span class="text-text-secondary">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <a 
-                href={service.link} 
-                class="inline-flex items-center text-accent font-medium group-hover:translate-x-1 transition-transform"
-              >
-                Descubre más
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </a>
+      {/* Navegación por categorías */}
+      <div class="flex flex-wrap justify-center gap-4 mb-16">
+        {serviceCategories.map(category => (
+          <a 
+            href={`#${category.id}`}
+            class="px-6 py-2 rounded-full border border-accent/20 text-accent hover:bg-accent/10 transition-colors"
+          >
+            {category.title}
+          </a>
+        ))}
+      </div>
+
+      {/* Contenido de categorías */}
+      <div class="space-y-24">
+        {serviceCategories.map((category, catIndex) => (
+          <div id={category.id} class="scroll-mt-24">
+            <div class="flex items-center gap-4 mb-8">
+              <div class="text-3xl">{category.icon}</div>
+              <h3 class="text-2xl md:text-3xl font-bold text-white">{category.title}</h3>
+            </div>
+            <p class="text-text-secondary text-lg mb-12 max-w-4xl">
+              {category.description}
+            </p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {category.services.map((service, index) => (
+                <div class="group relative overflow-hidden rounded-2xl bg-surface/50 backdrop-blur-sm border border-accent/10 hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                  <div class="h-48 overflow-hidden">
+                    <div 
+                      class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                      style={`background-image: url('${service.image}');`}
+                    ></div>
+                  </div>
+                  <div class="p-8 flex-1 flex flex-col">
+                    <h4 class="text-xl font-bold text-white mb-4">{service.title}</h4>
+                    <p class="text-text-secondary mb-6">{service.description}</p>
+                    
+                    <h5 class="text-sm font-semibold text-accent mb-3">BENEFICIOS PRINCIPALES</h5>
+                    <ul class="space-y-2 mb-6">
+                      {service.features.slice(0, 4).map(feature => (
+                        <li class="flex items-start">
+                          <svg class="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span class="text-text-secondary">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <div class="mt-auto pt-4">
+                      <a 
+                        href={service.link}
+                        class="inline-flex items-center text-accent font-medium hover:text-accent/80 transition-colors"
+                      >
+                        Ver detalles del servicio
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
             
-            <div class="md:w-1/2 h-64 md:h-auto bg-gray-800 overflow-hidden">
-              <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" 
-                   style={`background-image: url('${service.image}');`}>
-              </div>
+            {catIndex < serviceCategories.length - 1 && (
+              <div class="border-t border-accent/10 my-16"></div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonios -->
+  <section class="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Testimonios</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Lo que dicen nuestros clientes</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Empresas que han transformado sus operaciones con nuestras soluciones
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {testimonials.map((testimonial, index) => (
+          <div class="bg-surface/50 backdrop-blur-sm rounded-2xl p-8 border border-accent/10 hover:border-accent/30 transition-colors">
+            <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
+            <p class="text-text-secondary italic mb-6">"{testimonial.quote}"</p>
+            <div class="border-t border-accent/10 pt-6">
+              <div class="font-bold text-white">{testimonial.author}</div>
+              <div class="text-sm text-text-secondary">{testimonial.position}</div>
+              <div class="text-sm text-accent">{testimonial.company}</div>
             </div>
-            
-            <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-accent/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
           </div>
         ))}
       </div>

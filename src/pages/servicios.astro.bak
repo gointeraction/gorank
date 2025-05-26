@@ -109,6 +109,18 @@ const beneficios = [
         </div>
       </div>
     </section>
+  </div>
+</MainLayout>
+          <a href="#servicios" class="btn btn-outline">
+            Explorar servicios
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
+  </div>
+
+  <div class="container mx-auto px-4">
     <!-- Beneficios Clave -->
     <section id="beneficios" class="py-20 relative">
       <div class="absolute inset-0 -z-10 opacity-20">
@@ -189,161 +201,6 @@ const beneficios = [
         </div>
       </div>
     </section>
-
-
-
-    <section class="py-20 bg-gradient-to-b from-surface/50 to-background/80">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
-            Nuestros <span class="text-accent">Servicios de Machine Learning</span>
-          </h2>
-          <p class="text-xl text-text-secondary max-w-3xl mx-auto">
-            Soluciones de Machine Learning personalizadas para impulsar tu negocio con inteligencia artificial de vanguardia.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Servicio 1 -->
-          <div class="group bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/10 hover:shadow-[0_0_30px_#00F0FF33] hover:-translate-y-2 border border-white/10">
-            <div class="w-16 h-16 bg-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/30 transition-colors duration-300">
-              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-4">Modelos Predictivos</h3>
-            <p class="text-text-secondary mb-6">Desarrollamos modelos predictivos personalizados que te permiten anticipar tendencias y comportamientos del mercado.</p>
-            <ul class="space-y-3 text-left">
-              <li class="flex items-start">
-                <span class="text-accent mr-2">✓</span>
-                <span>Análisis predictivo de ventas</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-accent mr-2">✓</span>
-                <span>Detección temprana de fraude</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-accent mr-2">✓</span>
-                <span>Predicción de mantenimiento</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Servicio 2 -->
-          <div class="group bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/10 hover:shadow-[0_0_30px_#00F0FF33] hover:-translate-y-2 border border-white/10">
-            <div class="w-16 h-16 bg-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/30 transition-colors duration-300">
-              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-4">Procesamiento de Lenguaje Natural</h3>
-            <p class="text-text-secondary mb-6">Soluciones avanzadas de PLN para análisis de sentimientos, clasificación de texto y generación de lenguaje natural.</p>
-            <ul class="space-y-3 text-left">
-              <li class="flex items-start">
-                <span class="text-accent mr-2">✓</span>
-                <span>Chatbots inteligentes</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-accent mr-2">✓</span>
-                <span>Análisis de sentimientos</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-accent mr-2">✓</span>
-                <span>Resumen automático de texto</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Servicio 3 -->
-          <div class="group bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/10 hover:shadow-[0_0_30px_#00F0FF33] hover:-translate-y-2 border border-white/10">
-            <div class="w-16 h-16 bg-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/30 transition-colors duration-300">
-              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-4">Visión por Computadora</h3>
-            <p class="text-text-secondary mb-6">Sistemas de visión artificial para el reconocimiento de imágenes, detección de objetos y análisis de video.</p>
-            <ul class="space-y-3 text-left">
-              <li class="flex items-start">
-                <span class="text-accent mr-2">✓</span>
-                <span>Reconocimiento facial</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-accent mr-2">✓</span>
-                <span>Detección de objetos</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-accent mr-2">✓</span>
-                <span>Análisis de imágenes médicas</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sección Nuestros Aliados -->
-    <section class="py-20 relative overflow-hidden bg-gradient-to-b from-surface/50 to-background/80">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <span class="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4">Colaboraciones</span>
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-            Nuestros <span class="text-accent">Aliados</span>
-          </h2>
-          <p class="text-xl text-text-secondary max-w-3xl mx-auto">
-            Colaboramos con las empresas y organizaciones más innovadoras para ofrecer soluciones de IA de última generación.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
-          <!-- Aliado 1 -->
-          <div class="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5 hover:border-accent/30 transition-all duration-300 hover:scale-105">
-            <img src="/img/aliados/logo1.svg" alt="Aliado 1" class="h-12 w-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
-          </div>
-          
-          <!-- Aliado 2 -->
-          <div class="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5 hover:border-accent/30 transition-all duration-300 hover:scale-105">
-            <img src="/img/aliados/logo2.svg" alt="Aliado 2" class="h-12 w-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
-          </div>
-          
-          <!-- Aliado 3 -->
-          <div class="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5 hover:border-accent/30 transition-all duration-300 hover:scale-105">
-            <img src="/img/aliados/logo3.svg" alt="Aliado 3" class="h-12 w-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
-          </div>
-          
-          <!-- Aliado 4 -->
-          <div class="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5 hover:border-accent/30 transition-all duration-300 hover:scale-105">
-            <img src="/img/aliados/logo4.svg" alt="Aliado 4" class="h-12 w-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
-          </div>
-          
-          <!-- Aliado 5 -->
-          <div class="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5 hover:border-accent/30 transition-all duration-300 hover:scale-105">
-            <img src="/img/aliados/logo5.svg" alt="Aliado 5" class="h-12 w-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="relative text-center bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-14 md:p-20 my-12 animate-fade-in overflow-hidden">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-white">
-        Impulsa tu Negocio con <span class="text-accent">Inteligencia Artificial</span>
-      </h2>
-      <p class="text-xl md:text-2xl text-text-secondary mb-10 max-w-2xl mx-auto">
-        Estamos listos para ayudarte a transformar tu organización mediante soluciones de IA personalizadas y de vanguardia.
-      </p>
-      <a 
-        href="#contacto" 
-        class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-white font-bold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 hover:shadow-accent/20 group"
-      >
-        Comencemos tu proyecto
-        <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </a>
-    </section>
-</MainLayout>
-
 
     <!-- Nuestros Servicios -->
     <section id="servicios" class="py-20 md:py-32 relative overflow-hidden bg-gradient-to-br from-background via-surface/50 to-background/90">
@@ -500,3 +357,169 @@ const beneficios = [
       </div>
     </section>
 
+
+
+           <div class="text-center mt-16">
+          <a href="#contacto" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-white font-bold rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group">
+            ¿Listo para tu historia de éxito?
+            <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-b from-surface/50 to-background/80">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
+            Nuestros <span class="text-accent">Servicios de Machine Learning</span>
+          </h2>
+          <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+            Soluciones de Machine Learning personalizadas para impulsar tu negocio con inteligencia artificial de vanguardia.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Servicio 1 -->
+          <div class="group bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/10 hover:shadow-[0_0_30px_#00F0FF33] hover:-translate-y-2 border border-white/10">
+            <div class="w-16 h-16 bg-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/30 transition-colors duration-300">
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Modelos Predictivos</h3>
+            <p class="text-text-secondary mb-6">Desarrollamos modelos predictivos personalizados que te permiten anticipar tendencias y comportamientos del mercado.</p>
+            <ul class="space-y-3 text-left">
+              <li class="flex items-start">
+                <span class="text-accent mr-2">✓</span>
+                <span>Análisis predictivo de ventas</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">✓</span>
+                <span>Detección temprana de fraude</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">✓</span>
+                <span>Predicción de mantenimiento</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Servicio 2 -->
+          <div class="group bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/10 hover:shadow-[0_0_30px_#00F0FF33] hover:-translate-y-2 border border-white/10">
+            <div class="w-16 h-16 bg-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/30 transition-colors duration-300">
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Procesamiento de Lenguaje Natural</h3>
+            <p class="text-text-secondary mb-6">Soluciones avanzadas de PLN para análisis de sentimientos, clasificación de texto y generación de lenguaje natural.</p>
+            <ul class="space-y-3 text-left">
+              <li class="flex items-start">
+                <span class="text-accent mr-2">✓</span>
+                <span>Chatbots inteligentes</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">✓</span>
+                <span>Análisis de sentimientos</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">✓</span>
+                <span>Resumen automático de texto</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Servicio 3 -->
+          <div class="group bg-white/5 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 hover:bg-white/10 hover:shadow-[0_0_30px_#00F0FF33] hover:-translate-y-2 border border-white/10">
+            <div class="w-16 h-16 bg-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/30 transition-colors duration-300">
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Visión por Computadora</h3>
+            <p class="text-text-secondary mb-6">Sistemas de visión artificial para el reconocimiento de imágenes, detección de objetos y análisis de video.</p>
+            <ul class="space-y-3 text-left">
+              <li class="flex items-start">
+                <span class="text-accent mr-2">✓</span>
+                <span>Reconocimiento facial</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">✓</span>
+                <span>Detección de objetos</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">✓</span>
+                <span>Análisis de imágenes médicas</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Nuestros Aliados -->
+    <section class="py-20 relative overflow-hidden bg-gradient-to-b from-surface/50 to-background/80">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <span class="inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4">Colaboraciones</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            Nuestros <span class="text-accent">Aliados</span>
+          </h2>
+          <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+            Colaboramos con las empresas y organizaciones más innovadoras para ofrecer soluciones de IA de última generación.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+          <!-- Aliado 1 -->
+          <div class="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5 hover:border-accent/30 transition-all duration-300 hover:scale-105">
+            <img src="/img/aliados/logo1.svg" alt="Aliado 1" class="h-12 w-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
+          </div>
+          
+          <!-- Aliado 2 -->
+          <div class="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5 hover:border-accent/30 transition-all duration-300 hover:scale-105">
+            <img src="/img/aliados/logo2.svg" alt="Aliado 2" class="h-12 w-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
+          </div>
+          
+          <!-- Aliado 3 -->
+          <div class="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5 hover:border-accent/30 transition-all duration-300 hover:scale-105">
+            <img src="/img/aliados/logo3.svg" alt="Aliado 3" class="h-12 w-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
+          </div>
+          
+          <!-- Aliado 4 -->
+          <div class="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5 hover:border-accent/30 transition-all duration-300 hover:scale-105">
+            <img src="/img/aliados/logo4.svg" alt="Aliado 4" class="h-12 w-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
+          </div>
+          
+          <!-- Aliado 5 -->
+          <div class="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5 hover:border-accent/30 transition-all duration-300 hover:scale-105">
+            <img src="/img/aliados/logo5.svg" alt="Aliado 5" class="h-12 w-full object-contain opacity-80 hover:opacity-100 transition-opacity" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="relative text-center bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-14 md:p-20 my-12 animate-fade-in overflow-hidden">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-white">
+        Impulsa tu Negocio con <span class="text-accent">Inteligencia Artificial</span>
+      </h2>
+      <p class="text-xl md:text-2xl text-text-secondary mb-10 max-w-2xl mx-auto">
+        Estamos listos para ayudarte a transformar tu organización mediante soluciones de IA personalizadas y de vanguardia.
+      </p>
+      <a 
+        href="#contacto" 
+        class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-white font-bold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 hover:shadow-accent/20 group"
+      >
+        Comencemos tu proyecto
+        <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </section>
+  </div>
+  </div>
+</MainLayout>
