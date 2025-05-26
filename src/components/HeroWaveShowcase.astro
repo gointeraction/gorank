@@ -1,0 +1,29 @@
+---
+// HeroWaveShowcase: Sección tipo hero inspirada en Vapi, con título grande, botones, onda de colores y marcas.
+---
+
+<section class="relative min-h-[70vh] flex flex-col justify-center items-center bg-gradient-to-b from-background to-[#191a23] overflow-hidden py-20 animate-fade-in">
+  <!-- Título principal -->
+  <h1 class="text-4xl md:text-6xl font-extrabold text-center mb-6 leading-tight text-white drop-shadow-xl">
+    Agentes de IA por Voz<br class="hidden md:block" />
+    <span class="text-accent">para tu negocio</span>
+  </h1>
+ 
+  <!-- Onda de colores estilo equalizador -->
+  <div class="absolute bottom-0 left-0 right-0 w-full flex justify-center items-end pointer-events-none select-none">
+    <div class="flex gap-1 md:gap-2 pb-6">
+      {Array.from({length: 32}).map((_, i) => (
+        <div
+          class="rounded-full"
+          style={`width:16px;height:${16 + Math.round(Math.sin(i/2)*12 + Math.random()*8)}px;background:${['#fff','#00f0ff','#ffb300','#a259ff','#ff6bcb','#6be6ff','#ffe156','#00f0ff','#fff'][i%9]};opacity:0.8;`}
+        ></div>
+      ))}
+    </div>
+  </div>
+ 
+</section>
+
+<style>
+  /* Personaliza el fondo, animaciones y responsividad aquí si lo deseas */
+</style>
+

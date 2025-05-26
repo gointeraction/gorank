@@ -1,0 +1,376 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// Event data
+const event = {
+  title: "Charla de IA Gratis para ONGs",
+  subtitle: "Descubre cómo la Inteligencia Artificial puede potenciar el impacto de tu organización sin fines de lucro",
+  date: "15 de Junio, 2025",
+  time: "4:00 PM - 6:00 PM (Hora CDMX)",
+  modality: "Virtual - Vía Zoom",
+  price: "Gratuito",
+  spots: 50,
+  image: "/images/events/ia-ongs.jpg"
+};
+
+const benefits = [
+  "Aprende a automatizar tareas repetitivas para enfocarte en tu misión",
+  "Descubre herramientas gratuitas de IA para organizaciones sin fines de lucro",
+  "Casos de éxito de ONGs que ya están utilizando IA",
+  "Sesión de preguntas y respuestas con expertos en IA",
+  "Recursos y guías prácticas para implementar IA en tu organización"
+];
+
+const agenda = [
+  {
+    time: "4:00 PM - 4:20 PM",
+    title: "Bienvenida e Introducción a la IA",
+    description: "Conceptos básicos y panorama general de la IA aplicada al sector social"
+  },
+  {
+    time: "4:20 PM - 5:00 PM",
+    title: "Herramientas de IA Gratuitas para ONGs",
+    description: "Demostración de herramientas accesibles y cómo implementarlas"
+  },
+  {
+    time: "5:00 PM - 5:30 PM",
+    title: "Casos de Éxito",
+    description: "Experiencias reales de ONGs que han implementado IA con éxito"
+  },
+  {
+    time: "5:30 PM - 6:00 PM",
+    title: "Sesión de Preguntas y Respuestas",
+    description: "Resolvemos tus dudas sobre cómo aplicar IA en tu organización"
+  }
+];
+
+const testimonials = [
+  {
+    name: "María González",
+    role: "Directora de Comunicación, Fundación Ayuda",
+    text: "La charla nos abrió los ojos a posibilidades que ni siquiera imaginábamos. Ya estamos implementando herramientas de IA que han mejorado nuestra eficiencia en un 40%.",
+    image: "/images/testimonials/maria-gonzalez.jpg"
+  },
+  {
+    name: "Carlos Méndez",
+    role: "Coordinador de Proyectos, ONG Futuro Verde",
+    text: "Excelente oportunidad para conocer herramientas accesibles. La información fue clara, práctica y muy relevante para nuestro trabajo diario.",
+    image: "/images/testimonials/carlos-mendez.jpg"
+  }
+];
+
+const faqs = [
+  {
+    question: "¿Quién puede asistir a esta charla?",
+    answer: "Esta charla está diseñada específicamente para miembros de organizaciones sin fines de lucro, ONGs y fundaciones que deseen aprender sobre IA."
+  },
+  {
+    question: "¿Necesito conocimientos previos de IA?",
+    answer: "No, la charla está diseñada para principiantes. Cubriremos conceptos básicos antes de avanzar a temas más específicos."
+  },
+  {
+    question: "¿Cómo me registro para el evento?",
+    answer: "Puedes registrarte completando el formulario en esta misma página. Recibirás un correo de confirmación con los detalles de acceso."
+  },
+  {
+    question: "¿Habrá grabación disponible?",
+    answer: "Sí, todos los registrados recibirán un enlace a la grabación después del evento."
+  },
+  {
+    question: "¿Qué necesito para participar?",
+    answer: "Solo necesitas una computadora con conexión a internet. El enlace de Zoom se proporcionará después del registro."
+  }
+];
+---
+
+<MainLayout title={`${event.title} | Go Rank First`}>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden">
+    <div class="absolute inset-0 bg-grid-accent/10 [mask-image:linear-gradient(0deg,transparent,white)]"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">
+          {event.date} • {event.modality} • {event.spots} cupos disponibles
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          {event.title}
+        </h1>
+        <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+          {event.subtitle}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#registro" class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+            ¡Regístrate Gratis!
+          </a>
+          <a href="#beneficios" class="px-8 py-4 border-2 border-accent text-accent hover:bg-accent/10 font-semibold rounded-xl transition-all duration-300">
+            Conoce los beneficios
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Details -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Potencia el impacto de tu ONG con <span class="text-accent">Inteligencia Artificial</span></h2>
+            <p class="text-text-secondary mb-6 text-lg">
+              En esta charla gratuita de 2 horas, descubrirás cómo las herramientas de IA pueden ayudarte a:
+            </p>
+            <ul class="space-y-3 mb-8">
+              {benefits.map((benefit, index) => (
+                <li class="flex items-start">
+                  <svg class="h-6 w-6 text-accent mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="#registro" class="inline-block px-8 py-3 bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+              ¡Quiero mi cupo gratuito!
+            </a>
+          </div>
+          <div class="relative">
+            <div class="relative z-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden shadow-xl">
+              <img src={event.image} alt={event.title} class="w-full h-auto" />
+              <div class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="p-3 bg-accent/10 rounded-lg mr-4">
+                    <i class="ph ph-calendar text-2xl text-accent"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-text-secondary">Fecha y Hora</p>
+                    <p class="font-semibold">{event.date} • {event.time}</p>
+                  </div>
+                </div>
+                <div class="flex items-center mb-4">
+                  <div class="p-3 bg-accent/10 rounded-lg mr-4">
+                    <i class="ph ph-map-pin text-2xl text-accent"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-text-secondary">Modalidad</p>
+                    <p class="font-semibold">{event.modality}</p>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="p-3 bg-accent/10 rounded-lg mr-4">
+                    <i class="ph ph-currency-dollar text-2xl text-accent"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-text-secondary">Inversión</p>
+                    <p class="font-semibold text-2xl text-accent">{event.price}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-accent/10 rounded-full filter blur-3xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agenda -->
+  <section id="agenda" class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Agenda</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Lo que <span class="text-accent">aprenderás</span></h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Una experiencia práctica diseñada específicamente para organizaciones sin fines de lucro.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-6">
+        {agenda.map((item, index) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:border-accent/30 transition-all duration-300">
+            <div class="md:flex items-start">
+              <div class="md:w-1/3 mb-4 md:mb-0">
+                <span class="inline-block px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full">
+                  {item.time}
+                </span>
+              </div>
+              <div class="md:w-2/3">
+                <h3 class="text-xl font-semibold mb-2">{item.title}</h3>
+                <p class="text-text-secondary">{item.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Testimonios</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Lo que dicen <span class="text-accent">participantes</span></h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Organizaciones que han transformado su impacto con nuestras capacitaciones.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {testimonials.map((testimonial) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+            <div class="flex items-center mb-6">
+              <img src={testimonial.image} alt={testimonial.name} class="w-16 h-16 rounded-full object-cover mr-4 border-2 border-accent/30" />
+              <div>
+                <h4 class="text-xl font-semibold">{testimonial.name}</h4>
+                <p class="text-text-secondary">{testimonial.role}</p>
+              </div>
+            </div>
+            <p class="text-text-secondary italic">"{testimonial.text}"</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration -->
+  <section id="registro" class="py-16 bg-gradient-to-br from-primary/10 to-accent/10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden">
+        <div class="md:flex">
+          <div class="md:w-1/2 bg-gradient-to-br from-primary/10 to-accent/10 p-8 flex flex-col justify-center">
+            <h2 class="text-3xl font-bold mb-4">Regístrate Gratis</h2>
+            <p class="text-text-secondary mb-6">
+              Completa el formulario para asegurar tu cupo en esta charla exclusiva para ONGs. Recibirás todos los detalles de acceso por correo electrónico.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Cupos limitados</span>
+              </div>
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Sin costo para organizaciones sin fines de lucro</span>
+              </div>
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Material de apoyo incluido</span>
+              </div>
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Certificado de participación</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2 p-8">
+            <form class="space-y-4">
+              <div>
+                <label for="nombre" class="block text-sm font-medium text-text-primary mb-1">Nombre completo *</label>
+                <input type="text" id="nombre" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" required />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-text-primary mb-1">Correo electrónico *</label>
+                <input type="email" id="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" required />
+              </div>
+              <div>
+                <label for="organizacion" class="block text-sm font-medium text-text-primary mb-1">Nombre de la Organización *</label>
+                <input type="text" id="organizacion" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" required />
+              </div>
+              <div>
+                <label for="cargo" class="block text-sm font-medium text-text-primary mb-1">Cargo en la organización</label>
+                <input type="text" id="cargo" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" />
+              </div>
+              <div>
+                <label for="telefono" class="block text-sm font-medium text-text-primary mb-1">Teléfono</label>
+                <input type="tel" id="telefono" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" />
+              </div>
+              <div class="pt-2">
+                <button type="submit" class="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+                  ¡Quiero mi cupo gratuito!
+                </button>
+                <p class="text-xs text-text-secondary text-center mt-2">
+                  Al inscribirte, aceptas nuestros <a href="/terminos" class="text-accent hover:underline">Términos de Servicio</a> y <a href="/privacidad" class="text-accent hover:underline">Política de Privacidad</a>.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="preguntas" class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Preguntas Frecuentes</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Tienes <span class="text-accent">dudas</span>?</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Aquí respondemos las preguntas más comunes sobre nuestra charla gratuita de IA para ONGs.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        {faqs.map((faq, index) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="this.nextElementSibling.classList.toggle('hidden')">
+              <span class="font-medium text-lg">{faq.question}</span>
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-6 pb-4 hidden">
+              <p class="text-text-secondary">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para transformar tu ONG con IA?</h2>
+      <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+        No pierdas esta oportunidad de aprender cómo la inteligencia artificial puede ayudarte a maximizar tu impacto social con menos recursos.
+      </p>
+      <a 
+        href="#registro" 
+        class="inline-block px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20"
+      >
+        ¡Quiero mi cupo gratuito!
+      </a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Animations */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Hover effects */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Transitions */
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  
+  /* Glass effect */
+  .backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+  }
+</style>

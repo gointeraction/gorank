@@ -1,0 +1,517 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+// Datos para las tarjetas de servicios
+const servicios = [
+  {
+    titulo: "Mantenimiento Predictivo",
+    descripcion: "Reduzca pérdidas financieras mediante análisis predictivos que anticipan el mantenimiento necesario para herramientas y máquinas.",
+    icono: "ph:gear-six"
+  },
+  {
+    titulo: "Detección de Fraudes",
+    descripcion: "Algoritmos inteligentes que detectan y previenen fraudes mediante el análisis de patrones y anomalías en conjuntos de datos.",
+    icono: "ph:shield-check"
+  },
+  {
+    titulo: "Previsión de Demanda",
+    descripcion: "Análisis de datos de mercado en tiempo real para revelar tendencias estacionales y realizar predicciones de ventas precisas.",
+    icono: "ph:chart-line-up"
+  },
+  {
+    titulo: "Precios Dinámicos",
+    descripcion: "Modelos de machine learning que ajustan automáticamente precios según la demanda actual del mercado.",
+    icono: "ph:currency-dollar"
+  },
+  {
+    titulo: "Chatbots Inteligentes",
+    descripcion: "Asistentes virtuales potenciados por IA que ofrecen soporte al cliente 24/7 con respuestas precisas y naturales.",
+    icono: "ph:chat-circle-text"
+  },
+  {
+    titulo: "Recomendaciones Personalizadas",
+    descripcion: "Sistemas que analizan el comportamiento del usuario para ofrecer recomendaciones altamente relevantes.",
+    icono: "ph:sparkle"
+  }
+];
+
+// Datos para los beneficios
+const beneficios = [
+  {
+    titulo: "Automatización de Rutinas",
+    descripcion: "Libere tiempo y recursos automatizando tareas repetitivas y procesos operativos.",
+    icono: "ph:robot"
+  },
+  {
+    titulo: "Análisis de Datos Avanzado",
+    descripcion: "Descubra insights ocultos y patrones complejos en sus datos empresariales.",
+    icono: "ph:chart-bar"
+  },
+  {
+    titulo: "Experiencia del Cliente",
+    descripcion: "Personalice experiencias y ofrezca soporte más inteligente y eficiente.",
+    icono: "ph:users"
+  },
+  {
+    titulo: "Seguridad Mejorada",
+    descripcion: "Detecte y prevenga amenazas de seguridad con algoritmos inteligentes.",
+    icono: "ph:shield-check"
+  }
+];
+---
+
+<MainLayout title="Inteligencia Artificial y Machine Learning | Soluciones Avanzadas">
+  <div class="container mx-auto space-y-16 px-4">
+    <!-- Hero Section with Animated Background -->
+    <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 p-8 md:p-12 lg:p-16">
+      <div class="absolute inset-0 bg-grid-accent/10 [mask-image:linear-gradient(0deg,transparent,white)]"></div>
+      <div class="relative z-10 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent to-primary">
+          Potencia tu negocio con <span class="text-accent">Machine Learning</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto mb-8">
+          Transformamos datos en decisiones inteligentes con soluciones de IA personalizadas para impulsar tu crecimiento empresarial.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#contacto" class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+            Solicitar Demostración
+          </a>
+          <a href="#servicios" class="px-8 py-4 border-2 border-accent text-accent hover:bg-accent/10 font-semibold rounded-xl transition-all duration-300">
+            Ver Servicios
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-8 md:py-12">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Nuestras Soluciones</span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            Soluciones de <span class="text-accent">Machine Learning</span>
+          </h2>
+          <p class="text-text-secondary max-w-2xl mx-auto">
+            Tecnología de vanguardia adaptada a las necesidades específicas de tu negocio.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {servicios.map((servicio, index) => (
+          <div 
+            class="group bg-surface/80 backdrop-blur-xl border-2 border-accent/20 hover:border-accent/60 rounded-3xl shadow-lg hover:shadow-xl hover:shadow-accent/10 transition-all duration-500 p-8 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay={`${index * 100}`}
+          >
+            <div class="text-accent mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div class="text-accent mb-6 group-hover:scale-110 transition-transform duration-300">
+                {servicio.icono === 'ph:gear-six' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M232.49,115.06a8,8,0,0,1-1,7.44,23.76,23.76,0,0,1-22.13,11.6,24.11,24.11,0,0,1-19.07-15.05,8,8,0,0,1,4.23-10.18,8.09,8.09,0,0,1,10.19,4.23,8,8,0,0,0,7.52,5h0a7.86,7.86,0,0,0,7.2-4.7,8,8,0,0,1,9.18-4.21,8.29,8.29,0,0,1,5.8,5.23A8,8,0,0,1,232.49,115.06ZM128,72a56,56,0,1,1-56,56A56.06,56.06,0,0,1,128,72Zm0,96a40,40,0,1,0-40-40A40,40,0,0,0,128,168Zm0-136a8,8,0,0,0,0-16,104,104,0,0,0,0,208,8,8,0,0,0,0-16,88,88,0,0,1,0-176Z"></path>
+                  </svg>
+                )}
+                {servicio.icono === 'ph:shield-check' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.62,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.77,91-124.39V56A16,16,0,0,0,208,40ZM128,223.58c-13.06-4.9-80-33.58-80-108.81V56H208v58.77C208,190,141.06,218.68,128,223.58Zm42.24-111.15-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.31L112,148.69l50.34-50.34a8,8,0,0,1,11.32,11.32Z"></path>
+                  </svg>
+                )}
+                {servicio.icono === 'ph:chart-line-up' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V48a8,8,0,0,1,16,0V200H232A8,8,0,0,1,232,208ZM72,144a8,8,0,0,0,11.32,0L152,75.31,185.66,109a8,8,0,0,0,11.32-11.32l-40-40a8,8,0,0,0-11.32,0L80,124.69,68.69,136A8,8,0,0,0,72,144Z"></path>
+                  </svg>
+                )}
+                {servicio.icono === 'ph:currency-dollar' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M152,120H136V56h8a32,32,0,0,1,32,32,8,8,0,0,0,16,0,48.05,48.05,0,0,0-48-48h-8V24a8,8,0,0,0-16,0V40h-8a48,48,0,0,0,0,96h8v64H104a32,32,0,0,1-32-32,8,8,0,0,0-16,0,48.05,48.05,0,0,0,48,48h16v16a8,8,0,0,0,16,0V216h16a48,48,0,0,0,0-96Zm-40,0a32,32,0,0,1,0-64h8v64Zm24,80H136V136h16a32,32,0,0,1,0,64Z"></path>
+                  </svg>
+                )}
+                {servicio.icono === 'ph:chat-circle-text' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.06-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216ZM160,136a8,8,0,0,1-8,8H104a8,8,0,0,1,0-16h48A8,8,0,0,1,160,136Zm0-32a8,8,0,0,1-8,8H104a8,8,0,0,1,0-16h48A8,8,0,0,1,160,104Z"></path>
+                  </svg>
+                )}
+                {servicio.icono === 'ph:sparkle' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M208,144a15.79,15.79,0,0,1-10.73,15A16.11,16.11,0,0,1,184,150.22l-51.89-19-19-51.86a16,16,0,0,0-28.3,0l-19,51.86L16,150.22A16,16,0,0,0,24,184a16.43,16.43,0,0,0,6.07-1.2l51.89-19,19,51.86a16,16,0,0,0,28.3,0l19-51.86,51.89,19A16.43,16.43,0,0,0,184,184a16,16,0,0,0,8-30.22ZM143.1,120.39l-20.7,56.5L104,158.22a8,8,0,0,0-6.54-3.2,8.2,8.2,0,0,0-2.47.39l-56.5,20.7,56.5-20.7a8,8,0,0,0,4.93-4.93l20.7-56.5,20.7,56.5a8,8,0,0,0,4.93,4.93l56.5,20.7Z"></path>
+                  </svg>
+                )}
+                {servicio.icono === 'ph:robot' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M200,52H56A28,28,0,0,0,28,80V192a28,28,0,0,0,28,28H200a28,28,0,0,0,28-28V80A28,28,0,0,0,200,52Zm12,140a12,12,0,0,1-12,12H56a12,12,0,0,1-12-12V80A12,12,0,0,1,56,68H200a12,12,0,0,1,12,12ZM164,88a12,12,0,1,1-12-12A12,12,0,0,1,164,88Zm-60-12a12,12,0,1,1-12-12A12,12,0,0,1,104,76ZM76,160a8,8,0,0,1,8-8h88a8,8,0,0,1,0,16H84A8,8,0,0,1,76,160Z"></path>
+                  </svg>
+                )}
+                {servicio.icono === 'ph:chart-bar' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M224,200H48V40a8,8,0,0,0-16,0V208a8,8,0,0,0,8,8H224a8,8,0,0,0,0-16Zm-96,0V88h32V200Zm-48,0V136h32v64Z"></path>
+                  </svg>
+                )}
+                {servicio.icono === 'ph:users' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256" fill="currentColor">
+                    <path d="M117.25,157.92a60,60,0,1,0-66.5,0A103.83,103.83,0,0,0,16,252a8,8,0,0,0,8,8H232a8,8,0,0,0,0-16A103.83,103.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm136.52,96H79.48a88.24,88.24,0,0,1,16.2-32.75,60.1,60.1,0,0,0,32.64,0A88.24,88.24,0,0,1,176.52,204Zm24.07-72.18a60,60,0,0,0-52.26-31.4,68,68,0,0,1,16.13,55.28A88.42,88.42,0,0,1,232,204.67a87.53,87.53,0,0,0-31.41-72.85ZM144,120a12,12,0,1,1,12-12A12,12,0,0,1,144,120Z"></path>
+                  </svg>
+                )}
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-text-primary group-hover:text-accent transition-colors duration-300">
+              {servicio.titulo}
+            </h3>
+            <p class="text-text-secondary mb-4">
+              {servicio.descripcion}
+            </p>
+            <a href="#contacto" class="inline-flex items-center text-accent font-medium group-hover:underline mt-4">
+              Saber más
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        ))}
+        <div class="bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg hover:shadow-[0_0_24px_#00F0FF88] transition-all duration-500 p-8">
+          <div class="text-accent mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent">Detección de Fraudes</h3>
+          <p class="text-text-secondary">
+            Algoritmos inteligentes que detectan y previenen fraudes mediante el análisis de patrones y anomalías en conjuntos de datos.
+          </p>
+        </div>
+        <div class="bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg hover:shadow-[0_0_24px_#00F0FF88] transition-all duration-500 p-8">
+          <div class="text-accent mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent">Previsión de Demanda</h3>
+          <p class="text-text-secondary">
+            Análisis de datos de mercado en tiempo real para revelar tendencias estacionales y realizar predicciones de ventas precisas.
+          </p>
+        </div>
+        <div class="bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg hover:shadow-[0_0_24px_#00F0FF88] transition-all duration-500 p-8">
+          <div class="text-accent mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent">Precios Dinámicos</h3>
+          <p class="text-text-secondary">
+            Modelos de machine learning que ajustan automáticamente precios según la demanda actual del mercado.
+          </p>
+        </div>
+        <div class="bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg hover:shadow-[0_0_24px_#00F0FF88] transition-all duration-500 p-8">
+          <div class="text-accent mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent">Chatbots y Asistentes Virtuales</h3>
+          <p class="text-text-secondary">
+            Desarrollo de asistentes inteligentes utilizando procesamiento de lenguaje natural y aprendizaje profundo.
+          </p>
+        </div>
+        <div class="bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg hover:shadow-[0_0_24px_#00F0FF88] transition-all duration-500 p-8">
+          <div class="text-accent mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17c.75-2.25 2-3 2-3h10s1.25.75 2 3M12 8.25c-1.5 0-3-1.5-3-3 0-1.5 1.5-3 3-3s3 1.5 3 3c0 1.5-1.5 3-3 3z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent">Sistemas de Recomendación</h3>
+          <p class="text-text-secondary">
+            Soluciones de machine learning que ofrecen recomendaciones personalizadas para mejorar la experiencia del usuario.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Plataformas -->
+    <section class="py-16 bg-gradient-to-br from-surface/80 to-surface/60 backdrop-blur-xl rounded-3xl shadow-lg overflow-hidden">
+      <div class="relative
+        before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_center,var(--color-accent)/10%,transparent_70%)] before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500
+      ">
+        <div class="relative z-10 text-center mb-12 px-4">
+          <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Tecnologías</span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            Nuestro <span class="text-accent">Stack Tecnológico</span>
+          </h2>
+          <p class="text-text-secondary max-w-2xl mx-auto">
+            Utilizamos las herramientas más avanzadas del mercado para ofrecerte soluciones de datos de primer nivel.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
+          <!-- Airbyte -->
+          <div class="group bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-6 transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
+            <div class="flex flex-col items-center text-center">
+              <div class="h-16 w-16 mb-4 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="text-[#615EFF] w-12 h-12">
+                  <path d="M15.6 11.28v1.44a.48.48 0 0 1-.48.48H8.88a.48.48 0 0 1-.48-.48v-1.44a.48.48 0 0 1 .48-.48h6.24a.48.48 0 0 1 .48.48zM12 15.6a.96.96 0 1 0 0-1.92.96.96 0 0 0 0 1.92z" fill-rule="evenodd"></path>
+                  <path d="M53.617 160.8H0l96.45-146.4h53.95L53.617 160.8z" fill="#50E6FF"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary group-hover:text-white transition-colors">Airbyte</h3>
+              <p class="text-sm text-text-secondary/80 mt-1">Integración de datos en tiempo real</p>
+            </div>
+          </div>
+
+          <!-- Kafka -->
+          <div class="group bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-6 transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
+            <div class="flex flex-col items-center text-center">
+              <div class="h-16 w-16 mb-4 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="text-[#231F20] w-12 h-12">
+                  <path d="M21.3 13.7l-9-5.6c-.4-.2-.8-.2-1.2 0l-9 5.6c-.3.2-.5.5-.5.9v3.6c0 .3.2.6.5.8l9 5.6c.2.1.4.2.6.2.2 0 .4-.1.6-.2l9-5.6c.3-.2.5-.5.5-.8v-3.6c0-.4-.2-.7-.5-.9zM12 19.3l-6.8-4.2 1.3-.8 5.5 3.4c.4.2.8.2 1.2 0l5.5-3.4 1.3.8-6.8 4.2zm7.2-5.3l-1.3.8-5.5-3.4c-.4-.2-.8-.2-1.2 0l-5.5 3.4-1.3-.8 6-3.7c.4-.2.8-.2 1.2 0l6 3.7z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary group-hover:text-white transition-colors">Kafka</h3>
+              <p class="text-sm text-text-secondary/80 mt-1">Streaming de eventos a escala</p>
+            </div>
+          </div>
+
+          <!-- Databricks -->
+          <div class="group bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-6 transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
+            <div class="flex flex-col items-center text-center">
+              <div class="h-16 w-16 mb-4 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="text-[#FF3621] w-12 h-12">
+                  <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm0 1.2c5.94 0 10.8 4.86 10.8 10.8 0 5.94-4.86 10.8-10.8 10.8S1.2 17.94 1.2 12 6.06 1.2 12 1.2z"></path>
+                  <path d="M12 3.6c-4.62 0-8.4 3.78-8.4 8.4s3.78 8.4 8.4 8.4 8.4-3.78 8.4-8.4-3.78-8.4-8.4-8.4zm0 7.8c-3.96 0-7.2 3.24-7.2 7.2s3.24 7.2 7.2 7.2 7.2-3.24 7.2-7.2-3.24-7.2-7.2-7.2z"></path>
+                  <path d="M12 6c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 1.2c2.64 0 4.8 2.16 4.8 4.8s-2.16 4.8-4.8 4.8S7.2 14.64 7.2 12 9.36 7.2 12 7.2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary group-hover:text-white transition-colors">Databricks</h3>
+              <p class="text-sm text-text-secondary/80 mt-1">Plataforma de datos unificada</p>
+            </div>
+          </div>
+
+          <!-- Snowflake -->
+          <div class="group bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-6 transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
+            <div class="flex flex-col items-center text-center">
+              <div class="h-16 w-16 mb-4 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="text-[#29B5E8] w-12 h-12">
+                  <path d="M21.6 13.6h-8.8v-3.2h8.8v3.2zm-10.4 0H2.4v-3.2h8.8v3.2zm10.4 4.8h-8.8v-3.2h8.8v3.2zm-10.4 0H2.4v-3.2h8.8v3.2z"></path>
+                  <path d="M21.6 24H2.4C1.1 24 0 22.9 0 21.6V2.4C0 1.1 1.1 0 2.4 0h19.2C22.9 0 24 1.1 24 2.4v19.2c0 1.3-1.1 2.4-2.4 2.4zM2.4 1.2c-.7 0-1.2.5-1.2 1.2v19.2c0 .7.5 1.2 1.2 1.2h19.2c.7 0 1.2-.5 1.2-1.2V2.4c0-.7-.5-1.2-1.2-1.2H2.4z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary group-hover:text-white transition-colors">Snowflake</h3>
+              <p class="text-sm text-text-secondary/80 mt-1">Almacenamiento en la nube escalable</p>
+            </div>
+          </div>
+
+          <!-- BigQuery -->
+          <div class="group bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-6 transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
+            <div class="flex flex-col items-center text-center">
+              <div class="h-16 w-16 mb-4 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="text-[#4285F4] w-12 h-12">
+                  <path d="M21.6 13.6h-8.8v-3.2h8.8v3.2zm-10.4 0H2.4v-3.2h8.8v3.2zm10.4 4.8h-8.8v-3.2h8.8v3.2zm-10.4 0H2.4v-3.2h8.8v3.2z"></path>
+                  <path d="M21.6 24H2.4C1.1 24 0 22.9 0 21.6V2.4C0 1.1 1.1 0 2.4 0h19.2C22.9 0 24 1.1 24 2.4v19.2c0 1.3-1.1 2.4-2.4 2.4zM2.4 1.2c-.7 0-1.2.5-1.2 1.2v19.2c0 .7.5 1.2 1.2 1.2h19.2c.7 0 1.2-.5 1.2-1.2V2.4c0-.7-.5-1.2-1.2-1.2H2.4z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary group-hover:text-white transition-colors">BigQuery</h3>
+              <p class="text-sm text-text-secondary/80 mt-1">Análisis de datos a gran escala</p>
+            </div>
+          </div>
+
+          <!-- Airflow -->
+          <div class="group bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-6 transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
+            <div class="flex flex-col items-center text-center">
+              <div class="h-16 w-16 mb-4 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="text-[#017CEE] w-12 h-12">
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 22c-5.5 0-10-4.5-10-10S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"></path>
+                  <path d="M16.2 7.8l-1.4-1.4-6.8 6.8-2.8-2.8-1.4 1.4 4.2 4.2 8.2-8.2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary group-hover:text-white transition-colors">Airflow</h3>
+              <p class="text-sm text-text-secondary/80 mt-1">Orquestación de flujos de datos</p>
+            </div>
+          </div>
+
+          <!-- Great Expectations -->
+          <div class="group bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-6 transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
+            <div class="flex flex-col items-center text-center">
+              <div class="h-16 w-16 mb-4 flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="text-[#FF3621] w-12 h-12">
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 22c-5.5 0-10-4.5-10-10S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"></path>
+                  <path d="M16.2 7.8l-1.4-1.4-6.8 6.8-2.8-2.8-1.4 1.4 4.2 4.2 8.2-8.2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-text-primary group-hover:text-white transition-colors">Great Expectations</h3>
+              <p class="text-sm text-text-secondary/80 mt-1">Validación de calidad de datos</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <h3 class="text-xl md:text-2xl font-bold mb-4 text-text-primary">¿Necesitas una solución personalizada?</h3>
+          <p class="text-text-secondary max-w-2xl mx-auto mb-6">
+            Nuestro equipo de expertos puede ayudarte a implementar estas tecnologías en tu negocio.
+          </p>
+          <a href="/contacto" class="inline-block px-8 py-3 rounded-3xl bg-accent text-background font-semibold shadow-lg hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-accent glow-btn">
+            Solicita una consulta
+          </a>
+          
+          <div class="mt-12 pt-8 border-t border-white/10">
+            <div class="flex flex-col items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4" viewBox="0 0 256 256" fill="none">
+                <path d="M160.432 74.736l-33.136-57.456-33.136 57.456-36.272-20.928 33.136-57.456h-66.272v41.856l-33.136 20.928 33.136 20.928v41.856h66.272l-33.136-57.456 36.272-20.928 33.136 57.456 36.272-20.928-33.136-57.456h66.272v-41.856h-66.272l33.136-57.456-36.272-20.928z" fill="#4285F4"/>
+                <path d="M160.432 181.264l-33.136-57.456-33.136 57.456-36.272-20.928 33.136-57.456h-66.272v41.856h66.272l-33.136 57.456 36.272 20.928 33.136-57.456 33.136 57.456 36.272-20.928-33.136-57.456h66.272v-41.856h-66.272l33.136-57.456z" fill="#FBBC05"/>
+              </svg>
+              <h3 class="text-2xl md:text-3xl font-bold mb-4 text-accent">Machine Learning de Google</h3>
+              <p class="text-text-secondary max-w-2xl mx-auto mb-6">
+                Potenciamos tus datos con la tecnología de inteligencia artificial de Google Cloud.
+              </p>
+              <a href="/contacto" class="inline-block px-8 py-3 rounded-3xl bg-accent text-background font-semibold shadow-lg hover:bg-primary transition-colors focus:outline-none focus:ring-2 focus:ring-accent glow-btn">
+                Solicita una demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Beneficios -->
+    <section id="beneficios" class="py-16 md:py-20 bg-gradient-to-br from-surface/70 to-surface/90 backdrop-blur-xl rounded-3xl shadow-xl scroll-mt-20 overflow-hidden relative">
+      <div class="absolute inset-0 bg-grid-accent/10 [mask-image:linear-gradient(0deg,transparent,white)]"></div>
+      <div class="relative z-10 container mx-auto px-4">
+        <div class="text-center mb-16 max-w-4xl mx-auto">
+          <span class="inline-block px-5 py-2 text-sm md:text-base font-semibold text-accent bg-accent/10 rounded-full mb-5 tracking-wider">VENTAJAS COMPETITIVAS</span>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Beneficios del <span class="text-accent bg-clip-text text-transparent bg-gradient-to-r from-accent to-primary">Machine Learning</span>
+          </h2>
+          <p class="text-lg md:text-xl text-text-secondary/90 max-w-3xl mx-auto leading-relaxed">
+            Descubre cómo nuestras soluciones de inteligencia artificial pueden transformar radicalmente la forma en que operas y compites en el mercado.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Tarjeta 1 -->
+          <div class="group bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-8 transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
+            <div class="flex items-start space-x-6">
+              <div class="flex-shrink-0 p-3 bg-accent/10 rounded-xl text-accent group-hover:bg-accent/20 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="20" x2="12" y2="10"></line>
+                  <line x1="18" y1="20" x2="18" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="16"></line>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-3 text-text-primary group-hover:text-white transition-colors">
+                  Análisis de Datos
+                </h3>
+                <p class="text-text-secondary/90 text-base md:text-lg leading-relaxed">
+                  Descubra insights ocultos y patrones complejos en sus datos empresariales con análisis predictivos avanzados.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 2 -->
+          <div class="group bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-8 transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
+            <div class="flex items-start space-x-6">
+              <div class="flex-shrink-0 p-3 bg-accent/10 rounded-xl text-accent group-hover:bg-accent/20 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-3 text-text-primary group-hover:text-white transition-colors">
+                  Servicio al Cliente
+                </h3>
+                <p class="text-text-secondary/90 text-base md:text-lg leading-relaxed">
+                  Personalice experiencias y ofrezca soporte más inteligente con chatbots y asistentes virtuales avanzados.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 3 -->
+          <div class="group bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-8 transition-all duration-500 hover:bg-white/10 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
+            <div class="flex items-start space-x-6">
+              <div class="flex-shrink-0 p-3 bg-accent/10 rounded-xl text-accent group-hover:bg-accent/20 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold mb-3 text-text-primary group-hover:text-white transition-colors">
+                  Seguridad Avanzada
+                </h3>
+                <p class="text-text-secondary/90 text-base md:text-lg leading-relaxed">
+                  Detecte y prevenga amenazas de seguridad en tiempo real con algoritmos de inteligencia artificial avanzados.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección CTA -->
+    <section id="contacto" class="relative py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-3xl overflow-hidden">
+      <div class="absolute inset-0 bg-grid-accent/20 [mask-image:linear-gradient(0deg,transparent,white)]"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          ¿Listo para impulsar tu negocio con <span class="text-accent">Machine Learning</span>?
+        </h2>
+        <p class="text-xl text-text-secondary mb-10 max-w-2xl mx-auto">
+          Nuestro equipo de expertos está listo para transformar tus datos en ventajas competitivas.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/contacto" 
+            class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/30 flex items-center justify-center gap-2"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+            </svg>
+            Contactar a Ventas
+          </a>
+          <a 
+            href="#servicios" 
+            class="px-8 py-4 border-2 border-accent text-accent hover:bg-accent/10 font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+            </svg>
+            Ver Demostración
+          </a>
+        </div>
+        <p class="text-sm text-text-secondary/70 mt-6">
+          O escríbenos a <a href="mailto:contacto@empresa.com" class="text-accent hover:underline">contacto@empresa.com</a>
+        </p>
+      </div>
+    </section>
+  </div>
+  
+  <script>
+    // Inicializar AOS (Animate On Scroll)
+    document.addEventListener('astro:page-load', () => {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          once: true,
+          easing: 'ease-out-cubic'
+        });
+      }
+      
+      // Smooth scroll para enlaces internos
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</MainLayout>

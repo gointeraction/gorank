@@ -1,0 +1,450 @@
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animaciones personalizadas */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Efecto de brillo en hover */
+.glow-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glow-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.glow-btn:hover::before {
+  left: 100%;
+}
+
+@layer base {
+  :root {
+    /* Colores inspirados en Langflow */
+    --color-primary: 14, 120, 233;    /* #0ea5e9 */
+    --color-primary-light: 0, 221, 255; /* #00ddff */
+    --color-accent: 34 197 94;      /* #22c55e */
+    --color-accent-light: 74 222 128; /* #4ade80 */
+    --color-background: 15 23 42;   /* #0f172a */
+    --color-surface: 30 41 59;      /* #1e293b */
+    --color-surface-alt: 51 65 85;  /* #334155 */
+    --color-border: 51 65 85;       /* #334155 */
+    --color-text-primary: 248 250 252; /* #f8fafc */
+    --color-text-secondary: 148 163 184; /* #94a3b8 */
+    
+    /* Tipografía */
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-display: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+  }
+}
+
+/* Estilos base */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+body {
+  @apply bg-background text-text-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Estilos de encabezados */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-display font-bold leading-tight tracking-tight;
+}
+
+h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
+h3 { @apply text-2xl md:text-3xl; }
+h4 { @apply text-xl md:text-2xl; }
+
+/* Enlaces */
+a {
+  @apply text-accent transition-colors duration-300;
+}
+
+a:hover {
+  @apply text-accent-light;
+}
+
+/* Botones */
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-in-out;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-accent to-accent-light text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:shadow-accent/20;
+}
+
+.btn-outline {
+  @apply border-2 border-accent/20 text-accent hover:bg-accent/10 hover:border-accent/30;
+}
+
+/* Tarjetas */
+.card {
+  @apply bg-surface/50 backdrop-blur-lg rounded-2xl p-8 transition-all duration-300 border border-white/5;
+}
+
+.card-hover {
+  @apply hover:shadow-[0_20px_50px_rgba(0,240,255,0.1)] hover:-translate-y-2;
+}
+
+/* Secciones */
+section {
+  @apply py-20 md:py-32;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Clases de utilidad */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideInDown 0.6s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* Efecto de gradiente en el texto */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-primary;
+}
+
+/* Efecto de partículas */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: var(--size, 5px);
+  height: var(--size, 5px);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: float var(--duration, 20s) var(--delay, 0s) infinite ease-in-out;
+  top: var(--y, 50%);
+  left: var(--x, 50%);
+  opacity: 0.7;
+  filter: blur(1px);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(20px, -20px) scale(1.1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(0, -40px) scale(0.9);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate(-20px, -20px) scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+/* Mejoras para las tarjetas de servicios */
+.service-card {
+  position: relative;
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.5s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14, 120, 233, 0.05) 0%, rgba(34, 197, 94, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  background: rgba(34, 197, 94, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #22c55e;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  color: white;
+  transform: rotate(-6deg) scale(1.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 240, 255, 0.2);
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-title {
+  background: linear-gradient(90deg, #0ea5e9, #22c55e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.service-description {
+  color: rgba(148, 163, 184, 0.9);
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-description {
+  color: #94a3b8;
+}
+
+/* Efecto de vidrio esmerilado */
+.glass {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+}
+
+/* Estilos para la sección de Casos de Éxito */
+.success-card {
+  position: relative;
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.success-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14, 120, 233, 0.05) 0%, rgba(34, 197, 94, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.success-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 240, 255, 0.15);
+}
+
+.success-card:hover::before {
+  opacity: 1;
+}
+
+.success-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  background: rgba(34, 197, 94, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #22c55e;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.success-card:hover .success-icon {
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  color: white;
+  transform: rotate(6deg) scale(1.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 240, 255, 0.3);
+}
+
+.testimonial-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.testimonial-info h4 {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-info p {
+  font-size: 0.875rem;
+  color: rgba(148, 163, 184, 0.8);
+}
+
+/* Personalización de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface/50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent/30 rounded-full hover:bg-accent/50 transition-colors;
+}
+
+/* Estilos para el modo oscuro (si es necesario) */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Estilos para el modo de alto contraste */
+@media (prefers-contrast: more) {
+  :root {
+    --color-text-primary: 255 255 255;
+    --color-text-secondary: 200 200 200;
+    --color-border: 100 100 100;
+  }
+  
+  body {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+/* Estilos para la impresión */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}

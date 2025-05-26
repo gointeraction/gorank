@@ -1,0 +1,173 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Contacto - Servicios de Desarrollo de IA">
+  <div class="container mx-auto grid md:grid-cols-2 gap-12 items-start">
+    <section class="bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg p-10 animate-fade-in">
+      <h1 class="text-4xl font-bold mb-6 text-text-primary">Contáctanos</h1>
+      <p class="text-text-secondary mb-8">
+        ¿Listo para transformar tu negocio con inteligencia artificial? Comienza tu journey con nosotros rellenando el siguiente formulario.
+      </p>
+      
+      <form id="contactForm" class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label for="firstName" class="block mb-2 text-text-accent">Nombre</label>
+            <input 
+              type="text" 
+              id="firstName" 
+              name="firstName"
+              required 
+              class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition"
+              placeholder="Su nombre"
+            />
+          </div>
+          <div>
+            <label for="lastName" class="block mb-2 text-text-accent">Apellido</label>
+            <input 
+              type="text" 
+              id="lastName" 
+              name="lastName"
+              required 
+              class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition"
+              placeholder="Su apellido"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="email" class="block mb-2 text-text-accent">Correo Electrónico</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email"
+            required 
+            class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition"
+            placeholder="nombre@empresa.com"
+          />
+        </div>
+
+        <div>
+          <label for="company" class="block mb-2 text-text-accent">Empresa</label>
+          <input 
+            type="text" 
+            id="company" 
+            name="company"
+            class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition"
+            placeholder="Nombre de su empresa (opcional)"
+          />
+        </div>
+
+        <div>
+          <label for="service" class="block mb-2 text-text-accent">Servicio de Interés</label>
+          <select 
+            id="service" 
+            name="service"
+            class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition"
+          >
+            <option value="">Seleccione un servicio</option>
+            <option value="software-ai">Desarrollo de Software de IA</option>
+            <option value="ai-solutions">Soluciones de IA Especializadas</option>
+            <option value="consulting">Consultoría en IA</option>
+            <option value="algorithm-audit">Auditoría de Algoritmos</option>
+            <option value="mlops">Transformación MLOps</option>
+            <option value="other">Otro</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="block mb-2 text-text-accent">Descripción del Proyecto</label>
+          <textarea 
+            id="message" 
+            name="message"
+            rows="5" 
+            required 
+            class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition"
+            placeholder="Cuéntenos más sobre su proyecto o necesidad de IA..."
+          ></textarea>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full bg-accent hover:bg-accent/80 text-white font-bold py-3 rounded-3xl shadow-lg transition"
+        >
+          Enviar Mensaje
+        </button>
+      </form>
+    </section>
+
+    <section class="space-y-8">
+      <div class="bg-card rounded-3xl shadow-lg p-8">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent">Información de Contacto</h2>
+        <div class="space-y-4 text-text-secondary">
+          <div class="flex items-center space-x-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>contacto@gorankfirst.com</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h3m-3-8a5 5 0 01-5 5v0a5 5 0 01-5-5v-2a5 5 0 015-5v0a5 5 0 015 5v2z" />
+            </svg>
+            <span>+58 (412) 6074572</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Torre Exa, Piso 8 Oficina 808, El Rosal, Caracas - Venezuela</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-card rounded-3xl shadow-lg p-8">
+        <h2 class="text-2xl font-bold mb-4 text-text-accent">Horario de Atención</h2>
+        <div class="text-text-secondary">
+          <div class="flex justify-between mb-2">
+            <span>Lunes - Viernes</span>
+            <span>9:00 AM - 6:00 PM</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Sábado</span>
+            <span>10:00 AM - 2:00 PM</span>
+          </div>
+          <div class="text-sm text-text-secondary mt-4 italic">
+            Respondemos a consultas dentro de las 24 horas hábiles.
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-card rounded-3xl shadow-lg p-8">
+        <h2 class="text-2xl font-bold mb-4 text-text-accent">Política de Privacidad</h2>
+        <p class="text-text-secondary">
+          Nos comprometemos a proteger su información personal. Toda la información proporcionada será tratada con la máxima confidencialidad.
+        </p>
+      </div>
+    </section>
+  </div>
+</MainLayout>
+
+<script>
+  const form = document.getElementById('contactForm');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form as HTMLFormElement);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Validar campos
+    const requiredFields = ['firstName', 'lastName', 'email', 'service', 'message'];
+    const missingFields = requiredFields.filter(field => !data[field]);
+    
+    if (missingFields.length > 0) {
+      alert(`Por favor complete los siguientes campos: ${missingFields.join(', ')}`);
+      return;
+    }
+
+    // Simular envío de formulario
+    alert('¡Gracias por su mensaje! Nos pondremos en contacto con usted pronto.');
+    (form as HTMLFormElement).reset();
+  });
+</script>

@@ -1,0 +1,261 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+
+// Datos del servicio
+const service = {
+  title: "ChatBots para Restaurantes",
+  subtitle: "Transforma la experiencia de tus clientes y optimiza la gestión de tu restaurante con nuestra solución de ChatBot inteligente",
+  heroImage: "/images/bots/restaurantes/hero.jpg",
+  features: [
+    {
+      title: "Atención 24/7",
+      description: "Atiende a tus clientes en cualquier momento del día, incluso fuera del horario de apertura.",
+      icon: "⏰"
+    },
+    {
+      title: "Reservas Automatizadas",
+      description: "Gestiona reservas en tiempo real sin intervención del personal.",
+      icon: "📅"
+    },
+    {
+      title: "Pedidos Directos",
+      description: "Permite a los clientes realizar pedidos directamente desde el chat.",
+      icon: "🛒"
+    },
+    {
+      title: "Menú Interactivo",
+      description: "Muestra tu menú con fotos, precios y opciones personalizables.",
+      icon: "🍽️"
+    }
+  ],
+  benefits: [
+    {
+      title: "Aumento de Ventas",
+      description: "Hasta un 30% más de pedidos gracias a la comodidad del pedido por chat.",
+      icon: "📈"
+    },
+    {
+      title: "Reducción de Costos",
+      description: "Disminuye la carga de trabajo del personal en un 40%.",
+      icon: "💰"
+    },
+    {
+      title: "Mejora en la Experiencia",
+      description: "Clientes satisfechos con respuestas inmediatas y servicio personalizado.",
+      icon: "⭐"
+    },
+    {
+      title: "Datos Valiosos",
+      description: "Obtén insights sobre preferencias y comportamientos de tus clientes.",
+      icon: "📊"
+    }
+  ],
+  functionalities: [
+    {
+      title: "Menú Digital Interactivo",
+      description: "Muestra tu menú completo con fotos atractivas, descripciones detalladas, precios y opciones de personalización. Incluye filtros para dietas especiales (vegana, sin gluten, etc.)."
+    },
+    {
+      title: "Sistema de Reservas Inteligente",
+      description: "Los clientes pueden ver disponibilidad en tiempo real, seleccionar mesa y hora, y recibir confirmación al instante. Integración con tu sistema de gestión de mesas."
+    },
+    {
+      title: "Pedidos y Pagos Integrados",
+      description: "Proceso de pedido completo dentro del chat, con opciones de pago seguras (tarjeta, transferencia, efectivo al recoger)."
+    },
+    {
+      title: "Programa de Fidelización",
+      description: "Sistema de puntos, cupones de descuento y ofertas exclusivas para clientes recurrentes."
+    }
+  ],
+  faqs: [
+    {
+      question: "¿Qué plataformas soporta el chatbot?",
+      answer: "Nuestro chatbot es compatible con WhatsApp, Facebook Messenger, Instagram Direct y puede integrarse directamente en tu sitio web."
+    },
+    {
+      question: "¿Cómo se configura el menú en el chatbot?",
+      answer: "Nosotros nos encargamos de configurar todo tu menú en el sistema, incluyendo categorías, precios, ingredientes y opciones de personalización."
+    },
+    {
+      question: "¿Puedo ver las estadísticas de uso?",
+      answer: "Sí, proporcionamos un panel de control con métricas detalladas sobre reservas, pedidos, preguntas frecuentes y satisfacción del cliente."
+    },
+    {
+      question: "¿Qué pasa si necesito ayuda con el chatbot?",
+      answer: "Ofrecemos soporte técnico continuo y podemos hacer ajustes según las necesidades específicas de tu restaurante."
+    }
+  ]
+};
+---
+
+<MainLayout title={`${service.title} | Go Rank First`}>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden">
+    <div class="absolute inset-0 bg-grid-accent/10 [mask-image:linear-gradient(0deg,transparent,white)]"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            {service.title}
+          </h1>
+          <p class="text-xl text-text-secondary mb-8">
+            {service.subtitle}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contacto" class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+              Solicitar Demostración
+            </a>
+            <a href="#caracteristicas" class="px-8 py-4 border-2 border-accent text-accent hover:bg-accent/10 font-semibold rounded-xl transition-all duration-300">
+              Ver Características
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="bg-accent/10 rounded-2xl p-8 aspect-square flex items-center justify-center">
+            <span class="text-9xl">🤖</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-16 bg-surface/50" id="caracteristicas">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Características Principales</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Descubre cómo nuestro chatbot puede revolucionar la gestión de tu restaurante
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {service.features.map((feature) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:border-accent/30 transition-all duration-300">
+            <div class="text-4xl mb-4">{feature.icon}</div>
+            <h3 class="text-xl font-semibold mb-2">{feature.title}</h3>
+            <p class="text-text-secondary">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Beneficios para tu Restaurante</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Mejora la eficiencia y la satisfacción de tus clientes con nuestra solución integral
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {service.benefits.map((benefit) => (
+          <div class="flex items-start bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:border-accent/30 transition-all duration-300">
+            <div class="text-3xl mr-4">{benefit.icon}</div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">{benefit.title}</h3>
+              <p class="text-text-secondary">{benefit.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Functionalities Section -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Funcionalidades Avanzadas</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Todo lo que necesitas para llevar tu restaurante al siguiente nivel
+        </p>
+      </div>
+      <div class="space-y-12 max-w-4xl mx-auto">
+        {service.functionalities.map((func, index) => (
+          <div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8`}>
+            <div class="flex-1">
+              <h3 class="text-2xl font-semibold mb-4">{func.title}</h3>
+              <p class="text-text-secondary">{func.description}</p>
+            </div>
+            <div class="bg-accent/10 rounded-2xl p-8 flex-1 aspect-square flex items-center justify-center">
+              <span class="text-7xl">{['📱', '📅', '💳', '🎁'][index]}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-primary/10 to-accent/10">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para transformar tu restaurante?</h2>
+      <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
+        Agenda una demostración personalizada y descubre cómo nuestro chatbot puede ayudarte a crecer
+      </p>
+      <a href="#contacto" class="inline-block px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+        Solicitar Demostración Gratuita
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-surface/50" id="faq">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Preguntas Frecuentes</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Resolvemos tus dudas más comunes sobre nuestra solución para restaurantes
+        </p>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-4">
+        {service.faqs.map((faq, index) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6">
+            <h3 class="text-lg font-semibold mb-2">{faq.question}</h3>
+            <p class="text-text-secondary">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-16 bg-gradient-to-br from-primary/10 to-accent/10" id="contacto">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-8 md:p-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">Contáctanos</h2>
+        <p class="text-text-secondary text-center mb-8 max-w-2xl mx-auto">
+          Completa el formulario y nos pondremos en contacto contigo para programar una demostración personalizada
+        </p>
+        <form class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium mb-2">Nombre completo</label>
+              <input type="text" id="name" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all" placeholder="Tu nombre">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium mb-2">Correo electrónico</label>
+              <input type="email" id="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all" placeholder="tucorreo@ejemplo.com">
+            </div>
+          </div>
+          <div>
+            <label for="restaurant" class="block text-sm font-medium mb-2">Nombre del restaurante</label>
+            <input type="text" id="restaurant" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all" placeholder="Ej: La Buena Mesa">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium mb-2">Mensaje</label>
+            <textarea id="message" rows="4" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all" placeholder="Cuéntanos más sobre tu restaurante y lo que necesitas"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+              Enviar Mensaje
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</MainLayout>

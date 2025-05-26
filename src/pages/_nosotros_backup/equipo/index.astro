@@ -1,0 +1,125 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+// Datos del equipo (puedes mover esto a un archivo JSON aparte)
+const teamMembers = [
+  {
+    id: 'juan-perez',
+    name: 'Juan Pérez',
+    role: 'CEO & Fundador',
+    bio: 'Más de 10 años de experiencia en IA y transformación digital.',
+    image: '/img/team/team-1.jpg',
+    social: {
+      twitter: '#',
+      linkedin: '#',
+      github: '#'
+    }
+  },
+  {
+    id: 'maria-gonzalez',
+    name: 'María González',
+    role: 'Directora de Tecnología',
+    bio: 'Experta en arquitectura de software y machine learning.',
+    image: '/img/team/team-2.jpg',
+    social: {
+      twitter: '#',
+      linkedin: '#',
+      github: '#'
+    }
+  },
+  // Agrega más miembros según sea necesario
+];
+---
+
+<MainLayout title="Nuestro Equipo">
+  <!-- Hero Section -->
+  <section class="relative py-24 md:py-32 bg-gradient-to-br from-primary/10 via-background/50 to-accent/5">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">Conoce a Nuestro Equipo</h1>
+      <p class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto">
+        El talento y la pasión que impulsan nuestra visión.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filtros (opcional) -->
+  <section class="py-12 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button class="px-6 py-2 rounded-full bg-accent text-white font-medium">Todos</button>
+        <button class="px-6 py-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors">Liderazgo</button>
+        <button class="px-6 py-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors">Desarrollo</button>
+        <button class="px-6 py-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors">Diseño</button>
+      </div>
+
+      <!-- Grid de Equipo -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {teamMembers.map(member => (
+          <div class="bg-white/5 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-accent/20">
+            <div class="relative h-80">
+              <img 
+                src={member.image} 
+                alt={member.name}
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-1">{member.name}</h3>
+              <p class="text-accent text-lg mb-4">{member.role}</p>
+              <p class="text-text-secondary mb-4">{member.bio}</p>
+              <div class="flex space-x-4">
+                  <a href={member.social.twitter} class="text-text-secondary hover:text-accent transition-colors">
+                    <Icon name="mdi:twitter" class="w-5 h-5" />
+                  </a>
+                  <a href={member.social.linkedin} class="text-text-secondary hover:text-accent transition-colors">
+                    <Icon name="mdi:linkedin" class="w-5 h-5" />
+                  </a>
+                  <a href={member.social.github} class="text-text-secondary hover:text-accent transition-colors">
+                    <Icon name="mdi:github" class="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Valores -->
+  <section class="py-20 bg-background">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros Valores</h2>
+        <div class="w-20 h-1 bg-accent mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-surface/50 p-8 rounded-2xl text-center">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Icon name="mdi:lightbulb-on" class="w-8 h-8 text-accent" />
+          </div>
+          <h3 class="text-xl font-bold mb-3">Innovación</h3>
+          <p class="text-text-secondary">Buscamos constantemente nuevas formas de resolver problemas y mejorar nuestras soluciones.</p>
+        </div>
+        
+        <div class="bg-surface/50 p-8 rounded-2xl text-center">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Icon name="mdi:account-group" class="w-8 h-8 text-accent" />
+          </div>
+          <h3 class="text-xl font-bold mb-3">Colaboración</h3>
+          <p class="text-text-secondary">Trabajamos juntos, compartiendo conocimientos y apoyándonos mutuamente.</p>
+        </div>
+        
+        <div class="bg-surface/50 p-8 rounded-2xl text-center">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Icon name="mdi:rocket-launch" class="w-8 h-8 text-accent" />
+          </div>
+          <h3 class="text-xl font-bold mb-3">Excelencia</h3>
+          <p class="text-text-secondary">Nos esforzamos por la más alta calidad en todo lo que hacemos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

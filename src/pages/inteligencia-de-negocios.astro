@@ -1,0 +1,147 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title='Inteligencia de Negocios | Soluciones de Business Intelligence'>
+  <style>
+    :root {
+      --color-bg: #0f172a;
+      --color-surface: #1e293b;
+      --color-text: #f8fafc;
+      --color-accent: #06b6d4;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .text-center { text-align: center; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .text-4xl { font-size: 2rem; line-height: 1.2; }
+    .text-3xl { font-size: 1.75rem; line-height: 1.25; }
+    .text-xl { font-size: 1.25rem; }
+    .font-bold { font-weight: 700; }
+    .text-accent { color: var(--color-accent); }
+    .py-12 { padding: 3rem 0; }
+    
+    .card {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    .grid-cols-1 { grid-template-columns: 1fr; }
+    .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    
+    @media (max-width: 768px) {
+      .grid-cols-2,
+      .grid-cols-3 {
+        grid-template-columns: 1fr;
+      }
+      
+      .text-4xl { font-size: 1.75rem; }
+      .text-3xl { font-size: 1.5rem; }
+    }
+  </style>
+  
+  <div class='container py-12 px-4'>
+    <main class="space-y-12">
+      <!-- Hero -->
+      <section class="text-center mb-12">
+        <h1 class="text-4xl font-bold mb-4">
+          Inteligencia de Negocios
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          Transforma tus datos en información valiosa para la toma de decisiones estratégicas.
+        </p>
+      </section>
+
+      <!-- Servicios -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-center mb-8">Nuestros Servicios</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="card">
+            <h3 class="text-xl font-bold mb-2">Análisis Predictivo</h3>
+            <p class="text-gray-300 text-sm">Anticipa tendencias con modelos predictivos avanzados.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="text-xl font-bold mb-2">Dashboards</h3>
+            <p class="text-gray-300 text-sm">Visualiza tus KPIs más importantes en tiempo real.</p>
+          </div>
+          
+          <div class="card">
+            <h3 class="text-xl font-bold mb-2">Minería de Datos</h3>
+            <p class="text-gray-300 text-sm">Descubre patrones ocultos en tus datos.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Beneficios -->
+      <section class="bg-slate-800/50 p-6 rounded-xl mb-12">
+        <h2 class="text-3xl font-bold text-center mb-6">Beneficios</h2>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <div>
+              <h3 class="font-bold">Mejora en la toma de decisiones</h3>
+              <p class="text-gray-300 text-sm">Basada en datos precisos y análisis en tiempo real.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <div>
+              <h3 class="font-bold">Eficiencia operativa</h3>
+              <p class="text-gray-300 text-sm">Automatización de reportes y procesos analíticos.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent">✓</span>
+            <div>
+              <h3 class="font-bold">Ventaja competitiva</h3>
+              <p class="text-gray-300 text-sm">Identifica oportunidades antes que la competencia.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- CTA -->
+      <section class="text-center">
+        <h2 class="text-2xl font-bold mb-4">¿Listo para comenzar?</h2>
+        <p class="text-gray-300 mb-6">
+          Contáctanos para más información.
+        </p>
+        <a href="#contacto" class="inline-block bg-accent text-white font-medium py-2 px-6 rounded hover:bg-cyan-500">
+          Solicitar información
+        </a>
+      </section>
+    </main>
+  </div>
+  </script>
+</MainLayout>

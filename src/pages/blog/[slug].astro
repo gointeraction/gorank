@@ -1,0 +1,69 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await (post as any).render();
+const { title, description, pubDate, author, image, tags } = (post as any).data;
+---
+
+<MainLayout title={title}>
+  <article class="container mx-auto px-4 py-12 max-w-4xl">
+    {image && (
+      <img 
+        src={image} 
+        alt={title} 
+        class="w-full h-96 object-cover rounded-windsurf mb-12"
+      />
+    )}
+    
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4 text-text-primary">{title}</h1>
+      <div class="flex justify-center items-center space-x-4 text-text-secondary">
+        <span>{author}</span>
+        <span>•</span>
+        <time datetime={pubDate.toISOString()}>
+          {new Date(pubDate).toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </time>
+      </div>
+      
+      {tags && (
+        <div class="mt-4 flex justify-center space-x-2">
+          {tags.map(tag => (
+            <span class="bg-gray-100 text-text-secondary px-3 py-1 rounded-full text-sm">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div class="prose prose-lg mx-auto">
+      <Content />
+    </div>
+  </article>
+</MainLayout>
+
+<style is:global>
+  .prose h2 {
+    @apply text-3xl font-semibold text-text-primary mt-8 mb-4;
+  }
+  .prose p {
+    @apply mb-4 text-text-secondary leading-relaxed;
+  }
+  .prose ul {
+    @apply list-disc pl-8 mb-4;
+  }
+</style>

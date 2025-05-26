@@ -1,0 +1,131 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const title = 'Términos de Servicio';
+const description = 'Términos y condiciones de uso de los servicios de AI Services.';
+---
+
+<MainLayout title={title} description={description}>
+  <div class="bg-dark-background text-dark-text-primary py-20">
+    <div class="container mx-auto px-4">
+      <!-- Encabezado -->
+      <div class="text-center max-w-4xl mx-auto mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+          Términos de <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">Servicio</span>
+        </h1>
+        <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+          Última actualización: 23 de mayo de 2025
+        </p>
+      </div>
+
+      <!-- Contenido -->
+      <div class="max-w-4xl mx-auto bg-surface/30 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-accent/10">
+        <div class="prose prose-invert max-w-none">
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">1. Aceptación de los Términos</h2>
+            <p class="text-text-secondary mb-6">
+              Al acceder y utilizar los servicios de AI Services, usted acepta cumplir con estos Términos de Servicio. 
+              Si no está de acuerdo con alguna parte de estos términos, no podrá acceder al servicio.
+            </p>
+          </section>
+
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">2. Servicios Ofrecidos</h2>
+            <p class="text-text-secondary mb-4">
+              AI Services ofrece soluciones de inteligencia artificial personalizadas, incluyendo pero no limitado a:
+            </p>
+            <ul class="list-disc pl-6 text-text-secondary space-y-2 mb-6">
+              <li>Análisis predictivo de datos</li>
+              <li>Automatización de procesos</li>
+              <li>Modelos de aprendizaje automático personalizados</li>
+              <li>Integración de IA en sistemas existentes</li>
+            </ul>
+          </section>
+
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">3. Uso Aceptable</h2>
+            <p class="text-text-secondary mb-4">Usted se compromete a no utilizar los servicios para:</p>
+            <ul class="list-disc pl-6 text-text-secondary space-y-2 mb-6">
+              <li>Actividades ilegales o no autorizadas</li>
+              <li>Violar derechos de propiedad intelectual</li>
+              <li>Difundir software malicioso o virus</li>
+              <li>Realizar actividades que puedan dañar la infraestructura del servicio</li>
+            </ul>
+          </section>
+
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">4. Propiedad Intelectual</h2>
+            <p class="text-text-secondary mb-6">
+              Todo el contenido, marcas, logotipos y materiales relacionados con AI Services son propiedad exclusiva de 
+              nuestra empresa o de nuestros licenciantes. No se otorgan licencias implícitas sobre la propiedad intelectual.
+            </p>
+          </section>
+
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">5. Limitación de Responsabilidad</h2>
+            <p class="text-text-secondary mb-6">
+              En la máxima medida permitida por la ley, AI Services no será responsable por daños indirectos, incidentales, 
+              especiales, consecuentes o punitivos, o por pérdida de beneficios o ingresos.
+            </p>
+          </section>
+
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">6. Modificaciones</h2>
+            <p class="text-text-secondary mb-6">
+              Nos reservamos el derecho de modificar estos términos en cualquier momento. Las actualizaciones entrarán en vigor 
+              inmediatamente después de su publicación en nuestro sitio web. El uso continuado del servicio después de dichos cambios 
+              constituirá su consentimiento a los mismos.
+            </p>
+          </section>
+
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">7. Ley Aplicable</h2>
+            <p class="text-text-secondary mb-6">
+              Estos términos se regirán e interpretarán de acuerdo con las leyes del país donde está registrada nuestra empresa, 
+              sin tener en cuenta sus disposiciones sobre conflictos de leyes.
+            </p>
+          </section>
+
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">8. Contacto</h2>
+            <p class="text-text-secondary">
+              Si tiene alguna pregunta sobre estos Términos de Servicio, puede contactarnos a través de:
+            </p>
+            <ul class="list-disc pl-6 text-text-secondary space-y-2 mt-4">
+              <li>Email: legal@gorankfirst.com</li>
+              <li>Teléfono: +58 (412) 6074572</li>
+              <li>Dirección: Torre Exa, Piso 8 Oficina 808, El Rosal, Caracas - Venezuela</li>
+            </ul>
+          </section>
+
+          <div class="border-t border-accent/10 pt-8 mt-12">
+            <p class="text-text-secondary text-sm">
+              Al utilizar nuestros servicios, usted reconoce que ha leído, entendido y aceptado estos Términos de Servicio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .prose {
+    line-height: 1.75;
+  }
+  .prose h2 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.3;
+  }
+  .prose p {
+    margin-bottom: 1.25em;
+  }
+  .prose ul {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+  .prose li {
+    margin-bottom: 0.5em;
+  }
+</style>

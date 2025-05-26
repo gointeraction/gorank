@@ -1,0 +1,94 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { authenticateUser } from '../../middleware/auth';
+
+let errorMessage = '';
+let logoutMessage = '';
+
+// Check for logout status
+if (Astro.url.searchParams.get('logout') === 'success') {
+  logoutMessage = 'Sesión cerrada exitosamente.';
+} else if (Astro.url.searchParams.get('logout') === 'error') {
+  logoutMessage = 'Hubo un problema al cerrar la sesión.';
+}
+
+if (Astro.request.method === 'POST') {
+  const formData = await Astro.request.formData();
+  const username = formData.get('username');
+  const password = formData.get('password');
+
+  const token = await authenticateUser(username, password);
+
+  if (token) {
+    // Set secure HTTP-only cookie
+    Astro.cookies.set('admin_token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/'
+    });
+    return Astro.redirect('/admin/dashboard', 302);
+  } else {
+    errorMessage = 'Credenciales inválidas. Intente nuevamente.';
+  }
+}
+---
+
+<MainLayout title="Iniciar Sesión - Admin">
+  <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8 bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg p-10">
+      <div>
+        <h2 class="mt-6 text-center text-3xl md:text-4xl font-black tracking-wide text-primary">
+          Panel de Administración
+        </h2>
+      </div>
+      <form class="mt-8 space-y-6" method="POST">
+        {logoutMessage && (
+        <div class="bg-accent/10 border border-accent text-accent px-4 py-3 rounded-2xl mb-4" role="alert">
+          <span class="block sm:inline">{logoutMessage}</span>
+        </div>
+      )}
+      {errorMessage && (
+        <div class="bg-red-100/10 border border-red-400/40 text-red-400 px-4 py-3 rounded-2xl mb-4" role="alert">
+          <span class="block sm:inline">{errorMessage}</span>
+        </div>
+      )}
+      <div class="rounded-md shadow-sm -space-y-px">
+          <div>
+            <label for="username" class="sr-only">Nombre de usuario</label>
+            <input 
+              id="username" 
+              name="username" 
+              type="text" 
+              autocomplete="username" 
+              required 
+              class="w-full px-4 py-3 border border-accent/40 rounded-2xl bg-background text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent transition-all" 
+              placeholder="Nombre de usuario"
+            />
+          </div>
+          <div>
+            <label for="password" class="sr-only">Contraseña</label>
+            <input 
+              id="password" 
+              name="password" 
+              type="password" 
+              autocomplete="current-password" 
+              required 
+              class="w-full px-4 py-3 border border-accent/40 rounded-2xl bg-background text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent transition-all" 
+              placeholder="Contraseña"
+            />
+          </div>
+        </div>
+
+        <div>
+          <button 
+              type="submit" 
+              class="group relative w-full flex justify-center py-3 px-4 border-2 border-accent text-background bg-accent/90 hover:bg-accent font-bold rounded-2xl shadow-lg glow-btn text-lg tracking-wide transition-all focus:outline-none focus:ring-2 focus:ring-accent"
+            >
+              Iniciar Sesión
+            </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</MainLayout>

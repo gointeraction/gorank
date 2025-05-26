@@ -1,0 +1,256 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// Datos del equipo
+const teamMembers = [
+  {
+    name: 'Carlos Méndez',
+    role: 'CEO & Fundador',
+    bio: 'Experto en IA con más de 10 años liderando proyectos de transformación digital.',
+    image: '/images/team/carlos-mendez.jpg',
+    social: {
+      twitter: '#',
+      linkedin: '#',
+      github: '#'
+    }
+  },
+  {
+    name: 'Ana Rodríguez',
+    role: 'Directora de Tecnología',
+    bio: 'Especialista en Machine Learning y arquitectura de software.',
+    image: '/images/team/ana-rodriguez.jpg',
+    social: {
+      twitter: '#',
+      linkedin: '#',
+      github: '#'
+    }
+  },
+  {
+    name: 'Diego Fernández',
+    role: 'Líder de Desarrollo',
+    bio: 'Experto en desarrollo de aplicaciones empresariales con IA.',
+    image: '/images/team/diego-fernandez.jpg',
+    social: {
+      twitter: '#',
+      linkedin: '#',
+      github: '#'
+    }
+  },
+  {
+    name: 'María López',
+    role: 'Diseñadora UX/UI',
+    bio: 'Especializada en experiencias de usuario para aplicaciones de IA.',
+    image: '/images/team/maria-lopez.jpg',
+    social: {
+      twitter: '#',
+      linkedin: '#',
+      dribbble: '#'
+    }
+  }
+];
+
+// Valores de la empresa
+const values = [
+  {
+    title: 'Innovación',
+    description: 'Buscamos constantemente nuevas formas de resolver problemas con IA.',
+    icon: '💡'
+  },
+  {
+    title: 'Excelencia',
+    description: 'Nos esforzamos por ofrecer soluciones de la más alta calidad.',
+    icon: '🏆'
+  },
+  {
+    title: 'Colaboración',
+    description: 'Trabajamos en equipo con nuestros clientes para alcanzar el éxito.',
+    icon: '🤝'
+  },
+  {
+    title: 'Ética',
+    description: 'Desarrollamos IA responsable y centrada en el ser humano.',
+    icon: '⚖️'
+  }
+];
+---
+
+<MainLayout title="Sobre Nosotros | Go Rank First">
+  <!-- Hero Section -->
+  <section class="relative py-20 md:py-32 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden">
+    <div class="absolute inset-0 bg-grid-accent/10 [mask-image:linear-gradient(0deg,transparent,white)]"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">Sobre <span class="text-accent">Nosotros</span></h1>
+        <p class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto">Impulsando el futuro con soluciones de Inteligencia Artificial innovadoras y accesibles para todos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nuestra Historia -->
+  <section class="py-16 md:py-24 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="relative">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+            <img 
+              src="/images/about/team-meeting.jpg" 
+              alt="Equipo de Go Rank First trabajando" 
+              class="w-full h-auto object-cover"
+              width="600"
+              height="400"
+            />
+            <div class="absolute inset-0 bg-accent/10 mix-blend-multiply"></div>
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-white dark:bg-surface-dark p-4 rounded-lg shadow-lg hidden md:block">
+            <div class="text-4xl font-bold text-accent">+50</div>
+            <div class="text-sm text-text-secondary">Proyectos completados</div>
+          </div>
+        </div>
+        <div>
+          <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Nuestra Historia</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Impulsando la innovación desde 2020</h2>
+          <p class="text-text-secondary mb-6">
+            Fundada en 2020, Go Rank First nació con la visión de hacer que la inteligencia artificial sea accesible para empresas de todos los tamaños. Lo que comenzó como un pequeño equipo de apasionados por la tecnología ha crecido hasta convertirse en un referente en soluciones de IA personalizadas.
+          </p>
+          <p class="text-text-secondary mb-8">
+            Nuestro viaje ha estado marcado por la innovación constante y el compromiso con la excelencia, ayudando a nuestros clientes a transformar sus operaciones y ofrecer experiencias excepcionales a sus usuarios.
+          </p>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="p-6 bg-white/5 rounded-xl border border-white/5">
+              <div class="text-3xl font-bold text-accent mb-2">+100</div>
+              <div class="text-text-secondary">Clientes satisfechos</div>
+            </div>
+            <div class="p-6 bg-white/5 rounded-xl border border-white/5">
+              <div class="text-3xl font-bold text-accent mb-2">15+</div>
+              <div class="text-text-secondary">Países alcanzados</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nuestros Valores -->
+  <section class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Nuestros Valores</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Principios que nos <span class="text-accent">definen</span></h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">Creemos en construir relaciones basadas en la confianza, la transparencia y los resultados excepcionales.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {values.map((value, index) => (
+          <div key={index} class="bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/5 hover:border-accent/20 transition-all duration-300 hover:-translate-y-1">
+            <div class="text-4xl mb-4">{value.icon}</div>
+            <h3 class="text-xl font-semibold mb-2">{value.title}</h3>
+            <p class="text-text-secondary">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Nuestro Equipo -->
+  <section class="py-16 md:py-24 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Conoce al Equipo</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Mentes <span class="text-accent">creativas</span> detrás de nuestra empresa</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">Nuestro equipo está formado por expertos apasionados por la IA y comprometidos con ofrecer soluciones excepcionales.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {teamMembers.map((member, index) => (
+          <div key={index} class="group bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/5 hover:border-accent/20 transition-all duration-300 hover:-translate-y-2">
+            <div class="relative pt-[100%] overflow-hidden">
+              <img 
+                src={member.image} 
+                alt={`${member.name} - ${member.role}`} 
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                width="300"
+                height="300"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-1">{member.name}</h3>
+              <p class="text-accent mb-3">{member.role}</p>
+              <p class="text-text-secondary text-sm mb-4">{member.bio}</p>
+              <div class="flex space-x-3">
+                {member.social.twitter && (
+                  <a href={member.social.twitter} class="text-text-secondary hover:text-accent transition-colors" aria-label="Twitter">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                    </svg>
+                  </a>
+                )}
+                {member.social.linkedin && (
+                  <a href={member.social.linkedin} class="text-text-secondary hover:text-accent transition-colors" aria-label="LinkedIn">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </a>
+                )}
+                {member.social.github && (
+                  <a href={member.social.github} class="text-text-secondary hover:text-accent transition-colors" aria-label="GitHub">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.699 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                )}
+                {member.social.dribbble && (
+                  <a href={member.social.dribbble} class="text-text-secondary hover:text-accent transition-colors" aria-label="Dribbble">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.84-.065-.011-.13-.024-.195-.04-1.125-.253-2.16-.65-2.82-1.23-.11-.097-.19-.19-.25-.28-.06-.09-.12-.19-.17-.3-.13-.25-.2-.5-.2-.8 0-.3.1-.55.3-.75.2-.2.45-.3.75-.3.3 0 .55.1.75.3.15.15.25.35.3.6.05.25.05.5 0 .75-.05.25-.15.5-.3.7-.15.2-.35.4-.55.5.28.14.6.26.96.36.37.1.74.15 1.11.15.37 0 .74-.05 1.11-.15.36-.1.68-.22.96-.36-.2-.1-.4-.3-.55-.5-.15-.2-.25-.45-.3-.7-.05-.25-.05-.5 0-.75.05-.25.15-.45.3-.6.2-.2.45-.3.75-.3.3 0 .55.1.75.3.2.2.3.45.3.75 0 .3-.1.55-.3.75zM12 20.5c-2.83 0-5.5-1.17-7.43-3.22-.12-.14-.19-.3-.19-.47 0-.17.07-.33.19-.47.14-.14.3-.22.48-.22h14.52c.18 0 .34.08.48.22.12.14.19.3.19.47 0 .17-.07.33-.19.47-1.93 2.05-4.6 3.22-7.43 3.22z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-8 md:p-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Listo para comenzar tu próximo proyecto con IA?</h2>
+        <p class="text-text-secondary text-lg mb-8 max-w-2xl mx-auto">Nuestro equipo está listo para ayudarte a transformar tu negocio con soluciones de inteligencia artificial a medida.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/contacto" class="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-xl text-white bg-accent hover:bg-accent/90 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent">
+            Contáctanos
+          </a>
+          <a href="/servicios" class="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-xl text-white bg-transparent border border-white/20 hover:bg-white/5 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white/20">
+            Nuestros Servicios
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Animaciones */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  /* Efecto de hover en las tarjetas del equipo */
+  .group:hover .group-hover\:scale-105 {
+    transform: scale(1.05);
+  }
+  
+  /* Transiciones suaves */
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+</style>

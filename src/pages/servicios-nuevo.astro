@@ -1,0 +1,30 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Servicios - Versión de Prueba">
+  <div class="min-h-screen flex items-center justify-center bg-background">
+    <div class="text-center p-8 max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+        Página de Servicios (Versión de Prueba)
+      </h1>
+      <p class="text-xl text-text-secondary mb-8">
+        Esta es una versión simplificada para probar el enrutamiento.
+      </p>
+      <div class="space-y-4">
+        <a 
+          href="/" 
+          class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors"
+        >
+          Volver al Inicio
+        </a>
+        <a 
+          href="/contacto" 
+          class="inline-block border border-accent text-accent px-6 py-3 rounded-lg hover:bg-accent/10 transition-colors ml-4"
+        >
+          Ir a Contacto
+        </a>
+      </div>
+    </div>
+  </div>
+</MainLayout>

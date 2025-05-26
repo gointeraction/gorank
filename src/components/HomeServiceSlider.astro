@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+---
+
+<script type="module" src="/src/scripts/swiper-init.js" is:inline></script>
+<section class="w-full px-0 md:px-0 py-0 overflow-x-visible">
+  <swiper-container
+    slides-per-view="1"
+    navigation="true"
+    pagination="true"
+    loop="true"
+    class="rounded-3xl shadow-lg bg-surface/70 backdrop-blur-xl drop-shadow-[0_0_24px_#00F0FF55] w-screen max-w-none"
+    style="--swiper-pagination-color: #00F0FF; --swiper-pagination-bullet-size: 18px; --swiper-navigation-color: #6A6AFF; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);"
+  ><swiper-slide>
+      <div class="flex flex-col items-center py-16 px-2 sm:px-8 lg:px-24 bg-surface/70 backdrop-blur-xl rounded-3xl shadow-lg transition-all duration-500 w-full">
+        <Icon name="mdi:robot-excited-outline" class="text-dark-primary w-20 h-20 mb-6 animate-bounce-slow" />
+        <h3 class="text-3xl md:text-4xl font-bold mb-3 text-dark-text-primary">Chatbots Personalizados, Atención sin Límites</h3>
+        <p class="text-dark-text-secondary text-base md:text-lg text-center mb-6 max-w-xl">Ofrece soporte instantáneo y personalizado a tus clientes en cualquier momento, mejorando su experiencia y fidelización.</p>
+        <button class="mt-6 px-6 py-3 rounded-2xl bg-accent/90 hover:bg-accent text-background font-bold shadow-lg glow-btn tracking-wide transition-all focus:outline-none focus:ring-2 focus:ring-accent">Prueba un chatbot ahora</button>
+      </div>
+    </swiper-slide>
+    
+    <swiper-slide>
+      <div class="flex flex-col items-center py-16 px-2 sm:px-8 lg:px-24 bg-surface/70 backdrop-blur-xl rounded-3xl shadow-lg transition-all duration-500 w-full">
+        <Icon name="mdi:robot-industrial" class="text-dark-primary w-20 h-20 mb-6 animate-bounce-slow" />
+        <h3 class="text-3xl md:text-4xl font-bold mb-3 text-dark-text-primary">Automatización Inteligente para tu Negocio</h3>
+        <p class="text-dark-text-secondary text-base md:text-lg text-center mb-6 max-w-xl">Reduce costos y errores automatizando tareas repetitivas. Libera tiempo para lo que realmente importa y acelera la productividad.</p>
+        <button class="mt-6 px-6 py-3 rounded-2xl bg-accent/90 hover:bg-accent text-background font-bold shadow-lg glow-btn tracking-wide transition-all focus:outline-none focus:ring-2 focus:ring-accent">Solicita tu demo gratis</button>
+      </div>
+    </swiper-slide>
+    
+    <swiper-slide>
+      <div class="flex flex-col items-center py-16 px-2 sm:px-8 lg:px-24 bg-surface/70 backdrop-blur-xl rounded-3xl shadow-lg transition-all duration-500 w-full">
+        <Icon name="mdi:chart-line-variant" class="text-dark-primary w-20 h-20 mb-6 animate-bounce-slow" />
+        <h3 class="text-3xl md:text-4xl font-bold mb-3 text-dark-text-primary">Crecimiento Basado en Datos</h3>
+        <p class="text-dark-text-secondary text-base md:text-lg text-center mb-6 max-w-xl">Toma decisiones inteligentes con análisis avanzados y estrategias de marketing digital que maximizan tu retorno de inversión.</p>
+        <button class="mt-6 px-6 py-3 rounded-2xl bg-accent/90 hover:bg-accent text-background font-bold shadow-lg glow-btn tracking-wide transition-all focus:outline-none focus:ring-2 focus:ring-accent">Ver casos de éxito</button>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="flex flex-col items-center py-16 px-2 sm:px-8 lg:px-24 bg-surface/70 backdrop-blur-xl rounded-3xl shadow-lg transition-all duration-500 w-full">
+        <Icon name="mdi:school-outline" class="text-dark-primary w-20 h-20 mb-6 animate-bounce-slow" />
+        <h3 class="text-3xl md:text-4xl font-bold mb-3 text-dark-text-primary">Transforma tu Equipo con IA</h3>
+        <p class="text-dark-text-secondary text-base md:text-lg text-center mb-6 max-w-xl">Capacita a tu equipo y lleva tu empresa al siguiente nivel con formación práctica y consultoría experta en inteligencia artificial.</p>
+        <button class="mt-6 px-6 py-3 rounded-2xl bg-accent/90 hover:bg-accent text-background font-bold shadow-lg glow-btn tracking-wide transition-all focus:outline-none focus:ring-2 focus:ring-accent">Agenda una sesión gratuita</button>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+  <style>
+    .animate-bounce-slow {
+      animation: bounce 2.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</section>

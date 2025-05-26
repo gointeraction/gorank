@@ -1,0 +1,139 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<MainLayout title="Sobre Nosotros">
+  <!-- Hero Section -->
+  <section class="relative py-24 md:py-32 bg-gradient-to-br from-primary/10 via-background/50 to-accent/5">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">Impulsando la Innovación con IA</h1>
+      <p class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto">
+        Transformando negocios a través de soluciones de inteligencia artificial personalizadas y de vanguardia.
+      </p>
+    </div>
+  </section>
+
+  <!-- Nuestra Historia -->
+  <section class="py-20 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Nuestra Historia</h2>
+          <div class="w-20 h-1 bg-accent mb-8"></div>
+          <p class="text-lg text-text-secondary mb-6">
+            Fundada en 2020, nuestra empresa nació de la visión de hacer accesible la inteligencia artificial para empresas de todos los tamaños. Lo que comenzó como un pequeño equipo de expertos en IA, hoy es una empresa líder en soluciones tecnológicas innovadoras.
+          </p>
+          <p class="text-lg text-text-secondary">
+            Hemos trabajado con más de 100 empresas en 15 países, ayudándolas a transformar sus operaciones y a alcanzar sus objetivos comerciales a través de la automatización y el análisis de datos avanzado.
+          </p>
+        </div>
+        <div class="md:w-1/2">
+          <div class="bg-white/5 rounded-2xl p-1 shadow-xl">
+            <img 
+              src="/img/about/office.jpg" 
+              alt="Nuestras oficinas" 
+              class="w-full h-auto rounded-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Misión y Visión -->
+  <section class="py-20 bg-background">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-surface/50 p-8 rounded-2xl shadow-lg">
+          <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+            <Icon name="mdi:target" class="w-6 h-6 text-accent" />
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Nuestra Misión</h3>
+          <p class="text-text-secondary">
+            Empoderar a las organizaciones mediante soluciones de IA innovadoras que impulsen la eficiencia, la innovación y el crecimiento sostenible, transformando desafíos complejos en oportunidades tangibles.
+          </p>
+        </div>
+        <div class="bg-surface/50 p-8 rounded-2xl shadow-lg">
+          <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+            <Icon name="mdi:eye" class="w-6 h-6 text-accent" />
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Nuestra Visión</h3>
+          <p class="text-text-secondary">
+            Ser reconocidos como el socio estratégico líder en soluciones de IA, siendo referentes en innovación tecnológica y excelencia en el servicio, mientras creamos un impacto positivo en la sociedad a través de la tecnología.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nuestros Valores -->
+  <section class="py-20 bg-gradient-to-br from-primary/5 via-background/50 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros Valores</h2>
+        <div class="w-20 h-1 bg-accent mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-surface/50 p-6 rounded-2xl text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Icon name="mdi:lightbulb-on" class="w-8 h-8 text-accent" />
+          </div>
+          <h3 class="text-xl font-bold mb-3">Innovación</h3>
+          <p class="text-text-secondary">Buscamos constantemente nuevas formas de resolver problemas y mejorar nuestras soluciones.</p>
+        </div>
+        
+        <div class="bg-surface/50 p-6 rounded-2xl text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Icon name="mdi:shield-check" class="w-8 h-8 text-accent" />
+          </div>
+          <h3 class="text-xl font-bold mb-3">Integridad</h3>
+          <p class="text-text-secondary">Actuamos con honestidad, transparencia y ética en todas nuestras relaciones.</p>
+        </div>
+        
+        <div class="bg-surface/50 p-6 rounded-2xl text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Icon name="mdi:account-group" class="w-8 h-8 text-accent" />
+          </div>
+          <h3 class="text-xl font-bold mb-3">Colaboración</h3>
+          <p class="text-text-secondary">Trabajamos juntos, compartiendo conocimientos y apoyándonos mutuamente.</p>
+        </div>
+        
+        <div class="bg-surface/50 p-6 rounded-2xl text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Icon name="mdi:rocket-launch" class="w-8 h-8 text-accent" />
+          </div>
+          <h3 class="text-xl font-bold mb-3">Excelencia</h3>
+          <p class="text-text-secondary">Nos esforzamos por la más alta calidad en todo lo que hacemos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-r from-primary/10 to-accent/10">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para Transformar tu Negocio con IA?</h2>
+      <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-8">
+        Descubre cómo nuestras soluciones personalizadas pueden impulsar el crecimiento de tu empresa.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/contacto" 
+          class="inline-flex items-center justify-center px-8 py-3 bg-accent text-white font-medium rounded-full hover:bg-primary transition-colors"
+        >
+          Contáctanos
+        </a>
+        <a 
+          href="/servicios" 
+          class="inline-flex items-center justify-center px-8 py-3 bg-transparent border-2 border-accent text-accent font-medium rounded-full hover:bg-accent/10 transition-colors"
+        >
+          Nuestros Servicios
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

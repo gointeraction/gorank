@@ -1,0 +1,130 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<MainLayout title="IA Aplicada a Diferentes Industrias">
+  <div class="container mx-auto">
+    <section class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-8 text-center text-text-primary">
+  <span class="text-accent transition-colors duration-300 hover:text-accent/80">IA Aplicada</span> a Diferentes Industrias
+</h1>
+      <p class="text-xl text-text-secondary max-w-4xl mx-auto">
+        La IA se está convirtiendo en una herramienta indispensable en ámbitos absolutamente diferentes. Desde el comercio minorista hasta la atención sanitaria, la IA está cambiando nuestra forma de interactuar con el mundo y ayudando a mejorar la eficiencia de muy diversas maneras.
+      </p>
+    </section>
+
+    <section class="grid md:grid-cols-4 gap-8 px-4">
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft text-center flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <Icon name="mdi:hospital" class="w-16 h-16 mx-auto mb-6 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-4 text-accent transition-colors duration-300">Sanidad</h2>
+        <p class="text-text-secondary mb-4">Aplicaciones revolucionarias de IA en el sector sanitario</p>
+        <ul class="text-text-secondary space-y-2 text-left text-sm flex-grow">
+          <li>• Diagnóstico asistido por IA</li>
+          <li>• Predicción de enfermedades</li>
+          <li>• Personalización de tratamientos</li>
+          <li>• Análisis de imágenes médicas</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft text-center flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <Icon name="mdi:bank" class="w-16 h-16 mx-auto mb-6 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-4 text-accent transition-colors duration-300">Fintech y Banca</h2>
+        <p class="text-text-secondary mb-4">Transformación financiera con inteligencia artificial</p>
+        <ul class="text-text-secondary space-y-2 text-left text-sm flex-grow">
+          <li>• Detección de fraude</li>
+          <li>• Evaluación de riesgos</li>
+          <li>• Servicios bancarios personalizados</li>
+          <li>• Trading algorítmico</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft text-center flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <Icon name="mdi:shield-check" class="w-16 h-16 mx-auto mb-6 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-4 text-accent transition-colors duration-300">Seguros</h2>
+        <p class="text-text-secondary mb-4">Optimización de procesos de seguros con IA</p>
+        <ul class="text-text-secondary space-y-2 text-left text-sm flex-grow">
+          <li>• Evaluación de riesgos</li>
+          <li>• Tarifación dinámica</li>
+          <li>• Gestión de reclamaciones</li>
+          <li>• Detección de fraude</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft text-center flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <Icon name="mdi:cart" class="w-16 h-16 mx-auto mb-6 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-4 text-accent transition-colors duration-300">Venta Minorista y eCommerce</h2>
+        <p class="text-text-secondary mb-4">Experiencias de compra inteligentes</p>
+        <ul class="text-text-secondary space-y-2 text-left text-sm flex-grow">
+          <li>• Recomendaciones personalizadas</li>
+          <li>• Gestión de inventario</li>
+          <li>• Precios dinámicos</li>
+          <li>• Atención al cliente con chatbots</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft text-center flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <Icon name="mdi:chart-bar" class="w-16 h-16 mx-auto mb-6 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-4 text-accent transition-colors duration-300">Marketing</h2>
+        <p class="text-text-secondary mb-4">Marketing inteligente y predictivo</p>
+        <ul class="text-text-secondary space-y-2 text-left text-sm flex-grow">
+          <li>• Segmentación de audiencia</li>
+          <li>• Análisis predictivo</li>
+          <li>• Personalización de contenido</li>
+          <li>• Optimización de campañas</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft text-center flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <Icon name="mdi:truck" class="w-16 h-16 mx-auto mb-6 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-4 text-accent transition-colors duration-300">Cadena de Suministro</h2>
+        <p class="text-text-secondary mb-4">Logística inteligente y eficiente</p>
+        <ul class="text-text-secondary space-y-2 text-left text-sm flex-grow">
+          <li>• Optimización logística</li>
+          <li>• Predicción de demanda</li>
+          <li>• Gestión de inventario</li>
+          <li>• Rutas de envío inteligentes</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft text-center flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <Icon name="mdi:car" class="w-16 h-16 mx-auto mb-6 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-4 text-accent transition-colors duration-300">Automoción</h2>
+        <p class="text-text-secondary mb-4">Innovación en movilidad inteligente</p>
+        <ul class="text-text-secondary space-y-2 text-left text-sm flex-grow">
+          <li>• Conducción autónoma</li>
+          <li>• Mantenimiento predictivo</li>
+          <li>• Diseño de vehículos</li>
+          <li>• Sistemas de seguridad avanzados</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft text-center flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <Icon name="mdi:movie-open" class="w-16 h-16 mx-auto mb-6 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-4 text-accent transition-colors duration-300">Medios y Entretenimiento</h2>
+        <p class="text-text-secondary mb-4">Contenido y experiencias personalizadas</p>
+        <ul class="text-text-secondary space-y-2 text-left text-sm flex-grow">
+          <li>• Recomendaciones de contenido</li>
+          <li>• Creación de contenido</li>
+          <li>• Efectos visuales</li>
+          <li>• Personalización de experiencias</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mt-16 bg-surface/90 backdrop-blur-xl border border-accent/40 p-12 rounded-3xl text-center shadow-lg">
+  <h2 class="text-4xl md:text-5xl font-extrabold mb-8 text-center text-text-primary">
+    ¿Listo para <span class="text-accent transition-colors duration-300 hover:text-accent/80">Transformar</span> su Industria?
+  </h2>
+  <p class="text-2xl text-text-secondary max-w-2xl mx-auto mb-10">
+    Descubra cómo la inteligencia artificial puede revolucionar su sector y llevar su negocio al siguiente nivel.
+  </p>
+  <a 
+    href="/contacto" 
+    class="bg-gradient-to-r from-accent to-primary text-white px-12 py-5 rounded-3xl shadow-lg border border-accent font-bold text-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-[0_0_24px_#00F0FF88] hover:from-primary hover:to-accent focus:outline-none focus:ring-2 focus:ring-accent"
+  >
+    Contáctenos
+  </a>
+</section>
+  </div>
+</MainLayout>

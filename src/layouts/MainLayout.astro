@@ -1,0 +1,386 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Servicios de Automatización e Inteligencia Artificial' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Go Rank Firts AI Services</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-background text-text-primary font-sans antialiased">
+    <header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-lg shadow-soft border-b border-border">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-4">
+        <a href="/" class="flex items-center gap-3 text-2xl font-bold tracking-wide text-primary drop-shadow-glow">
+          <svg width="36" height="36" viewBox="0 0 100 100" class="fill-current">
+            <circle cx="50" cy="50" r="45" fill="#18181F" />
+            <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#00F0FF" font-size="38" font-family="Satoshi, Inter, sans-serif">AI</text>
+          </svg>
+          <span class="font-black tracking-widest uppercase text-accent">AI Services</span>
+        </a>
+        <nav class="mt-4 md:mt-0">
+          <ul class="flex flex-wrap gap-4 md:gap-8 text-text-secondary text-base md:text-lg font-medium">
+            <li><a href="/" class="hover:text-accent transition-colors px-3 py-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent" data-astro-prefetch="hover">Inicio</a></li>
+            <li class="relative group">
+  <button type="button" id="servicios-toggle" data-dropdown-toggle="servicios-menu" class="flex items-center hover:text-accent transition-colors px-3 py-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer bg-transparent border-none" aria-haspopup="true" aria-expanded="false">
+    Servicios
+    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+  <div id="servicios-menu" class="absolute left-0 top-full mt-2 hidden bg-surface/90 backdrop-blur-xl border-2 border-accent/30 rounded-2xl shadow-lg py-2 w-56 z-50 animate-fade-in">
+    <a href="/servicios/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Servicios IA</a>
+    <a href="/machine-learning/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Machine Learning</a>
+    <a href="/ingenieria-de-datos/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Ingeniería de Datos</a>
+    <a href="/inteligencia-de-negocios/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Inteligencia de Negocios</a>
+  </div>
+</li>
+            <li class="relative group">
+              <button type="button" id="capacitacion-toggle" data-dropdown-toggle="capacitacion-menu" class="flex items-center hover:text-accent transition-colors px-3 py-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer bg-transparent border-none" aria-haspopup="true" aria-expanded="false">
+                Capacitación IA
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="capacitacion-menu" class="absolute left-0 top-full mt-2 hidden bg-surface/90 backdrop-blur-xl border-2 border-accent/30 rounded-2xl shadow-lg py-2 w-80 z-50 animate-fade-in">
+                <a href="/capacitacion/conferencia-ia" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Conferencia de IA</a>
+                <a href="/capacitacion/charla-ia-ongs" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Charla de IA para ONGs</a>
+                <a href="/capacitacion/curso-ia-emprendedores" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">IA para Emprendedores</a>
+                <a href="/capacitacion/curso-agentes-voz-ia" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Agentes de Voz IA</a>
+                <a href="/capacitacion/curso-automatizacion-ia" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Automatización con IA</a>
+                <a href="/capacitacion/curso-ia-ecommerce" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">IA para E-commerce</a>
+                <a href="/capacitacion/curso-prompt-engineering" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Prompt Engineering</a>
+              </div>
+            </li>
+            <li class="relative group">
+              <button type="button" id="bots-toggle" data-dropdown-toggle="bots-menu" class="flex items-center hover:text-accent transition-colors px-3 py-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer bg-transparent border-none" aria-haspopup="true" aria-expanded="false">
+                Bots IA
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="bots-menu" class="absolute left-0 top-full mt-2 hidden group-hover:block bg-surface/90 backdrop-blur-xl border-2 border-accent/30 rounded-2xl shadow-lg py-2 w-80 z-50 animate-fade-in">
+                <a href="/bots/empresas" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">
+                  <div class="flex items-center">
+                    <span class="mr-2">🏢</span>
+                    <span>Para Empresas</span>
+                  </div>
+                </a>
+                <a href="/bots/whatsapp" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">
+                  <div class="flex items-center">
+                    <span class="mr-2">💬</span>
+                    <span>ChatBot WhatsApp</span>
+                  </div>
+                </a>
+                <a href="/bots/restaurantes" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">
+                  <div class="flex items-center">
+                    <span class="mr-2">🍽️</span>
+                    <span>Para Restaurantes</span>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="relative group">
+              <button type="button" id="nosotros-toggle" data-dropdown-toggle="nosotros-menu" class="flex items-center hover:text-accent transition-colors px-3 py-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer bg-transparent border-none" aria-haspopup="true" aria-expanded="false">
+                Nosotros
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="nosotros-menu" class="absolute left-0 top-full mt-2 hidden group-hover:block bg-surface/90 backdrop-blur-xl border-2 border-accent/30 rounded-2xl shadow-lg py-2 w-64 z-50 animate-fade-in">
+                <a href="/nosotros/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Sobre Nosotros</a>
+                <a href="/precios/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Precios</a>
+                <a href="/industrias/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Industrias</a>
+                <a href="/tecnologias/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Tecnologías</a>
+                <a href="/preguntas-frecuentes/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Preguntas Frecuentes</a>
+              </div>
+            </li>
+            <li><a href="/blog/" class="hover:text-accent transition-colors px-3 py-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent" data-astro-prefetch="hover">Blog</a></li>
+            <li><a href="/contacto/" class="hover:text-accent transition-colors px-3 py-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent" data-astro-prefetch="hover">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <main class="container mx-auto px-4 py-2 bg-dark-background text-dark-text-primary">
+      <slot />
+    </main>
+    
+    <footer class="relative overflow-hidden bg-gradient-to-br from-background via-surface to-background/90 border-t border-accent/10 text-text-secondary pt-16 pb-8 px-0 w-full">
+      <!-- Efecto de partículas sutiles -->
+      <div class="absolute inset-0 -z-10 opacity-30">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent w-full h-full animate-pulse"></div>
+      </div>
+      
+      <div class="container mx-auto px-4">
+        <!-- Sección superior con CTA -->
+        <div class="bg-gradient-to-r from-accent/5 via-primary/5 to-accent/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 mb-16 relative overflow-hidden border border-accent/10 hover:border-accent/20 transition-all duration-500 group">
+          <div class="absolute -top-20 -right-20 w-64 h-64 bg-accent/5 rounded-full filter blur-3xl animate-float"></div>
+          <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-primary/5 rounded-full filter blur-3xl animate-float animation-delay-2000"></div>
+          <div class="relative z-10 text-center max-w-4xl mx-auto">
+            <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
+              ✨ Transforma tu negocio con IA
+            </div>
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              ¿Listo para llevar tu negocio al <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">siguiente nivel</span> con IA?
+            </h3>
+            <p class="text-lg text-text-secondary/90 mb-8 max-w-2xl mx-auto">
+              Descubre cómo nuestras soluciones de inteligencia artificial pueden transformar tu negocio hoy mismo.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#contacto" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-white font-bold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 hover:shadow-accent/30 group-hover:scale-[1.02]">
+                Solicitar demostración
+                <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+              <a href="#contacto" class="inline-flex items-center justify-center px-8 py-4 bg-surface/50 hover:bg-surface/70 text-text-primary font-medium rounded-xl border border-accent/20 hover:border-accent/30 transition-all duration-300 group-hover:scale-[1.02]">
+                Hablar con un experto
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenido principal del footer -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <!-- Columna 1: Logo y descripción -->
+          <div class="lg:pr-6">
+            <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold text-white mb-6 group">
+              <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-accent to-primary rounded-xl opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10"></div>
+                <svg width="40" height="40" viewBox="0 0 100 100" class="text-accent transition-transform duration-300 group-hover:scale-110">
+                  <circle cx="50" cy="50" r="45" fill="currentColor" fill-opacity="0.1" class="transition-all duration-300 group-hover:fill-opacity-0" />
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="currentColor" font-size="32" font-family="Satoshi, Inter, sans-serif" class="transition-all duration-300 group-hover:fill-accent">AI</text>
+                </svg>
+              </div>
+              <span class="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent bg-300% animate-gradient">AI Services</span>
+            </a>
+            <p class="text-text-secondary/90 mb-6 leading-relaxed">
+              Soluciones de inteligencia artificial personalizadas que impulsan la eficiencia, optimizan costos y generan ventajas competitivas sostenibles.
+            </p>
+            <div class="flex items-center gap-3">
+              <a href="https://www.linkedin.com/company/go-rank-first" target="_blank" rel="noopener" class="text-text-secondary/80 hover:text-white hover:bg-accent/10 p-2 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent/5" aria-label="LinkedIn">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.5c0-1.1-.02-2.5-1.5-2.5s-1.75 1.17-1.75 2.42v5.58h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/>
+                </svg>
+              </a>
+              <a href="https://wa.me/584126074572" target="_blank" rel="noopener" class="text-text-secondary/80 hover:text-white hover:bg-green-500/10 p-2 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green-500/5" aria-label="WhatsApp">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.52 3.48A12.07 12.07 0 0 0 12 0C5.37 0 0 5.37 0 12a11.93 11.93 0 0 0 1.64 6L0 24l6.26-1.64A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52zM12 22a9.93 9.93 0 0 1-5.09-1.38l-.36-.21-3.72.98.99-3.62-.23-.37A9.93 9.93 0 1 1 22 12c0 5.51-4.49 10-10 10zm5.47-7.19c-.3-.15-1.76-.86-2.03-.96-.27-.1-.47-.15-.67.15-.19.3-.76.96-.93 1.15-.17.19-.34.21-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.19-.3.3-.5.1-.19.05-.36-.02-.51-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.19 0-.49.07-.75.34s-.98.96-.98 2.34.67 2.72 1.52 3.7c.84.97 2.32 2.2 4.12 2.73.57.16 1.01.25 1.36.16.41-.12 1.25-.51 1.43-1.01.18-.49.18-.91.13-1.01-.05-.09-.19-.13-.49-.28z"/>
+                </svg>
+              </a>
+              <a href="https://github.com/gorankfirst" target="_blank" rel="noopener" class="text-text-secondary/80 hover:text-white hover:bg-gray-700/10 p-2 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gray-500/5" aria-label="GitHub">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.254-.447-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.027 2.747-1.027.546 1.377.202 2.398.1 2.651.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.196 22 16.425 22 12.017 22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Columna 2: Navegación -->
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <h4 class="text-lg font-semibold text-white mb-4">Navegación</h4>
+              <ul class="space-y-3">
+                <li><a href="/" class="text-text-secondary hover:text-accent transition-colors">Inicio</a></li>
+                <li><a href="/servicios" class="text-text-secondary hover:text-accent transition-colors">Servicios</a></li>
+                <li><a href="/precios" class="text-text-secondary hover:text-accent transition-colors">Precios</a></li>
+                <li><a href="/industrias" class="text-text-secondary hover:text-accent transition-colors">Industrias</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-white mb-4">Otros</h4>
+              <ul class="space-y-3">
+                <li><a href="/terminos" class="text-text-secondary hover:text-accent transition-colors">Términos de Servicio</a></li>
+                <li><a href="/privacidad" class="text-text-secondary hover:text-accent transition-colors">Política de Privacidad</a></li>
+                <li><a href="/cookies" class="text-text-secondary hover:text-accent transition-colors">Política de Cookies</a></li>
+                <li><a href="/blog" class="text-text-secondary hover:text-accent transition-colors">Blog</a></li>
+                <li><a href="/contacto" class="text-text-secondary hover:text-accent transition-colors">Contacto</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Columna 3: Contacto -->
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Contacto</h4>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:contacto@gorankfirst.com" class="text-text-secondary hover:text-accent transition-colors">contacto@gorankfirst.com</a>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <a href="tel:+584126074572" class="text-text-secondary hover:text-accent transition-colors">+58 (412) 6074572</a>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span class="text-text-secondary">Torre Exa, Piso 8 Oficina 808, El Rosal, Caracas - Venezuela</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-text-secondary">Lun-Vie: 9:00am - 6:00pm</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Columna 4: Boletín -->
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Suscríbete</h4>
+            <p class="text-text-secondary mb-4">Recibe las últimas noticias y actualizaciones directamente en tu bandeja de entrada.</p>
+            <form class="space-y-3">
+              <div>
+                <input type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-3 bg-surface/50 border border-accent/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50 text-text-primary placeholder-text-secondary" required />
+              </div>
+              <button type="submit" class="w-full bg-gradient-to-r from-accent to-accent-light text-white font-medium py-3 px-6 rounded-lg hover:opacity-90 transition-opacity">
+                Suscribirse
+              </button>
+            </form>
+            <p class="text-xs text-text-secondary/70 mt-3">Al suscribirte, aceptas nuestra Política de Privacidad.</p>
+          </div>
+        </div>
+
+        <!-- Línea divisoria -->
+        <div class="relative my-12">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-accent/10"></div>
+          </div>
+          <div class="relative flex justify-center">
+            <span class="px-4 bg-background text-text-secondary/60 text-sm">
+              <svg class="w-5 h-5 inline-block mr-2 -mt-0.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0115.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"/>
+              </svg>
+              Transformando el futuro con IA
+            </span>
+          </div>
+        </div>
+
+        <!-- Copyright y enlaces legales -->
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-text-secondary/60">
+          <p class="flex items-center">
+            <span class="mr-2"> 2023 AI Services.</span>
+            <span class="hidden sm:inline">Todos los derechos reservados.</span>
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
+            <a href="/privacidad" class="hover:text-accent transition-colors hover:underline hover:underline-offset-4 hover:decoration-accent/30">Política de privacidad</a>
+            <span class="text-text-secondary/30">•</span>
+            <a href="/terminos" class="hover:text-accent transition-colors hover:underline hover:underline-offset-4 hover:decoration-accent/30">Términos de servicio</a>
+            <span class="text-text-secondary/30">•</span>
+            <a href="/cookies" class="hover:text-accent transition-colors hover:underline hover:underline-offset-4 hover:decoration-accent/30">Política de cookies</a>
+          </div>
+        </div>
+        
+        <!-- Botón para volver arriba -->
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 bg-surface/80 backdrop-blur-sm border border-accent/10 rounded-full p-3 text-text-secondary hover:text-accent hover:border-accent/30 transition-all duration-300 shadow-lg hover:shadow-accent/10 z-50" aria-label="Volver arriba">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </div>
+    </footer>
+              
+     
+    <style>
+      .bg-glassmorphism {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Mejoras para los menús desplegables */
+      .group:hover .group-hover\:block {
+        display: block;
+      }
+      
+      .animate-fade-in {
+        animation: fadeIn 0.2s ease-out;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+    
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Seleccionar todos los botones de menú desplegable
+        const dropdownButtons = document.querySelectorAll('[data-dropdown-toggle]');
+        
+        dropdownButtons.forEach(button => {
+          const menuId = button.getAttribute('data-dropdown-toggle');
+          const menu = document.getElementById(menuId);
+          
+          if (!menu) return;
+          
+          // Función para abrir/cerrar menú
+          const toggleMenu = (isOpen) => {
+            const shouldShow = typeof isOpen === 'boolean' ? isOpen : !menu.classList.contains('hidden');
+            button.setAttribute('aria-expanded', !shouldShow);
+            menu.classList.toggle('hidden', shouldShow);
+          };
+          
+          // Click en el botón
+          button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+          });
+          
+          // Cerrar al hacer clic fuera
+          document.addEventListener('click', (e) => {
+            if (!button.contains(e.target) && !menu.contains(e.target)) {
+              toggleMenu(true);
+            }
+          });
+          
+          // Cerrar con Escape
+          button.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+              toggleMenu(true);
+              button.focus();
+            }
+          });
+          
+          // Mejorar accesibilidad
+          button.setAttribute('aria-haspopup', 'true');
+          button.setAttribute('aria-expanded', 'false');
+        });
+        
+        // Cerrar menús al cambiar el tamaño de la ventana
+        window.addEventListener('resize', () => {
+          dropdownButtons.forEach(button => {
+            const menuId = button.getAttribute('data-dropdown-toggle');
+            const menu = document.getElementById(menuId);
+            if (menu && !menu.classList.contains('hidden')) {
+              menu.classList.add('hidden');
+              button.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+      });
+    </script>
+  
+</script>
+  </body>
+</html>

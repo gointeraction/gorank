@@ -1,0 +1,300 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+// Categorías de preguntas frecuentes
+const faqCategories = [
+  {
+    id: 'servicios',
+    title: 'Servicios',
+    icon: 'mdi:robot-happy-outline',
+    questions: [
+      {
+        question: "¿Qué servicios de IA ofrecen?",
+        answer: "Ofrecemos una amplia gama de servicios de inteligencia artificial, incluyendo machine learning, procesamiento de lenguaje natural, visión por computadora, análisis predictivo y soluciones personalizadas de IA para negocios. <a href='/servicios' class='text-accent hover:underline'>Ver todos los servicios</a>.",
+        tags: ['servicios', 'IA', 'tecnología']
+      },
+      {
+        question: "¿Qué nivel de personalización ofrecen en sus soluciones?",
+        answer: "Todas nuestras soluciones son completamente personalizadas. Comenzamos con un análisis detallado de tus necesidades y objetivos comerciales para desarrollar una solución de IA que se adapte perfectamente a tu negocio. <a href='/contacto' class='text-accent hover:underline'>Solicita una consulta personalizada</a>.",
+        tags: ['personalización', 'solución']
+      }
+    ]
+  },
+  {
+    id: 'implementacion',
+    title: 'Implementación',
+    icon: 'mdi:rocket-launch-outline',
+    questions: [
+      {
+        question: "¿Cuánto tiempo toma implementar una solución de IA?",
+        answer: "El tiempo de implementación varía según la complejidad del proyecto. Proyectos pequeños pueden tomar de 4 a 8 semanas, mientras que soluciones más complejas pueden requerir de 3 a 6 meses. Ofrecemos una <a href='/contacto' class='text-accent hover:underline'>evaluación inicial gratuita</a> para darte un cronograma preciso.",
+        tags: ['tiempo', 'proceso']
+      },
+      {
+        question: "¿Qué tipo de empresas pueden beneficiarse de sus servicios?",
+        answer: "Trabajamos con empresas de todos los tamaños y sectores, incluyendo comercio electrónico, salud, finanzas, manufactura y más. Hemos ayudado a más de 50 empresas a transformar sus operaciones con IA. <a href='/casos-de-exito' class='text-accent hover:underline'>Conoce nuestros casos de éxito</a>.",
+        tags: ['empresas', 'sectores']
+      },
+      {
+        question: "¿Cuál es el proceso para comenzar un proyecto con ustedes?",
+        answer: `Nuestro proceso consta de 5 pasos:
+        1. Consulta inicial para entender tus necesidades
+        2. Análisis detallado de factibilidad
+        3. Propuesta personalizada
+        4. Desarrollo e implementación
+        5. Entrenamiento y soporte
+        <a href='/proceso' class='mt-4 inline-block text-accent hover:underline'>Más sobre nuestro proceso</a>`,
+        tags: ['proceso', 'inicio']
+      }
+    ]
+  },
+  {
+    id: 'soporte',
+    title: 'Soporte',
+    icon: 'mdi:headset',
+    questions: [
+      {
+        question: "¿Qué tipo de soporte ofrecen después de la implementación?",
+        answer: "Ofrecemos diferentes niveles de soporte post-implementación para garantizar el éxito continuo de tu solución de IA. Nuestros planes incluyen mantenimiento continuo, actualizaciones, monitoreo 24/7, capacitación para tu equipo y acceso prioritario a nuestro equipo de soporte. <a href='/soporte' class='text-accent hover:underline'>Ver planes de soporte</a>.",
+        tags: ['soporte', 'post-venta']
+      },
+      {
+        question: "¿Ofrecen capacitación para usar las soluciones de IA?",
+        answer: "Sí, ofrecemos capacitación integral adaptada a las necesidades de tu equipo. Nuestro programa incluye: documentación detallada, sesiones de capacitación en persona o virtuales, guías de referencia rápida y soporte continuo. También ofrecemos certificaciones para equipos que necesiten validar sus conocimientos. <a href='/capacitacion' class='text-accent hover:underline'>Más sobre capacitación</a>.",
+        tags: ['capacitación', 'entrenamiento']
+      }
+    ]
+  },
+  {
+    id: 'general',
+    title: 'General',
+    icon: 'mdi:help-circle-outline',
+    questions: [
+      {
+        question: "¿Cómo manejan la privacidad y seguridad de los datos?",
+        answer: "La seguridad de los datos es nuestra máxima prioridad. Implementamos: encriptación de extremo a extremo, cumplimiento con regulaciones de protección de datos (GDPR, CCPA), protocolos de seguridad avanzados, auditorías regulares y políticas estrictas de acceso a datos. <a href='/seguridad' class='text-accent hover:underline'>Nuestra política de seguridad</a>.",
+        tags: ['seguridad', 'privacidad', 'datos']
+      },
+      {
+        question: "¿Qué los diferencia de otras empresas de IA?",
+        answer: "Lo que nos distingue es nuestro enfoque centrado en el cliente, experiencia técnica probada, soluciones personalizadas y soporte excepcional. Contamos con un equipo de expertos con más de 10 años de experiencia en IA y hemos implementado con éxito soluciones en múltiples industrias.",
+        tags: ['ventaja', 'diferenciación']
+      },
+      {
+        question: "¿Tienen precios accesibles para startups o pequeñas empresas?",
+        answer: "Sí, ofrecemos planes escalables adaptados a empresas de todos los tamaños. Para startups y pequeñas empresas, tenemos paquetes especiales que incluyen descuentos, planes de pago flexibles y soluciones modulares que pueden crecer con tu negocio. <a href='/precios' class='text-accent hover:underline'>Ver planes para startups</a>.",
+        tags: ['precios', 'startups', 'pymes']
+      }
+    ]
+  }
+];
+---
+
+<MainLayout title="Preguntas Frecuentes">
+  <!-- Hero Section -->
+  <section class="relative py-24 md:py-32 bg-gradient-to-br from-primary/10 via-background/50 to-accent/5">
+    <div class="container mx-auto px-4 text-center">
+      <span class="inline-block mb-4 px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium">
+        ¿Tienes dudas?
+      </span>
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">Preguntas Frecuentes</h1>
+      <p class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto mb-8">
+        Encuentra respuestas a las preguntas más comunes sobre nuestros servicios de IA.
+      </p>
+      <div class="max-w-2xl mx-auto relative">
+        <input 
+          type="text" 
+          placeholder="Buscar en preguntas frecuentes..." 
+          class="w-full px-6 py-4 rounded-2xl bg-white/5 border border-accent/20 focus:border-accent/50 focus:ring-2 focus:ring-accent/20 focus:outline-none transition-all duration-300 text-white placeholder-text-secondary/50"
+          x-data="{ query: '' }"
+          x-model="query"
+          @input="
+            const query = $event.target.value.toLowerCase();
+            document.querySelectorAll('.faq-category').forEach(category => {
+              const hasMatch = Array.from(category.querySelectorAll('.faq-item')).some(item => 
+                item.textContent.toLowerCase().includes(query)
+              );
+              category.style.display = hasMatch ? 'block' : 'none';
+            });
+          "
+        >
+        <Icon name="mdi:magnify" class="w-6 h-6 absolute right-6 top-1/2 transform -translate-y-1/2 text-text-secondary/50" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-surface/50">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="grid md:grid-cols-4 gap-8 mb-12">
+        {faqCategories.map(category => (
+          <a 
+            href={`#${category.id}`}
+            class="group bg-white/5 hover:bg-accent/10 border border-accent/10 hover:border-accent/30 rounded-2xl p-6 transition-all duration-300 flex flex-col items-center text-center"
+          >
+            <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+              <Icon name={category.icon} class="w-8 h-8 text-accent" />
+            </div>
+            <h3 class="text-xl font-semibold mb-2 group-hover:text-accent transition-colors">
+              {category.title}
+            </h3>
+            <p class="text-text-secondary text-sm">
+              {category.questions.length} {category.questions.length === 1 ? 'pregunta' : 'preguntas'}
+            </p>
+          </a>
+        ))}
+      </div>
+
+      <div class="space-y-12">
+        {faqCategories.map((category, index) => (
+          <div id={category.id} class="faq-category scroll-mt-24">
+            <div class="flex items-center mb-8">
+              <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mr-4">
+                <Icon name={category.icon} class="w-6 h-6 text-accent" />
+              </div>
+              <h2 class="text-2xl md:text-3xl font-bold">{category.title}</h2>
+            </div>
+            
+            <div class="space-y-4">
+              {category.questions.map((faq, i) => (
+                <div 
+                  class="faq-item group bg-white/5 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg hover:shadow-accent/5"
+                  x-data="{ open: false }"
+                >
+                  <button 
+                    @click="open = !open"
+                    class="flex justify-between items-start w-full text-left group-hover:text-accent transition-colors"
+                    :aria-expanded="open"
+                  >
+                    <h3 class="text-lg md:text-xl font-semibold pr-4">
+                      {faq.question}
+                    </h3>
+                    <div class="flex-shrink-0 mt-1 ml-4">
+                      <Icon 
+                        name="mdi:plus" 
+                        class="w-6 h-6 text-accent transition-transform duration-300" 
+                        :class="{ 'rotate-45': open }"
+                      />
+                    </div>
+                  </button>
+                  <div 
+                    x-show="open" 
+                    x-collapse
+                    class="mt-4 text-text-secondary/90 space-y-4"
+                    x-transition
+                  >
+                    <div class="prose prose-invert max-w-none" set:html={faq.answer}></div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                      {faq.tags?.map(tag => (
+                        <span class="text-xs px-3 py-1 bg-accent/10 text-accent rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {index < faqCategories.length - 1 && <hr class="my-12 border-t border-accent/10" />}
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-24 text-center bg-gradient-to-r from-accent/5 to-primary/5 rounded-3xl p-12 relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-accent/10 rounded-full filter blur-3xl opacity-50"></div>
+        <div class="relative z-10">
+          <h3 class="text-2xl md:text-4xl font-bold mb-6">¿No encontraste lo que buscabas?</h3>
+          <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
+            Nuestro equipo de expertos está listo para responder cualquier pregunta que tengas sobre nuestros servicios de IA.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="/contacto" 
+              class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-medium rounded-full hover:bg-primary hover:shadow-lg hover:shadow-accent/20 transition-all"
+            >
+              Contáctanos
+              <Icon name="mdi:arrow-right" class="ml-2 w-5 h-5" />
+            </a>
+            <a 
+              href="/servicios" 
+              class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-accent text-accent font-medium rounded-full hover:bg-accent/10 transition-all"
+            >
+              Ver Nuestros Servicios
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<!-- Alpine.js para el acordeón -->
+<script is:inline>
+  document.addEventListener('alpine:init', () => {
+    // Inicializar acordeón
+    Alpine.data('accordion', () => ({
+      open: false,
+      toggle() {
+        this.open = !this.open;
+      }
+    }));
+    
+    // Smooth scroll para los enlaces de categoría
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Estilos para el acordeón */
+  [x-cloak] { display: none !important; }
+  
+  /* Estilos para el contenido del acordeón */
+  [x-show] {
+    transition: opacity 200ms ease-out, transform 200ms ease-out;
+  }
+  
+  /* Mejoras de accesibilidad */
+  [x-cloak] { display: none !important; }
+  
+  /* Efecto hover para las tarjetas de categoría */
+  .category-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Estilos para los enlaces en las respuestas */
+  .prose a {
+    color: #00F0FF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .prose a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  
+  /* Estilos para la barra de búsqueda */
+  input[type="text"]:focus {
+    box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
+  }
+</style>

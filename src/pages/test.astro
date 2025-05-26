@@ -1,0 +1,21 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+<MainLayout title="Página de prueba">
+  <div class="min-h-screen flex flex-col items-center justify-center p-4">
+    <h1 class="text-4xl font-bold text-accent mb-6">¡Página de prueba funcionando!</h1>
+    <div class="space-y-4 text-center">
+      <p class="text-lg">Si puedes ver este mensaje, el enrutamiento básico está funcionando correctamente.</p>
+      <div class="pt-4">
+        <a href="/contacto" class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors">
+          Ir a Contacto (debería funcionar)
+        </a>
+      </div>
+      <div class="pt-2">
+        <a href="/ruta-inexistente" class="inline-block bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+          Probar ruta inexistente
+        </a>
+      </div>
+    </div>
+  </div>
+</MainLayout>

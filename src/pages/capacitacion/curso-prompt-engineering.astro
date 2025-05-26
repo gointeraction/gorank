@@ -1,0 +1,471 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// Course data
+const course = {
+  title: "Curso Online de Prompt Engineering",
+  subtitle: "Aprende a comunicarte eficazmente con la IA para crear soluciones innovadoras",
+  startDate: "10 de Junio, 2025",
+  duration: "4 semanas",
+  modality: "100% Online",
+  price: "$247 USD",
+  spots: 30,
+  modules: 6,
+  hours: 24,
+  image: "/images/cursos/prompt-engineering.jpg"
+};
+
+const highlights = [
+  "Domina la creación de prompts efectivos para cualquier modelo de IA",
+  "Aprende técnicas avanzadas de comunicación con IA",
+  "Optimiza respuestas para mayor precisión y relevancia",
+  "Aplica el conocimiento en casos prácticos reales",
+  "Acceso a herramientas y plantillas exclusivas",
+  "Certificación al finalizar el curso"
+];
+
+const learnings = [
+  "Técnicas para crear prompts claros y efectivos",
+  "Cómo adaptar prompts para diferentes modelos de IA",
+  "Estrategias para obtener respuestas precisas y relevantes",
+  "Personalización de respuestas para diferentes audiencias",
+  "Gestión de conversaciones largas con IA",
+  "Aplicaciones prácticas en diversos campos profesionales"
+];
+
+const audience = [
+  "Profesionales que trabajan con IA y desean mejorar sus habilidades",
+  "Emprendedores que buscan integrar IA en sus negocios",
+  "Desarrolladores y especialistas en tecnología",
+  "Cualquier persona interesada en dominar la comunicación con IA"
+];
+
+const curriculum = [
+  {
+    title: "Fundamentos de Modelos de Lenguaje",
+    topics: [
+      "¿Qué es un modelo de lenguaje?",
+      "Cómo los modelos entienden y generan texto",
+      "Diferencias entre GPT-3, GPT-4 y otros modelos"
+    ]
+  },
+  {
+    title: "Introducción al Prompt Engineering",
+    topics: [
+      "Definición y objetivos",
+      "Principios básicos para prompts efectivos",
+      "Casos de uso y ejemplos prácticos"
+    ]
+  },
+  {
+    title: "Técnicas Avanzadas de Prompting",
+    topics: [
+      "Optimización de prompts",
+      "Técnicas de personalización",
+      "Manejo de conversaciones largas"
+    ]
+  },
+  {
+    title: "Herramientas y Plataformas",
+    topics: [
+      "Plataformas de desarrollo de IA",
+      "Herramientas de análisis de texto",
+      "Integración en aplicaciones"
+    ]
+  },
+  {
+    title: "Aplicaciones Prácticas",
+    topics: [
+      "Chatbots y asistentes virtuales",
+      "Generación de contenido creativo",
+      "Análisis de texto y datos"
+    ]
+  },
+  {
+    title: "Proyecto Final",
+    topics: [
+      "Desarrollo de un caso práctico",
+      "Presentación de resultados",
+      "Retroalimentación personalizada"
+    ]
+  }
+];
+
+const testimonials = [
+  {
+    name: "Ana M. Sánchez",
+    role: "Especialista en Marketing Digital",
+    text: "Este curso transformó mi forma de trabajar con IA. Ahora puedo obtener resultados precisos en minutos, lo que antes me tomaba horas de trabajo.",
+    image: "/images/testimonials/ana-sanchez.jpg"
+  },
+  {
+    name: "Jorge L. Ramírez",
+    role: "Desarrollador de Software",
+    text: "Las técnicas aprendidas me han permitido optimizar mis interacciones con modelos de lenguaje, ahorrando tiempo y mejorando la calidad de mis desarrollos.",
+    image: "/images/testimonials/jorge-ramirez.jpg"
+  }
+];
+
+const faqs = [
+  {
+    question: "¿Necesito experiencia previa en programación?",
+    answer: "No, el curso está diseñado para todos los niveles, desde principiantes hasta profesionales con experiencia en tecnología."
+  },
+  {
+    question: "¿Qué incluye el curso?",
+    answer: "Incluye 24 horas de contenido, material de apoyo, plantillas descargables, certificado de finalización y acceso a la comunidad de estudiantes."
+  },
+  {
+    question: "¿Por cuánto tiempo tendré acceso al contenido?",
+    answer: "Tendrás acceso de por vida al contenido del curso y a todas las actualizaciones futuras."
+  },
+  {
+    question: "¿Hay algún requisito técnico?",
+    answer: "Solo necesitas una computadora con conexión a internet. No se requiere software especializado."
+  }
+];
+---
+
+<MainLayout title={`${course.title} | Go Rank First`}>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden">
+    <div class="absolute inset-0 bg-grid-accent/10 [mask-image:linear-gradient(0deg,transparent,white)]"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">
+          Inicia: {course.startDate} • {course.spots} cupos disponibles
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          {course.title}
+        </h1>
+        <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+          {course.subtitle}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#inscripcion" class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+            ¡Quiero inscribirme!
+          </a>
+          <a href="#temario" class="px-8 py-4 border-2 border-accent text-accent hover:bg-accent/10 font-semibold rounded-xl transition-all duration-300">
+            Ver temario completo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Highlights -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Domina el arte de la <span class="text-accent">comunicación con IA</span></h2>
+            <p class="text-text-secondary mb-6 text-lg">
+              Aprende las técnicas más efectivas para obtener los mejores resultados de los modelos de lenguaje y lleva tus habilidades al siguiente nivel.
+            </p>
+            <ul class="space-y-3 mb-8">
+              {highlights.map((highlight, index) => (
+                <li class="flex items-start">
+                  <svg class="h-6 w-6 text-accent mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="#inscripcion" class="inline-block px-8 py-3 bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+              ¡Quiero comenzar ahora!
+            </a>
+          </div>
+          <div class="relative">
+            <div class="relative z-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden shadow-xl">
+              <img src={course.image} alt={course.title} class="w-full h-auto" />
+            </div>
+            <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-accent/10 rounded-full filter blur-3xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Details -->
+  <section class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+        <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="text-4xl text-accent mb-4">
+            <i class="ph ph-clock"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Duración</h3>
+          <p class="text-text-secondary">{course.duration}</p>
+          <p class="text-sm text-text-secondary/70 mt-1">{course.hours} horas de contenido</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="text-4xl text-accent mb-4">
+            <i class="ph ph-laptop"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Modalidad</h3>
+          <p class="text-text-secondary">{course.modality}</p>
+          <p class="text-sm text-text-secondary/70 mt-1">Acceso de por vida</p>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="text-4xl text-accent mb-4">
+            <i class="ph ph-currency-dollar"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Inversión</h3>
+          <p class="text-text-secondary">{course.price}</p>
+          <p class="text-sm text-text-secondary/70 mt-1">Pago único, sin sorpresas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Learn -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Aprendizaje</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Qué <span class="text-accent">aprenderás</span> en este curso?</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Domina las técnicas más efectivas de comunicación con inteligencia artificial.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {learnings.map((learning, index) => (
+          <div class="flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl hover:border-accent/30 transition-all">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent text-lg font-bold">
+              {index + 1}
+            </div>
+            <p class="text-text-primary">{learning}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who is it for -->
+  <section class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Para quién es este <span class="text-accent">curso</span>?</h2>
+          <p class="text-text-secondary max-w-2xl mx-auto">
+            Este programa está diseñado para profesionales que desean destacar en el uso de inteligencia artificial.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          {audience.map((item, index) => (
+            <div class="flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl hover:border-accent/30 transition-all">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                <i class="ph ph-check-circle text-xl"></i>
+              </div>
+              <p class="text-text-primary">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section id="temario" class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Contenido</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Temario del <span class="text-accent">Curso</span></h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Un programa completo que te llevará de principiante a experto en Prompt Engineering.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6">
+        {curriculum.map((module, index) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden">
+            <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="this.nextElementSibling.classList.toggle('hidden')">
+              <h3 class="text-xl font-semibold">
+                <span class="text-accent mr-2">Módulo {index + 1}:</span> {module.title}
+              </h3>
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-6 pb-6 hidden">
+              <ul class="space-y-3">
+                {module.topics.map((topic) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span class="text-text-secondary">{topic}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Testimonios</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Lo que dicen nuestros <span class="text-accent">estudiantes</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {testimonials.map((testimonial) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+            <div class="flex items-center mb-6">
+              <img src={testimonial.image} alt={testimonial.name} class="w-16 h-16 rounded-full object-cover mr-4 border-2 border-accent/30" />
+              <div>
+                <h4 class="text-xl font-semibold">{testimonial.name}</h4>
+                <p class="text-text-secondary">{testimonial.role}</p>
+              </div>
+            </div>
+            <p class="text-text-secondary italic">"{testimonial.text}"</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration -->
+  <section id="inscripcion" class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden">
+        <div class="md:flex">
+          <div class="md:w-1/2 bg-gradient-to-br from-primary/10 to-accent/10 p-8 flex flex-col justify-center">
+            <h2 class="text-3xl font-bold mb-4">Inscríbete al curso</h2>
+            <p class="text-text-secondary mb-6">
+              Aprovecha esta oportunidad para dominar el arte del Prompt Engineering y lleva tus habilidades al siguiente nivel.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Acceso de por vida al contenido</span>
+              </div>
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Certificado de finalización</span>
+              </div>
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Soporte y comunidad exclusiva</span>
+              </div>
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Material de apoyo y plantillas</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2 p-8">
+            <div class="text-center mb-6">
+              <span class="text-4xl font-bold text-accent">{course.price}</span>
+              <p class="text-text-secondary">Pago único</p>
+            </div>
+            <form class="space-y-4">
+              <div>
+                <label for="nombre" class="block text-sm font-medium text-text-primary mb-1">Nombre completo</label>
+                <input type="text" id="nombre" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" required />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-text-primary mb-1">Correo electrónico</label>
+                <input type="email" id="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" required />
+              </div>
+              <div>
+                <label for="telefono" class="block text-sm font-medium text-text-primary mb-1">Teléfono (opcional)</label>
+                <input type="tel" id="telefono" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" />
+              </div>
+              <button type="submit" class="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+                ¡Quiero inscribirme ahora!
+              </button>
+              <p class="text-xs text-text-secondary text-center mt-2">
+                Al inscribirte, aceptas nuestros <a href="/terminos" class="text-accent hover:underline">Términos de Servicio</a> y <a href="/privacidad" class="text-accent hover:underline">Política de Privacidad</a>.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Preguntas Frecuentes</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Tienes <span class="text-accent">dudas</span>?</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Aquí respondemos las preguntas más comunes sobre nuestro curso de Prompt Engineering.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        {faqs.map((faq, index) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="this.nextElementSibling.classList.toggle('hidden')">
+              <span class="font-medium text-lg">{faq.question}</span>
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-6 pb-4 hidden">
+              <p class="text-text-secondary">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para dominar el arte del Prompt Engineering?</h2>
+      <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+        Inicia tu viaje hacia la maestría en comunicación con inteligencia artificial y destaca en la era digital.
+      </p>
+      <a 
+        href="#inscripcion" 
+        class="inline-block px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20"
+      >
+        ¡Quiero inscribirme ahora!
+      </a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Animations */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Hover effects */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Transitions */
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  
+  /* Glass effect */
+  .backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<MainLayout title="Go Rank First IA">
+  <section class="bg-gradient-to-r from-primary to-primary-dark text-white py-16 md:py-24">
+    <div class="container mx-auto px-4 text-center">
+      <div class="inline-block bg-accent/10 px-6 py-2 rounded-full mb-6">
+  <span class="text-accent font-bold text-base md:text-lg">Soluciones Digitales Avanzadas</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold text-center mb-6">
+  <span class="text-accent">Go Rank First:</span> <span class="text-white">Potencia tu Negocio Digital</span>
+</h1>
+<p class="text-text-secondary text-xl md:text-2xl text-center max-w-3xl mx-auto mb-8 font-medium">
+  Transformamos tu presencia online con estrategias de <span class="text-accent font-bold">IA, SEO y automatización inteligente</span>
+</p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <a 
+          href="/contacto" 
+          class="bg-white text-primary px-6 md:px-8 py-3 md:py-4 rounded-windsurf hover:bg-gray-100 transition-colors font-semibold text-sm md:text-base">
+          Solicitar Consulta
+        </a>
+        <a 
+          href="#servicios" 
+          class="border-2 border-white text-white px-6 md:px-8 py-3 md:py-4 rounded-windsurf hover:bg-white hover:text-primary transition-colors font-semibold text-sm md:text-base">
+          Conocer Más
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="container mx-auto px-4 py-16 md:py-24">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-text-primary">
+      Servicios de <span class="text-primary">Go Rank First IA</span>
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-8 rounded-windsurf shadow-soft hover:shadow-windsurf transition-all duration-300">
+        <Icon name="mdi:chart-line" class="w-12 h-12 text-primary mb-4" />
+        <h3 class="text-xl font-semibold mb-4 text-text-primary">Optimización SEO con IA</h3>
+        <p class="text-text-secondary">
+          Análisis avanzado y estrategias de posicionamiento impulsadas por inteligencia artificial.
+        </p>
+      </div>
+      <div class="bg-white p-8 rounded-windsurf shadow-soft hover:shadow-windsurf transition-all duration-300">
+        <Icon name="mdi:content-copy" class="w-12 h-12 text-primary mb-4" />
+        <h3 class="text-xl font-semibold mb-4 text-text-primary">Generación de Contenido</h3>
+        <p class="text-text-secondary">
+          Contenido optimizado y personalizado generado con tecnología de IA de última generación.
+        </p>
+      </div>
+      <div class="bg-white p-8 rounded-windsurf shadow-soft hover:shadow-windsurf transition-all duration-300">
+        <Icon name="mdi:analytics" class="w-12 h-12 text-primary mb-4" />
+        <h3 class="text-xl font-semibold mb-4 text-text-primary">Análisis de Rendimiento</h3>
+        <p class="text-text-secondary">
+          Monitoreo y análisis predictivo del rendimiento de tu estrategia digital.
+        </p>
+      </div>
+    </div>
+  </section>
+</MainLayout>

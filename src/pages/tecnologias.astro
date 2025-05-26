@@ -1,0 +1,109 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<MainLayout title="Tecnologías de Desarrollo de Software">
+  <section class="container mx-auto px-4 py-16 md:py-24">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-8 text-center text-text-primary">
+  Nuestras <span class="text-accent transition-colors duration-300 hover:text-accent/80">Tecnologías</span> de Desarrollo
+</h1>
+      <p class="text-xl text-text-secondary max-w-4xl mx-auto">
+        Ofrecemos soluciones de desarrollo de software de vanguardia utilizando las tecnologías más avanzadas y especializadas del mercado.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-6 text-accent transition-colors duration-300">Desarrollo Web Frontend</h3>
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <Icon name="mdi:react" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:angular" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:vuejs" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        </div>
+        <ul class="text-text-secondary space-y-2 text-sm flex-grow">
+          <li>• React</li>
+          <li>• Angular</li>
+          <li>• Vue.js</li>
+          <li>• JavaScript</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-6 text-accent transition-colors duration-300">Desarrollo Móvil</h3>
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <Icon name="mdi:android" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:apple" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:react" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        </div>
+        <ul class="text-text-secondary space-y-2 text-sm flex-grow">
+          <li>• Android</li>
+          <li>• iOS</li>
+          <li>• React Native</li>
+          <li>• Flutter</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-6 text-accent transition-colors duration-300">Cloud & Servicios</h3>
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <Icon name="mdi:amazon" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:microsoft-azure" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:google-cloud" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        </div>
+        <ul class="text-text-secondary space-y-2 text-sm flex-grow">
+          <li>• Amazon Web Services (AWS)</li>
+          <li>• Microsoft Azure</li>
+          <li>• Google Cloud Platform</li>
+          <li>• Salesforce</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-6 text-accent transition-colors duration-300">Lenguajes de Programación</h3>
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <Icon name="mdi:language-java" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:language-python" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:language-javascript" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        </div>
+        <ul class="text-text-secondary space-y-2 text-sm flex-grow">
+          <li>• Java</li>
+          <li>• Python</li>
+          <li>• .NET</li>
+          <li>• Node.js</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-6 text-accent transition-colors duration-300">Tecnologías Emergentes</h3>
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <Icon name="mdi:link-variant" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:glasses" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:robot-industrial" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        </div>
+        <ul class="text-text-secondary space-y-2 text-sm flex-grow">
+          <li>• Blockchain</li>
+          <li>• Machine Learning</li>
+          <li>• AR/VR/MR</li>
+          <li>• Internet of Things</li>
+        </ul>
+      </div>
+
+      <div class="bg-surface/80 p-6 rounded-windsurf shadow-soft flex flex-col border border-transparent transition-all duration-300 hover:bg-accent/10 hover:border-accent hover:scale-105 hover:shadow-[0_0_24px_#00F0FF88] cursor-pointer">
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-6 text-accent transition-colors duration-300">Servicios Especializados</h3>
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <Icon name="mdi:code-tags" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:desktop-mac" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+          <Icon name="mdi:chart-line" class="w-12 h-12 text-accent transition-all duration-300 group-hover:scale-110 group-hover:brightness-125" />
+        </div>
+        <ul class="text-text-secondary space-y-2 text-sm flex-grow">
+          <li>• Desarrollo de Software Personalizado</li>
+          <li>• Consultoría IT</li>
+          <li>• Transformación Digital</li>
+          <li>• Staff Augmentation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,597 @@
+---
+/*
+  Archivo: index.astro
+  Propósito: Página principal del sitio web. Estructura y presenta el hero, integraciones y servicios destacados.
+  Imports:
+    - MainLayout: Layout base de la web.
+    - Icon: Componente de íconos SVG reutilizables.
+    - HomeServiceSlider: (no usado directamente aquí, pero disponible para sliders de servicios).
+    - IntegrationsShowcase: Sección premium de integraciones con apps externas.
+*/
+import MainLayout from '../layouts/MainLayout.astro';
+import { Icon } from 'astro-icon/components';
+import HomeServiceSlider from '../components/HomeServiceSlider.astro';
+import IntegrationsShowcase from '../components/IntegrationsShowcase.astro';
+import HeroWaveShowcase from '../components/HeroWaveShowcase.astro';
+import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
+---
+
+<MainLayout title="Inicio">
+  <!-- Hero Section Mejorada -->
+  <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-surface/80 to-primary/5 pt-1">
+    <!-- Patrón de fondo sutil -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] bg-center [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+    </div>
+    
+    <!-- Partículas animadas -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute -top-10 -left-10 w-72 h-72 bg-accent/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+      <div class="absolute top-1/3 -right-10 w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+      <div class="absolute -bottom-20 left-1/3 w-80 h-80 bg-accent/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+    </div>
+
+    <div class="relative container mx-auto px-4 pt-0 md:pt-4 pb-6 md:pb-12 flex flex-col lg:flex-row items-center justify-between gap-4 z-10">
+      <!-- Contenido de texto -->
+      <div class="flex-1 text-center lg:text-left max-w-3xl mx-auto lg:mx-0">
+        <div class="inline-flex items-center gap-1 mb-2 px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent/75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+          </span>
+        
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-2 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-accent/80">
+          Potencia tu negocio con <span class="text-accent">Inteligencia Artificial</span>
+        </h1>
+        
+        <p class="text-base md:text-lg text-gray-300 mb-6 max-w-2xl mx-auto lg:mx-0 leading-snug">
+          Soluciones de IA personalizadas que impulsan la innovación, automatizan procesos y generan resultados medibles para tu empresa.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a 
+            href="/contacto" 
+            class="relative group inline-flex items-center justify-center px-8 py-4 overflow-hidden font-bold text-white rounded-2xl bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-5px_rgba(34,197,94,0.3)]"
+          >
+            <span class="relative z-10 flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              Comienza ahora
+            </span>
+            <span class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></span>
+          </a>
+          
+          <a 
+            href="#servicios" 
+            class="inline-flex items-center justify-center px-8 py-4 font-medium text-white border-2 border-white/20 hover:border-accent/50 rounded-2xl hover:text-accent transition-all duration-300 hover:-translate-y-0.5"
+          >
+            <span class="flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Ver demostración
+            </span>
+          </a>
+        </div>
+        
+        <div class="mt-12 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 text-sm text-text-secondary/70">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            Implementación rápida
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            Soporte 24/7
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            Resultados garantizados
+          </div>
+        </div>
+      </div>
+      
+      <!-- Imagen del héroe con efecto 3D -->
+      <div class="relative flex-1 max-w-2xl mt-12 lg:mt-0">
+        <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/10 bg-gradient-to-br from-surface to-surface/80 backdrop-blur-sm" style="transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);">
+          <img 
+            src="/ai-hero.svg" 
+            alt="Dashboard de IA" 
+            class="w-full h-auto object-cover"
+            loading="eager"
+            width="1200"
+            height="800"
+          />
+          <!-- Efecto de brillo en la imagen -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-accent/5 to-primary/5 mix-blend-overlay"></div>
+        </div>
+        
+        <!-- Elementos flotantes -->
+        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/10 rounded-2xl backdrop-blur-sm border border-accent/20 -z-10 animate-float"></div>
+        <div class="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-2xl backdrop-blur-sm border border-primary/20 -z-10 animate-float animation-delay-2000"></div>
+        
+        <!-- Badge flotante -->
+        <div class="absolute -bottom-4 -right-4 bg-gradient-to-r from-accent to-primary text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg flex items-center gap-2 animate-bounce">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+          </span>
+          En tiempo real
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll down indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <a href="#servicios" class="text-text-secondary hover:text-accent transition-colors">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+  
+
+
+<!--
+  SECCIÓN DE INTEGRACIONES
+  Muestra logos y explicación de integraciones con más de 40 apps populares.
+  Este bloque utiliza el componente IntegrationsShowcase, que incluye SVG, logos y texto premium.
+-->
+<IntegrationsShowcase />
+
+<!--
+  SERVICIOS DESTACADOS
+  Grid de servicios principales ofrecidos por la empresa.
+  Cada tarjeta tiene ícono, título, descripción y CTA específico.
+  Estilos premium y animaciones de hover.
+-->
+<!-- SERVICIOS DESTACADOS -->
+<section id="servicios" class="relative py-16 md:py-20 bg-gradient-to-br from-surface via-surface/95 to-background/90 overflow-hidden scroll-mt-16">
+  <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-5"></div>
+  <div class="relative container mx-auto z-10 px-4 md:px-6">
+    <!-- Encabezado Mejorado -->
+    <div class="text-center max-w-4xl mx-auto mb-12 md:mb-16">
+      <div class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20">
+        <div class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></div>
+        <span class="text-accent font-medium text-xs md:text-sm tracking-wider">NUESTRAS SOLUCIONES</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+        Servicios de <span class="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">Inteligencia Artificial</span>
+      </h2>
+      <p class="text-text-secondary/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+        Soluciones de IA personalizadas que impulsan la innovación y eficiencia en tu negocio.
+      </p>
+    </div>
+    
+    <!-- Tarjetas de Servicios Rediseñadas -->
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <!-- Servicio 1: Machine Learning -->
+      <div class="group h-full flex flex-col bg-surface/80 backdrop-blur-sm rounded-xl border border-white/5 hover:border-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+        <div class="p-6 flex-1">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg mb-4">
+            <Icon name="mdi:brain" class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">
+            Machine Learning
+          </h3>
+          <p class="text-text-secondary/80 mb-4 text-sm leading-relaxed">
+            Modelos predictivos avanzados que aprenden de tus datos para ofrecer insights valiosos.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
+              <span class="text-text-secondary/80 text-sm">Modelos predictivos personalizados</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
+              <span class="text-text-secondary/80 text-sm">Análisis de tendencias avanzado</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
+              <span class="text-text-secondary/80 text-sm">Detección de patrones ocultos</span>
+            </li>
+          </ul>
+        </div>
+        <div class="px-6 pb-6 pt-2 border-t border-white/5">
+          <a href="/machine-learning" class="inline-flex items-center text-sm font-medium text-accent hover:text-white group">
+            Descubre más
+            <Icon name="mdi:arrow-right" class="ml-1.5 w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Servicio 2: Aplicaciones Móviles con IA -->
+      <div class="group h-full flex flex-col bg-surface/80 backdrop-blur-sm rounded-xl border border-white/5 hover:border-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+        <div class="p-6 flex-1">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg mb-4">
+            <Icon name="mdi:cellphone" class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">
+            Aplicaciones Móviles
+          </h3>
+          <p class="text-text-secondary/80 mb-4 text-sm leading-relaxed">
+            Aplicaciones móviles potenciadas con IA para ofrecer experiencias únicas y personalizadas.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
+              <span class="text-text-secondary/80 text-sm">Reconocimiento de imágenes</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
+              <span class="text-text-secondary/80 text-sm">Procesamiento de lenguaje natural</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
+              <span class="text-text-secondary/80 text-sm">Experiencias hiper-personalizadas</span>
+            </li>
+          </ul>
+        </div>
+        <div class="px-6 pb-6 pt-2 border-t border-white/5">
+          <a href="/aplicaciones-moviles" class="inline-flex items-center text-sm font-medium text-accent hover:text-white group">
+            Descubre más
+            <Icon name="mdi:arrow-right" class="ml-1.5 w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Servicio 3: Automatización de Procesos -->
+      <div class="group h-full flex flex-col bg-surface/80 backdrop-blur-sm rounded-xl border border-white/5 hover:border-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+        <div class="p-6 flex-1">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg mb-4">
+            <Icon name="mdi:robot" class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">
+            Automatización
+          </h3>
+          <p class="text-text-secondary/80 mb-4 text-sm leading-relaxed">
+            Optimiza tus operaciones con soluciones de automatización inteligente que reducen costos.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
+              <span class="text-text-secondary/80 text-sm">Automatización de tareas</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
+              <span class="text-text-secondary/80 text-sm">Flujos de trabajo inteligentes</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
+              <span class="text-text-secondary/80 text-sm">Integración con sistemas</span>
+            </li>
+          </ul>
+        </div>
+        <div class="px-6 pb-6 pt-2 border-t border-white/5">
+          <a href="/automatizacion" class="inline-flex items-center text-sm font-medium text-accent hover:text-white group">
+            Descubre más
+            <Icon name="mdi:arrow-right" class="ml-1.5 w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="mt-16">
+      <div class="relative rounded-xl overflow-hidden bg-gradient-to-r from-primary/5 to-accent/5 p-6 md:p-8 border border-white/5">
+        <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div class="relative z-10">
+          <div class="max-w-3xl mx-auto text-center">
+            <h3 class="text-xl md:text-2xl font-bold text-white mb-3">¿Listo para transformar tu negocio con IA?</h3>
+            <p class="text-text-secondary/80 mb-6 text-base max-w-2xl mx-auto">Descubre cómo nuestras soluciones pueden impulsar tu productividad y reducir costos.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-3">
+              <a href="/contacto" class="inline-flex items-center justify-center bg-gradient-to-r from-accent to-primary text-white font-medium px-6 py-2.5 rounded-lg text-sm transition-all hover:shadow-[0_0_20px_#00F0FF33]">
+                Solicitar consulta
+                <Icon name="mdi:arrow-right" class="w-4 h-4 ml-1.5" />
+              </a>
+              <a href="/servicios" class="inline-flex items-center justify-center bg-transparent border border-accent/20 text-accent font-medium px-6 py-2.5 rounded-lg text-sm transition-colors hover:bg-accent/10">
+                Ver servicios
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class='mt-4 md:mt-6 bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg text-white py-6 md:py-8'>
+    <div class='container mx-auto px-4 text-center'>
+      <h2 class='text-3xl md:text-4xl font-bold mb-4 md:mb-6'>
+        Impulsa tu Negocio con Soluciones de IA
+      </h2>
+      <p class='text-base md:text-xl mb-6 md:mb-8 max-w-3xl mx-auto opacity-90'>
+        Descubre cómo nuestra tecnología de vanguardia puede transformar tu empresa, aumentar la eficiencia y desbloquear nuevas oportunidades de crecimiento.
+      </p>
+      <div class='text-accent text-2xl md:text-3xl font-bold text-center mb-6'>
+  ¡Implementa IA hoy y destaca en tu industria!
+</div>
+<div class='flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4'>
+        <a 
+          href='/contacto' 
+          class='inline-block bg-accent/90 hover:bg-accent text-background px-8 py-4 rounded-3xl shadow-lg glow-btn font-bold text-lg tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent'>
+          Solicitar Consulta
+        </a>
+        <a 
+          href='/servicios' 
+          class='inline-block border-2 border-accent text-accent hover:bg-accent hover:text-background px-8 py-4 rounded-3xl shadow-lg glow-btn font-bold text-lg tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent ml-4'>
+          Conocer Servicios
+        </a>
+      </div>
+      </h2>
+      <div class='mt-8'></div>
+      <div class='grid md:grid-cols-2 gap-6 mb-8'>
+        <div class='relative bg-gradient-to-br from-background/80 via-primary/30 to-accent/20 border border-accent/30 rounded-3xl shadow-2xl px-8 py-10 mb-4 overflow-hidden group transition-all duration-500 hover:scale-105 hover:shadow-[0_0_48px_#00F0FF88] hover:border-accent' style='backdrop-filter: blur(10px);'>
+  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;"></div>
+  <div class="relative z-10">
+          <h3 class='text-2xl md:text-3xl font-extrabold text-white mb-4 flex items-center'>
+            <span class='mr-3 text-2xl'>🚀</span>Eficiencia y Productividad
+          </h3>
+          <ul class='text-text-secondary dark:text-dark-text-secondary space-y-2 text-sm'>
+            <li>• Automatización de procesos operativos – Reduce costos y errores, liberando tiempo para estrategias clave.</li>
+            <li>• Aumento de la productividad del equipo – Herramientas inteligentes que potencian el rendimiento de tus colaboradores.</li>
+          </ul>
+    </div>
+  </div>
+        <div class='relative bg-gradient-to-br from-background/80 via-primary/30 to-accent/20 border border-accent/30 rounded-3xl shadow-2xl px-8 py-10 mb-4 overflow-hidden group transition-all duration-500 hover:scale-105 hover:shadow-[0_0_48px_#00F0FF88] hover:border-accent' style='backdrop-filter: blur(10px);'>
+  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;"></div>
+  <div class="relative z-10">
+          <h3 class='text-2xl md:text-3xl font-extrabold text-white mb-4 flex items-center'>
+            <span class='mr-3 text-2xl'>💡</span>Innovación y Mejora Continua
+          </h3>
+          <ul class='text-text-secondary dark:text-dark-text-secondary space-y-2 text-sm'>
+            <li>• Análisis avanzado de datos (Big Data) – Toma decisiones basadas en insights reales y predictivos.</li>
+            <li>• Detección proactiva de problemas y soluciones automatizadas – Anticipa desafíos antes de que afecten tu negocio.</li>
+          </ul>
+    </div>
+  </div>
+        <div class='relative bg-gradient-to-br from-background/80 via-primary/30 to-accent/20 border border-accent/30 rounded-3xl shadow-2xl px-8 py-10 mb-4 overflow-hidden group transition-all duration-500 hover:scale-105 hover:shadow-[0_0_48px_#00F0FF88] hover:border-accent' style='backdrop-filter: blur(10px);'>
+  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;"></div>
+  <div class="relative z-10">
+          <h3 class='text-2xl md:text-3xl font-extrabold text-white mb-4 flex items-center justify-center'>
+            Tecnología al Servicio del Cliente
+          </h3>
+          <ul class='text-text-secondary dark:text-dark-text-secondary space-y-2 text-sm'>
+            <li>• Agentes de IA personalizados – Asistentes virtuales 24/7 para atención inmediata y personalizada.</li>
+            <li>• Innovación en servicio al cliente – Experiencias únicas que fidelizan y aumentan la satisfacción.</li>
+          </ul>
+    </div>
+  </div>
+        <div class='relative bg-gradient-to-br from-background/80 via-primary/30 to-accent/20 border border-accent/30 rounded-3xl shadow-2xl px-8 py-10 mb-4 overflow-hidden group transition-all duration-500 hover:scale-105 hover:shadow-[0_0_48px_#00F0FF88] hover:border-accent' style='backdrop-filter: blur(10px);'>
+  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;"></div>
+  <div class="relative z-10">
+          <h3 class='text-2xl md:text-3xl font-extrabold text-white mb-4 flex items-center'>
+            <span class='mr-3 text-2xl'>📈</span>Marketing Inteligente
+          </h3>
+          <ul class='text-text-secondary dark:text-dark-text-secondary space-y-2 text-sm'>
+            <li>• Automatización de campañas de marketing – Segmentación precisa y mensajes hiperpersonalizados en tiempo real.</li>
+          </ul>
+    </div>
+  </div>
+      </div>
+      <div class='text-center'>
+        <p class='text-lg text-text-secondary dark:text-dark-text-secondary mb-6'>
+          ¿Listo para llevar tu negocio al siguiente nivel?
+          <span class='text-accent text-xl md:text-2xl font-bold block mt-2'>¡Implementa IA hoy y destaca en tu industria!</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de confianza con efecto de movimiento -->
+  <div class="mt-4 md:mt-6 pt-2 pb-8 md:pb-12 bg-surface/50 backdrop-blur-sm overflow-hidden relative">
+    <div class="container mx-auto px-4">
+      <p class="text-center text-text-secondary/70 text-sm uppercase tracking-wider mb-4">Clientes y aliados</p>
+      
+      <!-- Contenedor del carrusel con gradiente para efecto de desvanecimiento -->
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 w-24 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute inset-y-0 right-0 w-24 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
+        
+        <!-- Carrusel de logos -->
+        <div class="relative w-full overflow-hidden">
+          <!-- Primera fila de logos -->
+          <div class="logos-slide flex items-center space-x-12 md:space-x-16 py-4">
+            <!-- Repetir los logos para crear un efecto de bucle continuo -->
+            {[...Array(3)].map((_, i) => (
+              <>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/cavecom-e.svg" alt="Cavecom-e" class="h-8 md:h-10 w-auto" />
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/google.svg" alt="Google" class="h-8 md:h-10 w-auto" />
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/n8n.svg" alt="n8n" class="h-8 md:h-10 w-auto" />
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/radar-systems.svg" alt="Radar Systems" class="h-8 md:h-10 w-auto" />
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/tecnopublic.svg" alt="Tecnopublic" class="h-8 md:h-10 w-auto" />
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/universidad-carabobo.svg" alt="Universidad de Carabobo" class="h-8 md:h-10 w-auto" />
+                </div>
+              </>
+            ))}
+          </div>
+          
+          <!-- Segunda fila de logos (se mueve en dirección contraria) -->
+          <div class="logos-slide-reverse flex items-center space-x-12 md:space-x-16 py-4 mt-6">
+            {[...Array(3)].map((_, i) => (
+              <>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/tecnopublic.svg" alt="Tecnopublic" class="h-7 md:h-9 w-auto" />
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/radar-systems.svg" alt="Radar Systems" class="h-7 md:h-9 w-auto" />
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/n8n.svg" alt="n8n" class="h-7 md:h-9 w-auto" />
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/universidad-carabobo.svg" alt="Universidad de Carabobo" class="h-7 md:h-9 w-auto" />
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/cavecom-e.svg" alt="Cavecom-e" class="h-7 md:h-9 w-auto" />
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 px-4">
+                  <img src="/images/logos/google.svg" alt="Google" class="h-7 md:h-9 w-auto" />
+                </div>
+              </>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      /* Animación del carrusel */
+      @keyframes slide {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-100% / 3)); }
+      }
+      
+      @keyframes slideReverse {
+        0% { transform: translateX(calc(-100% / 3)); }
+        100% { transform: translateX(0); }
+      }
+      
+      .logos-slide {
+        display: flex;
+        animation: 30s slide infinite linear;
+      }
+      
+      .logos-slide-reverse {
+        display: flex;
+        animation: 30s slideReverse infinite linear;
+      }
+      
+      .logos-slide:hover,
+      .logos-slide-reverse:hover {
+        animation-play-state: paused;
+      }
+      
+      /* Ajustes responsivos */
+      @media (max-width: 768px) {
+        @keyframes slide {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-100% / 2)); }
+        }
+        
+        @keyframes slideReverse {
+          0% { transform: translateX(calc(-100% / 2)); }
+          100% { transform: translateX(0); }
+        }
+      }
+      
+      @media (max-width: 480px) {
+        @keyframes slide {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-100% / 1.5)); }
+        }
+        
+        @keyframes slideReverse {
+          0% { transform: translateX(calc(-100% / 1.5)); }
+          100% { transform: translateX(0); }
+        }
+      }
+    </style>
+  </div>
+
+       
+
+
+  <!-- Botón Volver Arriba -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 bg-accent text-background rounded-full p-3 shadow-lg z-50 hover:scale-110 transition-transform animate-fade-in" aria-label="Volver arriba">
+    <Icon name="mdi:arrow-up" aria-label="Volver arriba" class="w-6 h-6" />
+  </button>
+
+</MainLayout>
+
+<!-- Animación Fade-in (puedes mover esto a tu CSS global si usas Tailwind o similar) -->
+<style>
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-in;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<!-- Estilos adicionales -->
+<style>
+  /* Animaciones personalizadas */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Clases de utilidad */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  
+  /* Mejoras de compatibilidad */
+  .backdrop-blur-sm {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+  
+  /* Asegurar que los gradientes sean visibles */
+  .bg-gradient-to-r {
+    background-size: 200% 200%;
+  }
+  
+  /* Mejoras de rendimiento para animaciones */
+  .group:hover .group-hover\:translate-y-0 {
+    transform: translateY(0);
+  }
+  
+  .group:hover .group-hover\:translate-y-1 {
+    transform: translateY(-0.25rem);
+  }
+  
+  /* Asegurar que los iconos se muestren correctamente */
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+</style>

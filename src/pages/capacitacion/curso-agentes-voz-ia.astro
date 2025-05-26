@@ -1,0 +1,492 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// Course data
+const course = {
+  title: "Curso de Creación de Agentes de Voz IA Developer",
+  subtitle: "Aprende a desarrollar asistentes de voz inteligentes con tecnologías de vanguardia",
+  startDate: "15 de Julio, 2025",
+  duration: "8 semanas",
+  hours: 40,
+  modality: "Online con sesiones en vivo",
+  price: "$497 USD",
+  level: "Intermedio-Avanzado",
+  spots: 20,
+  image: "/images/cursos/agentes-voz-ia.jpg",
+  certification: "Certificación en Desarrollo de Agentes de Voz IA"
+};
+
+const highlights = [
+  "Aprende a crear agentes de voz personalizados desde cero",
+  "Domina el uso de APIs de reconocimiento y síntesis de voz",
+  "Implementa procesamiento de lenguaje natural (NLP)",
+  "Desarrolla habilidades en Python y frameworks de IA conversacional",
+  "Aprende sobre seguridad y privacidad en aplicaciones de voz",
+  "Obtén un portafolio de proyectos reales"
+];
+
+const learnings = [
+  "Fundamentos de procesamiento de voz",
+  "Arquitectura de agentes conversacionales",
+  "Integración con plataformas como Alexa y Google Assistant",
+  "Machine Learning aplicado al reconocimiento de voz",
+  "Optimización de rendimiento",
+  "Despliegue en la nube"
+];
+
+const requirements = [
+  "Conocimientos básicos de programación en Python",
+  "Experiencia con línea de comandos",
+  "Conocimientos básicos de Git",
+  "Computadora con al menos 8GB de RAM",
+  "Cuenta en GitHub"
+];
+
+const curriculum = [
+  {
+    title: "Introducción a los Agentes de Voz",
+    topics: [
+      "Panorama actual de la tecnología de voz",
+      "Arquitectura de sistemas de voz",
+      "Casos de uso y aplicaciones prácticas"
+    ]
+  },
+  {
+    title: "Fundamentos de Procesamiento de Voz",
+    topics: [
+      "Reconocimiento automático del habla (ASR)",
+      "Síntesis de voz (TTS)",
+      "Análisis espectral"
+    ]
+  },
+  {
+    title: "Desarrollo con Python y Bibliotecas de Voz",
+    topics: [
+      "Librerías: SpeechRecognition, PyAudio",
+      "Procesamiento de señales de audio",
+      "Extracción de características"
+    ]
+  },
+  {
+    title: "Procesamiento de Lenguaje Natural",
+    topics: [
+      "Modelos de lenguaje para voz",
+      "Intención y entidades",
+      "Contexto en conversaciones"
+    ]
+  },
+  {
+    title: "Frameworks para Desarrollo de Agentes",
+    topics: [
+      "Rasa",
+      "Dialogflow",
+      "Microsoft Bot Framework"
+    ]
+  },
+  {
+    title: "Integración con Plataformas",
+    topics: [
+      "Alexa Skills Kit",
+      "Google Actions",
+      "Desarrollo de custom skills"
+    ]
+  },
+  {
+    title: "Optimización y Despliegue",
+    topics: [
+      "Mejora de precisión",
+      "Reducción de latencia",
+      "Despliegue en la nube"
+    ]
+  },
+  {
+    title: "Proyecto Final",
+    topics: [
+      "Desarrollo de un agente de voz completo",
+      "Pruebas y optimización",
+      "Presentación del proyecto"
+    ]
+  }
+];
+
+const testimonials = [
+  {
+    name: "María G. López",
+    role: "Ingeniera de Software",
+    text: "Este curso me dio las bases para desarrollar mi propio asistente de voz. Ahora trabajo en proyectos de IA conversacional para una startup de tecnología.",
+    image: "/images/testimonials/maria-lopez.jpg"
+  },
+  {
+    name: "Javier M. Torres",
+    role: "CTO en Startup Tech",
+    text: "El enfoque práctico y la profundidad técnica son excelentes. Hemos implementado varios de los conceptos aprendidos en nuestros productos.",
+    image: "/images/testimonials/javier-torres.jpg"
+  }
+];
+
+const faqs = [
+  {
+    question: "¿Qué nivel de programación necesito?",
+    answer: "Se requiere experiencia previa en programación con Python. Si sabes estructuras de datos, funciones y tienes experiencia con librerías, estás listo para comenzar."
+  },
+  {
+    question: "¿Qué software necesito instalar?",
+    answer: "Necesitarás Python 3.8+, Git, un editor de código (VS Code recomendado) y Docker. Proporcionaremos guías de instalación detalladas."
+  },
+  {
+    question: "¿Hay algún requisito de hardware?",
+    answer: "Se recomienda una computadora con al menos 8GB de RAM. Para entrenar modelos complejos, podrías necesitar acceso a GPUs, aunque usaremos principalmente servicios en la nube."
+  },
+  {
+    question: "¿Cómo son las clases en vivo?",
+    answer: "Las clases son 100% online a través de Zoom, con sesiones de 2 horas 2 veces por semana. Todas las sesiones quedan grabadas por si no puedes asistir."
+  },
+  {
+    question: "¿Hay algún proyecto final?",
+    answer: "Sí, desarrollarás un agente de voz completo que será evaluado. Este proyecto será una excelente adición a tu portafolio profesional."
+  }
+];
+---
+
+<MainLayout title={`${course.title} | Go Rank First`}>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden">
+    <div class="absolute inset-0 bg-grid-accent/10 [mask-image:linear-gradient(0deg,transparent,white)]"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">
+          Inicia: {course.startDate} • {course.spots} cupos disponibles • Nivel: {course.level}
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          {course.title}
+        </h1>
+        <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+          {course.subtitle}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#inscripcion" class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+            ¡Inscríbete ahora!
+          </a>
+          <a href="#temario" class="px-8 py-4 border-2 border-accent text-accent hover:bg-accent/10 font-semibold rounded-xl transition-all duration-300">
+            Ver temario completo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Highlights -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Desarrolla el futuro de la interacción humano-computadora</h2>
+            <p class="text-text-secondary mb-6 text-lg">
+              Aprende a crear asistentes de voz inteligentes que entiendan y respondan de manera natural, utilizando las tecnologías más avanzadas en IA conversacional.
+            </p>
+            <ul class="space-y-3 mb-8">
+              {highlights.map((highlight, index) => (
+                <li class="flex items-start">
+                  <svg class="h-6 w-6 text-accent mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="relative order-1 md:order-2">
+            <div class="relative z-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden shadow-xl">
+              <img src={course.image} alt={course.title} class="w-full h-auto" />
+              <div class="p-6 bg-gradient-to-r from-primary/5 to-accent/5">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="p-4 bg-white/5 rounded-lg">
+                    <p class="text-sm text-text-secondary">Duración</p>
+                    <p class="font-semibold">{course.duration}</p>
+                  </div>
+                  <div class="p-4 bg-white/5 rounded-lg">
+                    <p class="text-sm text-text-secondary">Horas</p>
+                    <p class="font-semibold">{course.hours} horas</p>
+                  </div>
+                  <div class="p-4 bg-white/5 rounded-lg">
+                    <p class="text-sm text-text-secondary">Modalidad</p>
+                    <p class="font-semibold">{course.modality}</p>
+                  </div>
+                  <div class="p-4 bg-white/5 rounded-lg">
+                    <p class="text-sm text-text-secondary">Nivel</p>
+                    <p class="font-semibold">{course.level}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-accent/10 rounded-full filter blur-3xl -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Learn -->
+  <section class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Aprendizaje</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Habilidades que <span class="text-accent">desarrollarás</span></h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Domina las tecnologías y metodologías más demandadas en el desarrollo de agentes de voz inteligentes.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {learnings.map((learning, index) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:border-accent/30 transition-all duration-300">
+            <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent text-xl mb-4">
+              {index + 1}
+            </div>
+            <p class="text-text-primary">{learning}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-8">
+          <h3 class="text-2xl font-bold mb-6">Requisitos previos</h3>
+          <p class="text-text-secondary mb-6">
+            Para aprovechar al máximo este curso, es recomendable que tengas conocimientos previos en:
+          </p>
+          <ul class="space-y-3">
+            {requirements.map((requirement) => (
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>{requirement}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8 p-4 bg-accent/10 border border-accent/20 rounded-lg">
+            <p class="text-text-primary">
+              <span class="font-semibold">¿No cumples con todos los requisitos?</span> Contáctanos para asesorarte sobre cómo prepararte para este curso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section id="temario" class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Plan de Estudios</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Temario del <span class="text-accent">Curso</span></h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Un programa completo de 8 semanas diseñado para convertirte en un experto en desarrollo de agentes de voz.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6">
+        {curriculum.map((module, index) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden">
+            <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="this.nextElementSibling.classList.toggle('hidden')">
+              <div class="flex items-center">
+                <span class="w-8 h-8 bg-accent/10 text-accent rounded-full flex items-center justify-center mr-4 font-semibold">
+                  {index + 1}
+                </span>
+                <h3 class="text-xl font-semibold">{module.title}</h3>
+              </div>
+              <svg class="w-5 h-5 text-accent transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-6 pb-6 pt-2 hidden">
+              <ul class="space-y-3 pl-12">
+                {module.topics.map((topic) => (
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span class="text-text-secondary">{topic}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Testimonios</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Lo que dicen nuestros <span class="text-accent">estudiantes</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {testimonials.map((testimonial) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+            <div class="flex items-center mb-6">
+              <img src={testimonial.image} alt={testimonial.name} class="w-16 h-16 rounded-full object-cover mr-4 border-2 border-accent/30" />
+              <div>
+                <h4 class="text-xl font-semibold">{testimonial.name}</h4>
+                <p class="text-text-secondary">{testimonial.role}</p>
+              </div>
+            </div>
+            <p class="text-text-secondary italic">"{testimonial.text}"</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration -->
+  <section id="inscripcion" class="py-16 bg-gradient-to-br from-primary/10 to-accent/10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden">
+        <div class="md:flex">
+          <div class="md:w-1/2 bg-gradient-to-br from-primary/10 to-accent/10 p-8 flex flex-col justify-center">
+            <h2 class="text-3xl font-bold mb-4">Inscríbete al curso</h2>
+            <p class="text-text-secondary mb-6">
+              Domina el desarrollo de agentes de voz IA y abre las puertas a nuevas oportunidades profesionales en una de las áreas de más rápido crecimiento en tecnología.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>8 semanas de formación intensiva</span>
+              </div>
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Acceso a mentorías personalizadas</span>
+              </div>
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Material de estudio y código fuente</span>
+              </div>
+              <div class="flex items-center">
+                <i class="ph ph-check-circle text-accent text-xl mr-2"></i>
+                <span>Certificación al completar el curso</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2 p-8">
+            <div class="text-center mb-6">
+              <span class="text-sm text-text-secondary line-through">$997 USD</span>
+              <span class="ml-2 px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full">50% de descuento</span>
+              <div class="mt-2">
+                <span class="text-4xl font-bold text-accent">{course.price}</span>
+                <span class="text-text-secondary"> / pago único</span>
+              </div>
+              <p class="text-sm text-text-secondary mt-1">o 3 cuotas sin interés de $165.67 USD</p>
+            </div>
+            <form class="space-y-4">
+              <div>
+                <label for="nombre" class="block text-sm font-medium text-text-primary mb-1">Nombre completo *</label>
+                <input type="text" id="nombre" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" required />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-text-primary mb-1">Correo electrónico *</label>
+                <input type="email" id="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" required />
+              </div>
+              <div>
+                <label for="telefono" class="block text-sm font-medium text-text-primary mb-1">Teléfono (opcional)</label>
+                <input type="tel" id="telefono" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-text-primary" />
+              </div>
+              <div class="pt-2">
+                <button type="submit" class="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+                  ¡Quiero inscribirme ahora!
+                </button>
+                <p class="text-xs text-text-secondary text-center mt-2">
+                  Al inscribirte, aceptas nuestros <a href="/terminos" class="text-accent hover:underline">Términos de Servicio</a> y <a href="/privacidad" class="text-accent hover:underline">Política de Privacidad</a>.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 text-sm font-semibold text-accent bg-accent/10 rounded-full mb-4">Preguntas Frecuentes</span>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Tienes <span class="text-accent">dudas</span>?</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Aquí respondemos las preguntas más comunes sobre nuestro curso de Agentes de Voz IA.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        {faqs.map((faq, index) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden">
+            <button class="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" onclick="this.nextElementSibling.classList.toggle('hidden')">
+              <span class="font-medium text-lg">{faq.question}</span>
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-6 pb-4 hidden">
+              <p class="text-text-secondary">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para desarrollar el futuro de la interacción por voz?</h2>
+      <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+        Domina las tecnologías que están transformando la forma en que nos relacionamos con la tecnología. Inscríbete ahora y comienza tu viaje en el desarrollo de agentes de voz IA.
+      </p>
+      <a 
+        href="#inscripcion" 
+        class="inline-block px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20"
+      >
+        ¡Quiero inscribirme ahora!
+      </a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Animations */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Hover effects */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Transitions */
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  
+  /* Glass effect */
+  .backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+  }
+</style>

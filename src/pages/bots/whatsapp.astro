@@ -1,0 +1,354 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// Datos del servicio
+const service = {
+  title: "ChatBots para WhatsApp Empresarial",
+  subtitle: "Automatiza la atención al cliente, genera leads y aumenta tus ventas con nuestro ChatBot de WhatsApp potenciado por IA",
+  heroImage: "/images/bots/whatsapp/hero.jpg",
+  
+  // Sección de características principales
+  features: [
+    {
+      title: "Atención 24/7",
+      description: "Ofrece soporte continuo a tus clientes en WhatsApp, el canal de comunicación más utilizado del mundo.",
+      icon: "⏰"
+    },
+    {
+      title: "Automatización Inteligente",
+      description: "Automatiza respuestas, gestiona pedidos y resuelve consultas frecuentes sin intervención humana.",
+      icon: "🤖"
+    },
+    {
+      title: "Ventas Conversacionales",
+      description: "Convierte conversaciones en ventas con un asistente virtual que guía a los clientes en su proceso de compra.",
+      icon: "💬"
+    },
+    {
+      title: "Integración Total",
+      description: "Conecta tu CRM, sistema de pedidos y otras herramientas empresariales para una gestión integral.",
+      icon: "🔌"
+    }
+  ],
+
+  // Sección de beneficios
+  benefits: [
+    {
+      title: "Mayor Alcance",
+      description: "Llega a más de 2 mil millones de usuarios activos en WhatsApp.",
+      icon: "🌍"
+    },
+    {
+      title: "Ahorro de Costos",
+      description: "Reduce hasta un 70% los costos de atención al cliente.",
+      icon: "💰"
+    },
+    {
+      title: "Conversiones",
+      description: "Hasta 3 veces más conversiones que otros canales digitales.",
+      icon: "📈"
+    },
+    {
+      title: "Satisfacción",
+      description: "Mejora la experiencia del cliente con respuestas inmediatas las 24/7.",
+      icon: "⭐"
+    }
+  ],
+
+  // Sección de funcionalidades detalladas
+  detailedFeatures: [
+    {
+      title: "Soporte al Cliente Automatizado",
+      description: "Resuelve consultas frecuentes, realiza seguimiento de pedidos y brinda asistencia inmediata sin necesidad de agentes humanos.",
+      icon: "💡"
+    },
+    {
+      title: "Ventas Conversacionales",
+      description: "Guía a los clientes a través del embudo de ventas con recomendaciones personalizadas y procesos de pago integrados.",
+      icon: "🛍️"
+    },
+    {
+      title: "Recordatorios y Notificaciones",
+      description: "Envía recordatorios de citas, notificaciones de estado de pedidos y alertas personalizadas.",
+      icon: "🔔"
+    },
+    {
+      title: "Encuestas y Feedback",
+      description: "Recopila opiniones y calificaciones de clientes para mejorar continuamente tu servicio.",
+      icon: "📝"
+    },
+    {
+      title: "Resolución de Problemas Técnicos",
+      description: "Diagnostica y soluciona problemas técnicos comunes con guías interactivas paso a paso.",
+      icon: "🔧"
+    },
+    {
+      title: "Análisis de Sentimientos",
+      description: "Detecta el estado de ánimo de los clientes y adapta las respuestas para ofrecer una experiencia más empática.",
+      icon: "😊"
+    },
+    {
+      title: "Soporte Multilingüe",
+      description: "Atiende a clientes en múltiples idiomas con traducción automática en tiempo real.",
+      icon: "🌐"
+    },
+    {
+      title: "Integración con Herramientas Empresariales",
+      description: "Conecta con tu CRM, ERP, sistema de tickets y otras plataformas para una gestión unificada.",
+      icon: "🔄"
+    }
+  ],
+
+  // Sección de casos de uso
+  useCases: [
+    {
+      title: "E-commerce",
+      description: "Automatiza el seguimiento de pedidos, recomendaciones de productos y atención postventa.",
+      icon: "🛒"
+    },
+    {
+      title: "Servicios Financieros",
+      description: "Brinda soporte sobre productos, consultas de saldo y alertas de transacciones.",
+      icon: "🏦"
+    },
+    {
+      title: "Salud",
+      description: "Programa citas, envía recordatorios y ofrece información sobre servicios médicos.",
+      icon: "🏥"
+    },
+    {
+      title: "Educación",
+      description: "Proporciona información sobre cursos, fechas importantes y soporte a estudiantes.",
+      icon: "🎓"
+    },
+    {
+      title: "Hospitalidad",
+      description: "Gestiona reservas, check-in/out y atención al huésped de manera automatizada.",
+      icon: "🏨"
+    },
+    {
+      title: "Servicios Públicos",
+      description: "Atiende consultas frecuentes, trámites y proporciona información actualizada.",
+      icon: "🏛️"
+    }
+  ],
+
+  // Preguntas frecuentes
+  faqs: [
+    {
+      question: "¿Qué necesito para implementar un ChatBot en WhatsApp?",
+      answer: "Solo necesitas una cuenta de WhatsApp Business y nuestro equipo se encargará de todo el proceso de implementación y configuración."
+    },
+    {
+      question: "¿Puedo personalizar las respuestas del bot?",
+      answer: "Sí, el bot se puede personalizar completamente según las necesidades de tu negocio, incluyendo tono de voz, respuestas y flujos de conversación."
+    },
+    {
+      question: "¿Cómo se integra con mis sistemas actuales?",
+      answer: "Nuestro equipo de desarrolladores puede integrar el bot con tu CRM, sistema de pedidos, base de datos y otras herramientas que utilices."
+    },
+    {
+      question: "¿Qué idiomas soporta el ChatBot?",
+      answer: "El bot puede ser configurado para entender y responder en múltiples idiomas, incluyendo español, inglés, portugués y más."
+    },
+    {
+      question: "¿Qué tipo de soporte ofrecen después de la implementación?",
+      answer: "Ofrecemos soporte técnico continuo, actualizaciones periódicas y capacitación para tu equipo sin costos adicionales."
+    }
+  ]
+};
+---
+
+<MainLayout title={`${service.title} | Go Rank First`}>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 bg-gradient-to-br from-primary/10 to-accent/10 overflow-hidden">
+    <div class="absolute inset-0 bg-grid-accent/10 [mask-image:linear-gradient(0deg,transparent,white)]"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            {service.title}
+          </h1>
+          <p class="text-xl text-text-secondary mb-8">
+            {service.subtitle}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contacto" class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+              Solicitar Demostración
+            </a>
+            <a href="#caracteristicas" class="px-8 py-4 border-2 border-accent text-accent hover:bg-accent/10 font-semibold rounded-xl transition-all duration-300">
+              Ver Características
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="bg-accent/10 rounded-2xl p-8 aspect-square flex items-center justify-center">
+            <span class="text-9xl">💬</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-16 bg-surface/50" id="caracteristicas">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Potencia tu Negocio con WhatsApp</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Descubre cómo nuestro ChatBot puede transformar la comunicación con tus clientes
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {service.features.map((feature) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:border-accent/30 transition-all duration-300">
+            <div class="text-4xl mb-4">{feature.icon}</div>
+            <h3 class="text-xl font-semibold mb-2">{feature.title}</h3>
+            <p class="text-text-secondary">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Beneficios Clave</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Razones por las que tu negocio necesita un ChatBot de WhatsApp
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {service.benefits.map((benefit) => (
+          <div class="flex items-start bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:border-accent/30 transition-all duration-300">
+            <div class="text-3xl mr-4">{benefit.icon}</div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">{benefit.title}</h3>
+              <p class="text-text-secondary">{benefit.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Features -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Funcionalidades Avanzadas</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Todo lo que nuestro ChatBot de WhatsApp puede hacer por tu negocio
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {service.detailedFeatures.map((feature) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:border-accent/30 transition-all duration-300">
+            <div class="text-3xl mb-3">{feature.icon}</div>
+            <h3 class="text-xl font-semibold mb-2">{feature.title}</h3>
+            <p class="text-text-secondary">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="py-16 bg-gradient-to-br from-primary/10 to-accent/10">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Casos de Uso</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Aplicaciones del ChatBot de WhatsApp en diferentes industrias
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {service.useCases.map((useCase) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:border-accent/30 transition-all duration-300">
+            <div class="text-4xl mb-4">{useCase.icon}</div>
+            <h3 class="text-xl font-semibold mb-2">{useCase.title}</h3>
+            <p class="text-text-secondary">{useCase.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-surface/50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para transformar tu atención al cliente?</h2>
+      <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
+        Agenda una demostración personalizada y descubre cómo nuestro ChatBot de WhatsApp puede ayudar a tu negocio a crecer
+      </p>
+      <a href="#contacto" class="inline-block px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+        Solicitar Demostración Gratuita
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-surface/50" id="faq">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Preguntas Frecuentes</h2>
+        <p class="text-text-secondary max-w-2xl mx-auto">
+          Resolvemos tus dudas sobre nuestra solución de ChatBot para WhatsApp
+        </p>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-4">
+        {service.faqs.map((faq) => (
+          <div class="bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-6">
+            <h3 class="text-lg font-semibold mb-2">{faq.question}</h3>
+            <p class="text-text-secondary">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-16 bg-gradient-to-br from-primary/10 to-accent/10" id="contacto">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm border border-white/5 rounded-2xl p-8 md:p-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">Contáctanos</h2>
+        <p class="text-text-secondary text-center mb-8 max-w-2xl mx-auto">
+          Completa el formulario y nos pondremos en contacto contigo para programar una demostración personalizada
+        </p>
+        <form class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium mb-2">Nombre completo</label>
+              <input type="text" id="name" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all" placeholder="Tu nombre">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium mb-2">Correo electrónico</label>
+              <input type="email" id="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all" placeholder="tucorreo@ejemplo.com">
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="company" class="block text-sm font-medium mb-2">Empresa</label>
+              <input type="text" id="company" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all" placeholder="Nombre de tu empresa">
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium mb-2">Teléfono</label>
+              <input type="tel" id="phone" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all" placeholder="+52 55 1234 5678">
+            </div>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium mb-2">Mensaje</label>
+            <textarea id="message" rows="4" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all" placeholder="Cuéntanos más sobre tu negocio y lo que necesitas"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent/20">
+              Enviar Mensaje
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</MainLayout>
