@@ -4,9 +4,9 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  // Configuración de la ruta base para desarrollo
-  site: 'http://localhost:3000',
-  base: '/',
+  // Configuración del sitio para producción
+  site: 'https://gointeraction.github.io/gorank',
+  base: '/gorank/',
   // Configuración para el servidor de desarrollo
   server: {
     port: 3000,
