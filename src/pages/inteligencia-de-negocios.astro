@@ -297,35 +297,6 @@ import MainLayout from '../layouts/MainLayout.astro';
         </div>
       </section>
 
-      <!-- Estadísticas Impactantes -->
-      <section class="py-12 reveal-animation">
-        <div class="max-w-4xl mx-auto text-center mb-8">
-          <h2 class="text-2xl md:text-3xl font-bold mb-2">Transformando los <span class="text-gradient">Datos en Resultados</span></h2>
-          <p class="text-text-secondary">Nuestras soluciones de BI han ayudado a empresas a alcanzar resultados significativos</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div class="stat-card reveal-animation delay-100">
-            <div class="stat-value" id="stat-efficiency">0%</div>
-            <p class="text-sm text-text-secondary">Aumento en eficiencia operativa</p>
-          </div>
-          
-          <div class="stat-card reveal-animation delay-200">
-            <div class="stat-value" id="stat-roi">0x</div>
-            <p class="text-sm text-text-secondary">ROI promedio</p>
-          </div>
-          
-          <div class="stat-card reveal-animation delay-300">
-            <div class="stat-value" id="stat-time">0h</div>
-            <p class="text-sm text-text-secondary">Reducción tiempo de análisis</p>
-          </div>
-          
-          <div class="stat-card reveal-animation delay-400">
-            <div class="stat-value" id="stat-clients">0+</div>
-            <p class="text-sm text-text-secondary">Clientes satisfechos</p>
-          </div>
-        </div>
-      </section>
 
       <!-- Servicios Mejorados -->
       <section id="servicios" class="py-16 relative">
@@ -688,7 +659,7 @@ import MainLayout from '../layouts/MainLayout.astro';
         </div>
       </section>
 
-      <!-- Casos de Estudio - NUEVA SECCIÓN -->
+      {/* Casos de Estudio - SECCIÓN COMENTADA TEMPORALMENTE 
       <section id="casos-estudio" class="py-16 relative overflow-hidden">
         <!-- Elementos decorativos de fondo -->
         <div class="absolute inset-0 overflow-hidden z-0">
@@ -828,6 +799,7 @@ import MainLayout from '../layouts/MainLayout.astro';
           </div>
         </div>
       </section>
+      */}
       
       <!-- Tecnologías Mejoradas -->
       <section class="py-16 relative overflow-hidden">
@@ -961,137 +933,7 @@ import MainLayout from '../layouts/MainLayout.astro';
         </div>
       </section>
 
-      <!-- Preguntas Frecuentes - NUEVA SECCIÓN -->
-      <section id="faq" class="py-16 relative overflow-hidden">
-        <!-- Elementos decorativos de fondo -->
-        <div class="absolute inset-0 overflow-hidden z-0">
-          <div class="absolute top-1/4 left-1/4 w-80 h-80 bg-primary/5 rounded-full filter blur-3xl"></div>
-          <div class="absolute bottom-1/3 right-1/3 w-64 h-64 bg-accent/5 rounded-full filter blur-3xl"></div>
-          <div class="absolute top-0 left-0 w-full h-full bg-dot-pattern opacity-5"></div>
-        </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-4">
-          <div class="inline-flex items-center gap-1 mb-4 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mx-auto block text-center reveal-animation">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>PREGUNTAS FRECUENTES</span>
-          </div>
-          
-          <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 reveal-animation delay-100">Respuestas a sus <span class="text-gradient">Dudas</span> Comunes</h2>
-          
-          <p class="text-text-secondary max-w-2xl mx-auto text-center mb-12 reveal-animation delay-200">
-            Encuentre respuestas a las preguntas más frecuentes sobre nuestras soluciones de Business Intelligence y cómo pueden ayudar a su empresa.
-          </p>
-
-          <div class="space-y-4">
-            <!-- Pregunta 1 -->
-            <div class="faq-item bg-glass rounded-xl overflow-hidden reveal-animation delay-100">
-              <button class="faq-question w-full flex items-center justify-between p-4 text-left font-medium focus:outline-none">
-                <span>¿Qué es exactamente Business Intelligence?</span>
-                <svg class="faq-icon w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
-                <div class="p-4 pt-0 text-text-secondary">
-                  <p>Business Intelligence (BI) es el conjunto de estrategias, aplicaciones, datos, tecnologías y arquitecturas técnicas que se utilizan para recopilar, analizar, presentar y difundir información empresarial. El propósito principal de BI es apoyar la toma de mejores decisiones empresariales basadas en datos.</p>
-                  <p class="mt-2">Nuestras soluciones de BI proporcionan una visión completa del estado actual y pasado de su negocio, permitiéndole identificar tendencias, patrones y oportunidades que de otro modo podrían pasar desapercibidas.</p>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Pregunta 2 -->
-            <div class="faq-item bg-glass rounded-xl overflow-hidden reveal-animation delay-200">
-              <button class="faq-question w-full flex items-center justify-between p-4 text-left font-medium focus:outline-none">
-                <span>¿Cómo se implementa una solución de BI en mi empresa?</span>
-                <svg class="faq-icon w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
-                <div class="p-4 pt-0 text-text-secondary">
-                  <p>La implementación de una solución de BI en su empresa sigue típicamente estos pasos:</p>
-                  <ol class="list-decimal pl-5 mt-2 space-y-2">
-                    <li><strong>Evaluación inicial:</strong> Analizamos sus necesidades específicas, fuentes de datos existentes y objetivos empresariales.</li>
-                    <li><strong>Diseño de la solución:</strong> Creamos una arquitectura personalizada que se adapte a sus requisitos.</li>
-                    <li><strong>Desarrollo:</strong> Configuramos las herramientas, construimos los modelos de datos y desarrollamos los dashboards necesarios.</li>
-                    <li><strong>Implementación:</strong> Desplegamos la solución en su entorno, integrándola con sus sistemas existentes.</li>
-                    <li><strong>Capacitación:</strong> Entrenamos a su equipo en el uso efectivo de las nuevas herramientas.</li>
-                    <li><strong>Soporte continuo:</strong> Proporcionamos mantenimiento y mejoras continuas después de la implementación.</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Pregunta 3 -->
-            <div class="faq-item bg-glass rounded-xl overflow-hidden reveal-animation delay-300">
-              <button class="faq-question w-full flex items-center justify-between p-4 text-left font-medium focus:outline-none">
-                <span>¿Cuánto tiempo toma implementar una solución de BI?</span>
-                <svg class="faq-icon w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
-                <div class="p-4 pt-0 text-text-secondary">
-                  <p>El tiempo de implementación varía según la complejidad de su entorno de datos, el alcance del proyecto y los requisitos específicos. En general, los plazos típicos son:</p>
-                  <ul class="list-disc pl-5 mt-2 space-y-2">
-                    <li><strong>Proyectos pequeños:</strong> 4-8 semanas</li>
-                    <li><strong>Proyectos medianos:</strong> 2-4 meses</li>
-                    <li><strong>Proyectos empresariales complejos:</strong> 4-6 meses o más</li>
-                  </ul>
-                  <p class="mt-2">Trabajamos con un enfoque ágil que permite entregar valor incremental, lo que significa que verá resultados tangibles en etapas tempranas del proyecto.</p>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Pregunta 4 -->
-            <div class="faq-item bg-glass rounded-xl overflow-hidden reveal-animation delay-400">
-              <button class="faq-question w-full flex items-center justify-between p-4 text-left font-medium focus:outline-none">
-                <span>¿Qué retorno de inversión (ROI) puedo esperar?</span>
-                <svg class="faq-icon w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
-                <div class="p-4 pt-0 text-text-secondary">
-                  <p>El ROI de las soluciones de BI varía según la industria y los casos de uso específicos, pero nuestros clientes típicamente experimentan:</p>
-                  <ul class="list-disc pl-5 mt-2 space-y-2">
-                    <li>Reducción de costos operativos del 15-25%</li>
-                    <li>Incremento en la productividad del 20-30%</li>
-                    <li>Mejora en la precisión de pronósticos del 35-50%</li>
-                    <li>Reducción en el tiempo de toma de decisiones del 60-70%</li>
-                  </ul>
-                  <p class="mt-2">Además, muchos beneficios son difíciles de cuantificar pero igualmente valiosos, como la mejora en la calidad de las decisiones y la satisfacción del cliente.</p>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Pregunta 5 -->
-            <div class="faq-item bg-glass rounded-xl overflow-hidden reveal-animation delay-500">
-              <button class="faq-question w-full flex items-center justify-between p-4 text-left font-medium focus:outline-none">
-                <span>¿Cómo garantizan la seguridad de mis datos?</span>
-                <svg class="faq-icon w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
-                <div class="p-4 pt-0 text-text-secondary">
-                  <p>La seguridad de sus datos es nuestra máxima prioridad. Implementamos múltiples capas de protección:</p>
-                  <ul class="list-disc pl-5 mt-2 space-y-2">
-                    <li><strong>Encriptación:</strong> Todos los datos se encriptan tanto en tránsito como en reposo utilizando algoritmos de última generación.</li>
-                    <li><strong>Control de acceso:</strong> Implementamos controles de acceso basados en roles (RBAC) para garantizar que solo personal autorizado pueda acceder a información sensible.</li>
-                    <li><strong>Auditoría:</strong> Sistemas completos de registro de auditoría rastrean quién accede a qué datos y cuándo.</li>
-                    <li><strong>Cumplimiento normativo:</strong> Nuestras soluciones cumplen con estándares internacionales como GDPR, HIPAA, SOC 2, y más según sea aplicable.</li>
-                    <li><strong>Actualizaciones de seguridad:</strong> Aplicamos regularmente parches y actualizaciones para proteger contra vulnerabilidades emergentes.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
       <!-- CTA Mejorado -->
       <section id="contacto" class="py-16 bg-gradient-to-br from-surface/80 to-background/80 rounded-3xl relative overflow-hidden reveal-animation">
         <div class="absolute inset-0 z-0">
@@ -1228,23 +1070,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       animation: shimmer 3s infinite;
     }
     
-    /* Estilos para FAQ */
-    .faq-question.active {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      background-color: rgba(34, 197, 94, 0.05);
-    }
-    
-    .faq-answer {
-      background-color: rgba(30, 41, 59, 0.3);
-    }
-    
-    /* Mejorar efecto de hover en tarjetas */
-    .service-card:hover .service-icon,
-    .tech-card:hover .tech-icon {
-      filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.5));
-    }
+
   </style>
   
   <script>
@@ -1361,36 +1187,6 @@ import MainLayout from '../layouts/MainLayout.astro';
       
       statElements.forEach(el => {
         statObserver.observe(el);
-      });
-      
-      // Funcionalidad para las preguntas frecuentes (FAQ)
-      const faqQuestions = document.querySelectorAll('.faq-question');
-      
-      faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-          // Toggle de la clase activa en la pregunta
-          question.classList.toggle('active');
-          
-          // Obtener el icono y girarlo
-          const icon = question.querySelector('.faq-icon');
-          if (question.classList.contains('active')) {
-            icon.style.transform = 'rotate(180deg)';
-          } else {
-            icon.style.transform = 'rotate(0)';
-          }
-          
-          // Obtener el contenedor de respuesta
-          const answer = question.nextElementSibling;
-          
-          // Toggle de la altura máxima
-          if (question.classList.contains('active')) {
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-            answer.style.paddingBottom = '1rem';
-          } else {
-            answer.style.maxHeight = '0';
-            answer.style.paddingBottom = '0';
-          }
-        });
       });
       
       // Animación de partículas flotantes

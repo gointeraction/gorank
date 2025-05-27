@@ -1,51 +1,225 @@
 ---
-// No props required for now
+// Importar estilos
+import '../styles/integrations.css';
+
+// Datos de las integraciones
+const integrations = [
+  { name: 'Gemini', logo: '/img/integrations/1.png' },
+  { name: 'OpenAI', logo: '/img/integrations/2.png' },
+  { name: 'Google', logo: '/img/integrations/3.png' },
+  { name: 'Meta', logo: '/img/integrations/4.png' },
+  { name: 'Claude', logo: '/img/integrations/5.png' },
+  { name: 'Huggien', logo: '/img/integrations/7.png' },
+  { name: 'perplexiti', logo: '/img/integrations/9.png' },
+  { name: 'Vapi', logo: '/img/integrations/14.png' },
+  { name: 'Crewai', logo: '/img/integrations/10.png' },
+  { name: 'Lanchaing', logo: '/img/integrations/11.png' },
+  { name: 'odooo', logo: '/img/integrations/13.png' },
+  { name: 'Qdrand', logo: '/img/integrations/12.png' },
+];
+
+// Función para generar partículas aleatorias
+const generateParticles = (count) => {
+  return Array.from({ length: count }, (_, i) => ({
+    id: i,
+    size: Math.random() * 4 + 1,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    delay: Math.random() * 5,
+    duration: 5 + Math.random() * 10,
+  }));
+};
+
+const particles = generateParticles(15);
 ---
 
-<section class="relative py-24 md:py-32 bg-gradient-to-br from-[#181926] via-[#1a1b2e] to-background/90 overflow-hidden animate-fade-in">
-  <div class="container mx-auto flex flex-col md:flex-row items-center gap-16 px-4">
-    <!-- Illustration or SVG con carga optimizada -->
-    <div class="flex-1 flex justify-center mb-10 md:mb-0">
-      <!-- SVG optimizado -->
-      <svg width="300" height="300" viewBox="0 0 300 300" fill="none" aria-hidden="true" loading="lazy" class="animate-fade-in">
-        <title>Diagrama de integraciones</title>
-        <g stroke="#00F0FF33" stroke-width="2">
-          <rect x="20" y="40" width="100" height="100" rx="20"/>
-          <rect x="180" y="40" width="100" height="100" rx="20"/>
-          <rect x="100" y="160" width="100" height="100" rx="20"/>
-        </g>
-        <circle cx="60" cy="80" r="4" fill="#00F0FF"/>
-        <circle cx="110" cy="120" r="4" fill="#fff"/>
-        <circle cx="200" cy="80" r="4" fill="#fff"/>
-        <circle cx="250" cy="120" r="4" fill="#00F0FF"/>
-        <circle cx="150" cy="200" r="4" fill="#00F0FF"/>
-        <circle cx="130" cy="220" r="4" fill="#fff"/>
-        <circle cx="170" cy="220" r="4" fill="#fff"/>
-      </svg>
-    </div>
-    <!-- Text and Logos -->
-    <div class="flex-1 flex flex-col items-center md:items-start">
-      <span class="uppercase text-accent font-bold tracking-widest text-sm mb-4">Integraciones</span>
-      <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-8 text-center md:text-left leading-tight">
-        Integra con más de <span class="text-accent">400+ apps</span> en segundos.
+<section class="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-[#0c0f1c] via-[#151a2e] to-[#1a1b2e]">
+  <!-- Efecto de partículas -->
+  {particles.map((particle) => (
+    <div 
+      class="particle"
+      style={`
+        width: ${particle.size}px;
+        height: ${particle.size}px;
+        left: ${particle.x}%;
+        top: ${particle.y}%;
+        animation-delay: ${particle.delay}s;
+        animation-duration: ${particle.duration}s;
+        --tx: ${Math.random() * 200 - 100}px;
+        --ty: ${Math.random() * -200}px;
+      `}
+    ></div>
+  ))}
+
+  <div class="container mx-auto px-4 relative z-10">
+    <!-- Encabezado -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4 tracking-wider">
+        INTEGRACIONES
+      </span>
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+        Conecta con <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">400+ aplicaciones</span>
       </h2>
-      <div class="flex flex-wrap gap-4 justify-center md:justify-start mb-4">
-        <img src="/img/integrations/azure.png" alt="Azure" class="w-12 h-12 rounded-xl bg-white/10 p-2 shadow-md" loading="lazy" />
-        <img src="/img/integrations/openai.png" alt="OpenAI" class="w-12 h-12 rounded-xl bg-white/10 p-2 shadow-md" loading="lazy" />
-        <img src="/img/integrations/slack.png" alt="Slack" class="w-12 h-12 rounded-xl bg-white/10 p-2 shadow-md" loading="lazy" />
-        <img src="/img/integrations/airtable.png" alt="Airtable" class="w-12 h-12 rounded-xl bg-white/10 p-2 shadow-md" loading="lazy" />
-        <img src="/img/integrations/whatsapp.png" alt="WhatsApp" class="w-12 h-12 rounded-xl bg-white/10 p-2 shadow-md" loading="lazy" />
-        <img src="/img/integrations/twilio.png" alt="Twilio" class="w-12 h-12 rounded-xl bg-white/10 p-2 shadow-md" loading="lazy" />
-        <img src="/img/integrations/zapier.png" alt="Zapier" class="w-12 h-12 rounded-xl bg-white/10 p-2 shadow-md" loading="lazy" />
-        <img src="/img/integrations/google.png" alt="Google" class="w-12 h-12 rounded-xl bg-white/10 p-2 shadow-md" loading="lazy" />
-      </div>
-      <p class="text-text-secondary text-lg max-w-xl text-center md:text-left">
-        Conecta tu solución de IA con las plataformas y herramientas que ya usas. Automatiza flujos, sincroniza datos y expande el potencial de tu negocio con integraciones listas para usar.
+      <p class="text-lg text-gray-300">
+        Automatiza flujos, sincroniza datos y expande el potencial de tu negocio con nuestras integraciones listas para usar.
       </p>
+    </div>
+
+    <!-- Tarjeta 3D con logos -->
+    <div class="integration-card max-w-6xl mx-auto rounded-2xl p-8 md:p-12">
+      <div class="integrations-gradient"></div>
+      
+      <!-- Contador de integraciones -->
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center bg-gradient-to-r from-accent/10 to-primary/10 border border-white/10 rounded-full px-6 py-3">
+          <span class="text-3xl font-bold text-accent mr-2 counter-animation">400+</span>
+          <span class="text-white font-medium">Integraciones disponibles</span>
+        </div>
+      </div>
+
+      <!-- Grid de logos con conexiones -->
+      <div class="relative">
+        <div class="logos-grid grid grid-cols-6 gap-6 w-full max-w-6xl mx-auto px-4">
+          {integrations.map((integration, index) => (
+            <div class="logo-item group">
+              <div class="integration-logo flex flex-col items-center">
+                <div class="w-[150px] h-[90px] rounded-xl bg-white/5 backdrop-blur-sm flex items-center justify-center p-4 transition-all duration-300 group-hover:bg-accent/5 group-hover:border-accent/30 border border-white/5 hover:shadow-lg hover:shadow-accent/10">
+                  <img 
+                    src={integration.logo} 
+                    alt={integration.name}
+                    class="w-full h-full object-contain"
+                    loading="lazy"
+                    style="max-width: 90%; max-height: 80%"
+                  />
+                </div>
+                <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors mt-2">{integration.name}</span>
+              </div>
+              
+              {/* Conexiones */}
+              {index < integrations.length - 1 && (
+                <div class="connection-line" style={`
+                  width: 30px;
+                  transform: rotate(${Math.random() * 20 - 10}deg);
+                  top: 30%;
+                  right: -15px;
+                `}></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Llamado a la acción -->
+      <div class="text-center mt-16">
+        <a 
+          href="/integraciones" 
+          class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent to-primary text-white font-medium rounded-xl hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 transform hover:-translate-y-1"
+        >
+          <span class="shine-text">Ver todas las integraciones</span>
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
+<script>
+  // Animación del contador
+  document.addEventListener('DOMContentLoaded', () => {
+    // Contador animado
+    const counter = document.querySelector('.counter-animation');
+    if (counter) {
+      // Simular conteo
+      let count = 0;
+      const target = 400;
+      const duration = 2000; // 2 segundos
+      const step = target / (duration / 16); // 60fps
+      
+      const updateCounter = () => {
+        if (count < target) {
+          count += step;
+          counter.textContent = Math.min(Math.ceil(count), target) + '+';
+          requestAnimationFrame(updateCounter);
+        }
+      };
+      
+      // Iniciar animación cuando el elemento sea visible
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          updateCounter();
+          observer.disconnect();
+        }
+      }, { threshold: 0.5 });
+      
+      observer.observe(counter);
+    }
+    
+    // Efecto de partículas al hacer hover en la tarjeta
+    const card = document.querySelector('.integration-card');
+    if (card) {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    }
+  });
+</script>
+
 <style>
-  /* Puedes ajustar el fondo, animaciones y responsividad aquí si lo deseas */
+  /* Variables CSS para efectos dinámicos */
+  .integration-card {
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+  }
+  
+  /* Asegurar que el gradiente siga el cursor */
+  .integrations-gradient {
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y),
+      rgba(0, 240, 255, 0.1) 0%,
+      transparent 70%
+    );
+  }
+  
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    .logos-grid {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.5rem;
+    }
+    
+    @media (max-width: 1280px) {
+      .logos-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    
+    @media (max-width: 1024px) {
+      .logos-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .logos-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .integration-card {
+      padding: 1.5rem;
+    }
+  }
 </style>

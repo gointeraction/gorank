@@ -164,22 +164,20 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
             <!-- Capa de brillos y reflejos 3D -->
             <div class="absolute inset-0 opacity-40 mix-blend-overlay overflow-hidden hero-glare"></div>
             
-            <!-- Imagen principal con carga optimizada -->
-            <picture>
-              <source srcset="/ai-hero.webp" type="image/webp">
-              <source srcset="/ai-hero.svg" type="image/svg+xml">
-              <img 
-                src="/ai-hero.svg" 
-                alt="Dashboard de IA avanzada con análisis en tiempo real" 
-                class="w-full h-auto object-cover"
-                loading="eager"
-                width="1200"
-                height="800"
-                fetchpriority="high"
-              />
-            </picture>
+          <!-- Imagen del dashboard de IA -->
+          <img 
+            src="/img/Dashboard.png" 
+            alt="Dashboard de IA avanzada con análisis en tiempo real" 
+            class="w-full h-auto object-cover rounded-xl"
+            loading="eager"
+            width="1200"
+  height="900"
+  fetchpriority="high"
+/>
             
+
             <!-- Overlay con efecto de profundidad y brillo -->
+
             <div class="absolute inset-0 bg-gradient-to-tr from-accent/10 to-primary/10 mix-blend-overlay opacity-70 hero-overlay">
               <!-- SVG decorativo con efectos de profundidad -->
               <svg class="absolute inset-0 w-full h-full opacity-40" viewBox="0 0 1000 800" preserveAspectRatio="xMidYMid slice">
