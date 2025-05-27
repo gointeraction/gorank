@@ -3,6 +3,20 @@ import MainLayout from '../layouts/MainLayout.astro';
 ---
 
 <MainLayout title="Contacto - Servicios de Desarrollo de IA">
+  <!-- Agregar Breadcrumbs para mejorar la navegación -->
+  <div class="py-3 px-4 w-full max-w-7xl mx-auto">
+    <ol class="flex flex-wrap items-center space-x-1 text-sm">
+      <li>
+        <a href="/" class="hover:text-accent transition-colors">Inicio</a>
+      </li>
+      <li class="flex items-center">
+        <svg class="w-4 h-4 text-text-secondary/50 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="text-accent font-medium" aria-current="page">Contacto</span>
+      </li>
+    </ol>
+  </div>
   <div class="container mx-auto grid md:grid-cols-2 gap-12 items-start">
     <section class="bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg p-10 animate-fade-in">
       <h1 class="text-4xl font-bold mb-6 text-text-primary">Contáctanos</h1>
@@ -10,30 +24,82 @@ import MainLayout from '../layouts/MainLayout.astro';
         ¿Listo para transformar tu negocio con inteligencia artificial? Comienza tu journey con nosotros rellenando el siguiente formulario.
       </p>
       
-      <form id="contactForm" class="space-y-6">
+      <form id="contactForm" class="space-y-6" novalidate>
+        <div class="form-group">
+          <label for="name" class="block mb-2 text-text-accent">Nombre completo <span class="text-red-500">*</span></label>
+          <div class="relative">
+            <input 
+              type="text" 
+              id="name" 
+              name="name"
+              required 
+              class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition pr-10 validation-input"
+              placeholder="Su nombre completo"
+              aria-required="true"
+              data-error-message="Por favor ingrese su nombre completo"
+            />
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none success-icon hidden text-green-500">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none error-icon hidden text-red-500">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+          </div>
+          <p class="mt-1 text-sm text-red-500 error-message hidden"></p>
+        </div>
+        
         <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label for="firstName" class="block mb-2 text-text-accent">Nombre</label>
-            <input 
-              type="text" 
-              id="firstName" 
-              name="firstName"
-              required 
-              class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition"
-              placeholder="Su nombre"
-            />
+          <div class="form-group">
+            <label for="email" class="block mb-2 text-text-accent">Correo Electrónico <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                required 
+                class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition pr-10 validation-input"
+                placeholder="nombre@empresa.com"
+                aria-required="true"
+                data-error-message="Por favor ingrese un correo electrónico válido"
+              />
+              <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none success-icon hidden text-green-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none error-icon hidden text-red-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <p class="mt-1 text-sm text-red-500 error-message hidden"></p>
           </div>
           <div>
-            <label for="lastName" class="block mb-2 text-text-accent">Apellido</label>
+            <label for="phone" class="block mb-2 text-text-accent">Teléfono <span class="text-sm text-gray-400">(opcional)</span></label>
             <input 
-              type="text" 
-              id="lastName" 
-              name="lastName"
-              required 
+              type="tel" 
+              id="phone" 
+              name="phone"
               class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition"
-              placeholder="Su apellido"
+              placeholder="+58 412 123 4567"
             />
           </div>
+        </div>
+        
+        <div>
+          <label for="subject" class="block mb-2 text-text-accent">Asunto</label>
+          <input 
+            type="text" 
+            id="subject" 
+            name="subject"
+            class="w-full px-4 py-3 rounded-3xl bg-card text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition"
+            placeholder="¿En qué podemos ayudarte?"
+          />
         </div>
 
         <div>
@@ -151,23 +217,167 @@ import MainLayout from '../layouts/MainLayout.astro';
 </MainLayout>
 
 <script>
-  const form = document.getElementById('contactForm');
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(form as HTMLFormElement);
-    const data = Object.fromEntries(formData.entries());
+  document.addEventListener('astro:page-load', () => {
+    const form = document.getElementById('contactForm');
+    const submitBtn = form?.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn?.textContent || 'Enviar mensaje';
+    const validationInputs = document.querySelectorAll('.validation-input');
     
-    // Validar campos
-    const requiredFields = ['firstName', 'lastName', 'email', 'service', 'message'];
-    const missingFields = requiredFields.filter(field => !data[field]);
+    if (!form) return;
     
-    if (missingFields.length > 0) {
-      alert(`Por favor complete los siguientes campos: ${missingFields.join(', ')}`);
-      return;
+    // Función para validar un campo individual
+    function validateField(field) {
+      const parent = field.closest('.form-group');
+      const errorMessage = parent.querySelector('.error-message');
+      const successIcon = parent.querySelector('.success-icon');
+      const errorIcon = parent.querySelector('.error-icon');
+      const customErrorMessage = field.dataset.errorMessage || 'Este campo es requerido';
+      
+      let isValid = field.checkValidity();
+      
+      // Validación personalizada para email
+      if (field.type === 'email' && field.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        isValid = emailRegex.test(field.value);
+      }
+      
+      if (!isValid && field.value) {
+        // Campo inválido pero con valor
+        field.classList.add('border-red-500');
+        field.classList.remove('border-green-500');
+        errorMessage.textContent = customErrorMessage;
+        errorMessage.classList.remove('hidden');
+        errorIcon.classList.remove('hidden');
+        successIcon.classList.add('hidden');
+        return false;
+      } else if (!field.value && field.required) {
+        // Campo vacío pero requerido
+        field.classList.add('border-red-500');
+        field.classList.remove('border-green-500');
+        errorMessage.textContent = 'Este campo es requerido';
+        errorMessage.classList.remove('hidden');
+        errorIcon.classList.remove('hidden');
+        successIcon.classList.add('hidden');
+        return false;
+      } else if (field.value) {
+        // Campo válido con valor
+        field.classList.remove('border-red-500');
+        field.classList.add('border-green-500');
+        errorMessage.classList.add('hidden');
+        errorIcon.classList.add('hidden');
+        successIcon.classList.remove('hidden');
+        return true;
+      } else {
+        // Campo no requerido y vacío
+        field.classList.remove('border-red-500');
+        field.classList.remove('border-green-500');
+        errorMessage.classList.add('hidden');
+        errorIcon.classList.add('hidden');
+        successIcon.classList.add('hidden');
+        return true;
+      }
     }
+    
+    // Validar todos los campos del formulario
+    function validateForm() {
+      let isFormValid = true;
+      
+      validationInputs.forEach(input => {
+        const isFieldValid = validateField(input);
+        if (!isFieldValid) {
+          isFormValid = false;
+        }
+      });
+      
+      return isFormValid;
+    }
+    
+    // Añadir event listeners a cada campo para validación en tiempo real
+    validationInputs.forEach(input => {
+      ['blur', 'input'].forEach(eventType => {
+        input.addEventListener(eventType, () => validateField(input));
+      });
+    });
 
-    // Simular envío de formulario
-    alert('¡Gracias por su mensaje! Nos pondremos en contacto con usted pronto.');
-    (form as HTMLFormElement).reset();
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Validar el formulario antes de enviar
+      const isValid = validateForm();
+      
+      if (!isValid) {
+        // Scroll al primer campo con error
+        const firstErrorField = form.querySelector('.validation-input.border-red-500');
+        if (firstErrorField) {
+          firstErrorField.focus();
+          firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+      
+      // Deshabilitar el botón de envío
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          Enviando...
+        `;
+      }
+
+      try {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Validar campos requeridos
+        const requiredFields = ['name', 'email', 'message'];
+        const missingFields = requiredFields.filter(field => !data[field]);
+        
+        if (missingFields.length > 0) {
+          alert(`Por favor complete los siguientes campos: ${missingFields.join(', ')}`);
+          return;
+        }
+
+        // Enviar datos a la API
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Mostrar mensaje de éxito
+          const successAlert = document.createElement('div');
+          successAlert.className = 'mt-4 p-4 bg-green-500/10 border border-green-500/30 text-green-400 rounded-lg';
+          successAlert.innerHTML = `
+            <div class="flex items-center">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
+            </div>
+          `;
+          form.prepend(successAlert);
+          form.reset();
+        } else {
+          throw new Error(result.error || 'Error al enviar el mensaje');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
+      } finally {
+        // Restaurar el botón
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      }
+    });
   });
 </script>

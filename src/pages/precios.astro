@@ -3,6 +3,100 @@ import MainLayout from '../layouts/MainLayout.astro';
 ---
 
 <MainLayout title="Costos de Desarrollo de Software de Inteligencia Artificial">
+  <style>
+    /* Estilos para animaciones de revelación */
+    .reveal-animation {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .reveal-animation.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .reveal-animation-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .reveal-animation-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .reveal-animation-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .reveal-animation-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Configuración de retrasos para elementos secuenciales */
+    .delay-100 {
+      transition-delay: 0.1s;
+    }
+    
+    .delay-200 {
+      transition-delay: 0.2s;
+    }
+    
+    .delay-300 {
+      transition-delay: 0.3s;
+    }
+    
+    .delay-400 {
+      transition-delay: 0.4s;
+    }
+    
+    .delay-500 {
+      transition-delay: 0.5s;
+    }
+    
+    /* Animación para tarjetas de precios */
+    .price-card {
+      transition: all 0.3s ease;
+    }
+    
+    .price-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px -12px rgba(0, 240, 255, 0.25);
+    }
+  </style>
+  
+  <!-- Indicador de progreso de lectura -->
+  <div id="reading-progress-container" class="fixed top-0 left-0 w-full h-1 bg-background/30 z-50">
+    <div id="reading-progress" class="h-full bg-gradient-to-r from-accent to-primary w-0"></div>
+  </div>
+  
+  <!-- Botón volver arriba -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-accent/90 hover:bg-accent text-white p-3 rounded-full shadow-lg z-50 opacity-0 invisible transition-all duration-300 transform translate-y-10" aria-label="Volver arriba">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+  
+  <!-- Breadcrumbs para mejorar navegación -->
+  <div class="py-3 px-4 w-full max-w-7xl mx-auto">
+    <ol class="flex flex-wrap items-center space-x-1 text-sm">
+      <li>
+        <a href="/" class="hover:text-accent transition-colors">Inicio</a>
+      </li>
+      <li class="flex items-center">
+        <svg class="w-4 h-4 text-text-secondary/50 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="text-accent font-medium" aria-current="page">Precios</span>
+      </li>
+    </ol>
+  </div>
+  
   <div class="container mx-auto space-y-16">
     <section class="text-center animate-fade-in">
       <h1 class="text-5xl font-bold mb-6 text-text-primary">
@@ -13,61 +107,380 @@ import MainLayout from '../layouts/MainLayout.astro';
       </p>
     </section>
 
-    <section>
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-text-primary">
+    <section id="factores">
+      <div class="inline-flex items-center gap-1 mb-4 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mx-auto block text-center reveal-animation">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10h-6m-2-5h8m-8 0a5 5 0 110-10 5 5 0 010 10z" />
+        </svg>
+        <span>FACTORES DE COSTO</span>
+      </div>
+      
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-text-primary reveal-animation delay-100">
         Factores Principales que Determinan el <span class="text-accent">Precio del Proyecto</span>
       </h2>
+      
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg hover:shadow-[0_0_24px_#00F0FF88] transition-all duration-500 p-8 animate-fade-in">
-          <div class="text-accent text-4xl mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="price-card bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg p-8 reveal-animation-left delay-200">
+          <div class="relative w-20 h-20 mx-auto mb-6 bg-accent/10 rounded-full flex items-center justify-center">
+            <div class="absolute inset-0 bg-accent/5 rounded-full animate-pulse"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-accent relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent">Complejidad del Proyecto</h3>
-          <p class="text-text-secondary">
+          
+          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent text-center">Complejidad del Proyecto</h3>
+          
+          <p class="text-text-secondary text-center">
             La complejidad técnica, los algoritmos requeridos y la sofisticación de la solución influyen directamente en el costo.
           </p>
+          
+          <div class="mt-6 border-t border-border/30 pt-4">
+            <h4 class="font-semibold text-accent mb-2">Incluye factores como:</h4>
+            <ul class="text-text-secondary space-y-2">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Complejidad algorítmica</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Integración con otros sistemas</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Requisitos de procesamiento</span>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg hover:shadow-[0_0_24px_#00F0FF88] transition-all duration-500 p-8 animate-fade-in">
-          <div class="text-accent text-4xl mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        
+        <div class="price-card bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg p-8 reveal-animation delay-300">
+          <div class="relative w-20 h-20 mx-auto mb-6 bg-accent/10 rounded-full flex items-center justify-center">
+            <div class="absolute inset-0 bg-accent/5 rounded-full animate-pulse"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-accent relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent">Duración del Proyecto</h3>
-          <p class="text-text-secondary">
+          
+          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent text-center">Duración del Proyecto</h3>
+          
+          <p class="text-text-secondary text-center">
             El tiempo estimado de desarrollo, desde la concepción hasta la implementación, afecta el precio final.
           </p>
+          
+          <div class="mt-6 border-t border-border/30 pt-4">
+            <h4 class="font-semibold text-accent mb-2">Incluye factores como:</h4>
+            <ul class="text-text-secondary space-y-2">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Tiempo de investigación</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Fase de entrenamiento de modelos</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Ciclos de prueba y ajuste</span>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg hover:shadow-[0_0_24px_#00F0FF88] transition-all duration-500 p-8 animate-fade-in">
-          <div class="text-accent text-4xl mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        
+        <div class="price-card bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg p-8 reveal-animation-right delay-400">
+          <div class="relative w-20 h-20 mx-auto mb-6 bg-accent/10 rounded-full flex items-center justify-center">
+            <div class="absolute inset-0 bg-accent/5 rounded-full animate-pulse"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-accent relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent">Tamaño y Composición del Equipo</h3>
-          <p class="text-text-secondary">
+          
+          <h3 class="text-2xl md:text-3xl font-bold tracking-wide mb-4 text-accent text-center">Tamaño y Composición del Equipo</h3>
+          
+          <p class="text-text-secondary text-center">
             El número y especialización de los profesionales necesarios para el proyecto determinan su costo.
           </p>
+          
+          <div class="mt-6 border-t border-border/30 pt-4">
+            <h4 class="font-semibold text-accent mb-2">Incluye factores como:</h4>
+            <ul class="text-text-secondary space-y-2">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Especialistas en ML/IA</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Ingenieros de datos</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Desarrolladores de frontend/backend</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="bg-card rounded-3xl shadow-lg p-12 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-text-primary">
-        ¿Quiere Aportar Más <span class="text-accent">Inteligencia</span> a su Empresa?
+    <!-- Sección de Planes de Precios -->
+    <section id="planes" class="py-16">
+      <div class="inline-flex items-center gap-1 mb-4 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mx-auto block text-center reveal-animation">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>PLANES DISPONIBLES</span>
+      </div>
+      
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-text-primary reveal-animation delay-100">
+        Nuestros <span class="text-accent">Planes de Servicios</span> de IA
       </h2>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-        Cuéntenos cuáles son sus puntos débiles y descubra cómo pueden ayudarle nuestros especialistas en IA.
+      
+      <p class="text-text-secondary max-w-3xl mx-auto text-center mb-16 reveal-animation delay-200">
+        Ofrecemos diferentes planes adaptados a las necesidades específicas de su empresa. Desde soluciones puntuales hasta proyectos integrales de transformación digital.
       </p>
-      <a 
-        href="/contacto" 
-        class="bg-accent text-white px-10 py-4 rounded-3xl font-bold px-8 py-3 text-lg hover:bg-accent/80 transition"
-      >
-        Contáctenos
-      </a>
+      
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Plan Básico -->
+        <div class="price-card bg-surface/60 backdrop-blur-xl border border-border/50 rounded-3xl shadow-lg overflow-hidden reveal-animation-left delay-300">
+          <div class="bg-gradient-to-br from-surface to-background p-8 relative">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full"></div>
+            <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Plan Básico</h3>
+            <p class="text-text-secondary mb-6 relative z-10">Para proyectos iniciales y POCs</p>
+            <div class="flex items-end mb-4 relative z-10">
+              <span class="text-4xl font-bold text-accent">$5,000</span>
+              <span class="text-text-secondary ml-2 pb-1">/ base</span>
+            </div>
+          </div>
+          
+          <div class="p-8">
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Desarrollo de un prototipo funcional</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Implementación en 4-6 semanas</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Soporte técnico por 1 mes</span>
+              </li>
+              <li class="flex items-start text-text-secondary/70">
+                <svg class="w-5 h-5 text-text-secondary/50 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>Entrenamiento personalizado</span>
+              </li>
+              <li class="flex items-start text-text-secondary/70">
+                <svg class="w-5 h-5 text-text-secondary/50 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>Integración con sistemas existentes</span>
+              </li>
+            </ul>
+            
+            <a href="/contacto?plan=basico" class="block w-full py-3 px-6 text-center border-2 border-accent text-accent font-semibold rounded-xl hover:bg-accent hover:text-white transition-all duration-300">Solicitar Información</a>
+          </div>
+        </div>
+        
+        <!-- Plan Profesional -->
+        <div class="price-card bg-surface/60 backdrop-blur-xl border-2 border-accent/50 rounded-3xl shadow-xl overflow-hidden transform scale-105 z-10 reveal-animation delay-200">
+          <div class="absolute top-0 right-0">
+            <div class="bg-accent text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-lg shadow-lg">
+              RECOMENDADO
+            </div>
+          </div>
+          
+          <div class="bg-gradient-to-br from-accent/20 to-primary/10 p-8 relative">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-bl-full"></div>
+            <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Plan Profesional</h3>
+            <p class="text-text-secondary mb-6 relative z-10">Para implementaciones corporativas</p>
+            <div class="flex items-end mb-4 relative z-10">
+              <span class="text-4xl font-bold text-accent">$15,000</span>
+              <span class="text-text-secondary ml-2 pb-1">/ base</span>
+            </div>
+          </div>
+          
+          <div class="p-8">
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Solución IA completa y personalizada</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Implementación en 8-12 semanas</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Soporte técnico por 6 meses</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Entrenamiento para su equipo</span>
+              </li>
+              <li class="flex items-start text-text-secondary/70">
+                <svg class="w-5 h-5 text-text-secondary/50 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>Actualización automática de modelos</span>
+              </li>
+            </ul>
+            
+            <a href="/contacto?plan=profesional" class="block w-full py-3 px-6 text-center bg-accent text-white font-semibold rounded-xl hover:bg-accent/90 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">Solicitar Presupuesto</a>
+          </div>
+        </div>
+        
+        <!-- Plan Enterprise -->
+        <div class="price-card bg-surface/60 backdrop-blur-xl border border-border/50 rounded-3xl shadow-lg overflow-hidden reveal-animation-right delay-300">
+          <div class="bg-gradient-to-br from-surface to-background p-8 relative">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full"></div>
+            <h3 class="text-2xl font-bold text-white mb-2 relative z-10">Plan Enterprise</h3>
+            <p class="text-text-secondary mb-6 relative z-10">Para grandes organizaciones</p>
+            <div class="flex items-end mb-4 relative z-10">
+              <span class="text-4xl font-bold text-accent">Personalizado</span>
+            </div>
+          </div>
+          
+          <div class="p-8">
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Solución IA a escala empresarial</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Planificación e implementación personalizada</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Soporte técnico premium 24/7</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Entrenamiento completo para el personal</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-accent mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Actualización e integración continua</span>
+              </li>
+            </ul>
+            
+            <a href="/contacto?plan=enterprise" class="block w-full py-3 px-6 text-center border-2 border-accent text-accent font-semibold rounded-xl hover:bg-accent hover:text-white transition-all duration-300">Contactar con Ventas</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center reveal-animation delay-400">
+        <p class="text-text-secondary mb-4">¿Necesita una solución personalizada?</p>
+        <a href="/contacto" class="text-accent hover:text-accent/80 font-medium inline-flex items-center transition-colors">
+          <span>Contacte con nuestro equipo</span>
+          <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-br from-card/80 to-surface/60 backdrop-blur-xl rounded-3xl shadow-lg p-12 text-center reveal-animation">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-text-primary reveal-animation delay-100">
+          ¿Quiere Aportar Más <span class="text-accent">Inteligencia</span> a su Empresa?
+        </h2>
+        
+        <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-8 reveal-animation delay-200">
+          Cuéntenos cuáles son sus puntos débiles y descubra cómo pueden ayudarle nuestros especialistas en IA.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal-animation delay-300">
+          <a 
+            href="/contacto" 
+            class="bg-accent text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-accent/20 hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto justify-center"
+          >
+            <span>Contáctenos</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          
+          <a 
+            href="/portafolio" 
+            class="border-2 border-accent/50 text-accent px-10 py-4 rounded-2xl font-bold text-lg hover:bg-accent/10 transition-all duration-300 flex items-center gap-2 w-full sm:w-auto justify-center"
+          >
+            <span>Ver Portafolio</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-5-5 5-5" />
+            </svg>
+          </a>
+        </div>
+        
+        <div class="mt-8 flex flex-wrap justify-center gap-8 items-center reveal-animation delay-400">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <span class="text-text-secondary">Soporte Garantizado</span>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-text-secondary">Proyectos Entregados a Tiempo</span>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span class="text-text-secondary">Implementación Rápida</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section>
@@ -141,4 +554,87 @@ import MainLayout from '../layouts/MainLayout.astro';
       </div>
     </section>
   </div>
+
+<script>
+  // Animación de elementos al hacer scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    // Configuración del observador para las animaciones de revelación
+    const revealElements = document.querySelectorAll('.reveal-animation, .reveal-animation-left, .reveal-animation-right');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    revealElements.forEach(el => {
+      revealObserver.observe(el);
+    });
+    
+    // Implementación del indicador de progreso de lectura
+    const progressBar = document.getElementById('reading-progress');
+    const totalHeight = document.body.scrollHeight - window.innerHeight;
+    
+    window.addEventListener('scroll', () => {
+      const progress = (window.scrollY / totalHeight) * 100;
+      progressBar.style.width = `${progress}%`;
+      
+      // Mostrar/ocultar botón volver arriba
+      const backToTop = document.getElementById('back-to-top');
+      if (window.scrollY > 500) {
+        backToTop.classList.remove('opacity-0', 'invisible', 'translate-y-10');
+        backToTop.classList.add('opacity-100', 'translate-y-0');
+      } else {
+        backToTop.classList.add('opacity-0', 'invisible', 'translate-y-10');
+        backToTop.classList.remove('opacity-100', 'translate-y-0');
+      }
+    });
+    
+    // Funcionalidad del botón volver arriba
+    const backToTop = document.getElementById('back-to-top');
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Implementación de scroll suave para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Añadir efectos de hover a las tarjetas de precios
+    const priceCards = document.querySelectorAll('.price-card');
+    priceCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.querySelector('a').classList.add('shadow-lg');
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.querySelector('a').classList.remove('shadow-lg');
+      });
+    });
+  });
+</script>
 </MainLayout>

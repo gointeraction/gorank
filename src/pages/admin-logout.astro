@@ -1,0 +1,24 @@
+---
+// Configuración de autenticación básica
+const ADMIN_USERNAME = 'admin';
+const ADMIN_PASSWORD = 'admin123'; // ¡Cambia esto en producción!
+
+// Eliminar la cookie de autenticación
+Astro.cookies.delete('auth', {
+  path: '/',
+});
+
+// Redirigir a la página de inicio de sesión con un mensaje de éxito
+return Astro.redirect('/admin/login?logout=success');
+---
+
+<!-- Página temporal mientras se redirige -->
+<html>
+  <head>
+    <title>Cerrando sesión...</title>
+    <meta http-equiv="refresh" content="0;url=/admin/login?logout=success" />
+  </head>
+  <body>
+    <p>Cerrando sesión, por favor espere...</p>
+  </body>
+</html>

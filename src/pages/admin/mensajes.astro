@@ -1,0 +1,203 @@
+---
+import { db } from 'astro:db';
+import { ContactMessages } from '../../../db/schema';
+import MainLayout from '../../../layouts/MainLayout.astro';
+
+// Configuración de autenticación básica
+const ADMIN_USERNAME = 'admin';
+const ADMIN_PASSWORD = 'admin123'; // ¡Cambia esto en producción!
+
+
+// Verificar autenticación básica
+const auth = Astro.cookies.get('auth')?.value;
+const isAuthenticated = auth === `${ADMIN_USERNAME}:${ADMIN_PASSWORD}`;
+
+// Si no está autenticado, redirigir al login
+if (!isAuthenticated) {
+  return Astro.redirect('/admin/login');
+}
+
+// Obtener mensajes
+const messages = await db.select()
+  .from(ContactMessages)
+  .orderBy(ContactMessages.createdAt.desc())
+  .all();
+---
+
+<MainLayout title="Panel de Administración - Mensajes">
+  <div class="min-h-screen bg-background text-text-primary">
+    <div class="container mx-auto px-4 py-8">
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold">Mensajes de Contacto</h1>
+        <a 
+          href="/admin-logout" 
+          class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+        >
+          Cerrar Sesión
+        </a>
+      </div>
+      
+      {messages.length === 0 ? (
+        <div class="text-center py-12">
+          <p class="text-text-secondary text-lg">No hay mensajes aún.</p>
+        </div>
+      ) : (
+        <div class="bg-surface rounded-xl shadow-lg overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-700">
+              <thead class="bg-card">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Nombre</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Email</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Teléfono</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Asunto</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Fecha</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Estado</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Acciones</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-700">
+                {messages.map((message) => (
+                  <tr class="hover:bg-card/50 transition-colors">
+                    <td class="px-6 py-4 whitespace-nowrap text-text-primary">{message.name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-text-secondary">
+                      <a href={`mailto:${message.email}`} class="text-accent hover:underline">
+                        {message.email}
+                      </a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-text-secondary">
+                      {message.phone || 'No especificado'}
+                    </td>
+                    <td class="px-6 py-4 text-text-secondary max-w-xs truncate">
+                      {message.subject || 'Sin asunto'}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-text-secondary">
+                      {new Date(message.createdAt).toLocaleString()}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span class={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                        ${message.status === 'new' ? 'bg-blue-100 text-blue-800' : 
+                          message.status === 'in_progress' ? 'bg-yellow-100 text-yellow-800' : 
+                          'bg-green-100 text-green-800'}`}>
+                        {message.status === 'new' ? 'Nuevo' : 
+                         message.status === 'in_progress' ? 'En progreso' : 'Resuelto'}
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                      <button 
+                        class="text-accent hover:text-accent/80 mr-3"
+                        onclick=`viewMessage(${JSON.stringify(message)})`
+                      >
+                        Ver
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <!-- Modal para ver mensaje completo -->
+  <div id="messageModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50">
+    <div class="bg-surface rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-6">
+        <div class="flex justify-between items-start mb-6">
+          <h3 class="text-2xl font-bold" id="modalTitle">Mensaje</h3>
+          <button 
+            class="text-text-secondary hover:text-text-primary text-2xl"
+            onclick="document.getElementById('messageModal').classList.add('hidden')"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <h4 class="text-sm font-medium text-text-secondary">De:</h4>
+            <p id="modalFrom" class="text-text-primary"></p>
+          </div>
+          <div>
+            <h4 class="text-sm font-medium text-text-secondary">Asunto:</h4>
+            <p id="modalSubject" class="text-text-primary"></p>
+          </div>
+          <div>
+            <h4 class="text-sm font-medium text-text-secondary">Mensaje:</h4>
+            <p id="modalMessage" class="text-text-primary whitespace-pre-line"></p>
+          </div>
+          <div class="pt-4 border-t border-gray-700">
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-text-secondary">
+                Enviado el <span id="modalDate"></span>
+              </span>
+              <div class="space-x-2">
+                <button 
+                  id="markInProgressBtn"
+                  class="px-3 py-1 text-xs bg-yellow-600 hover:bg-yellow-700 text-white rounded"
+                  onclick="updateStatus('in_progress')"
+                >
+                  En progreso
+                </button>
+                <button 
+                  id="markResolvedBtn"
+                  class="px-3 py-1 text-xs bg-green-600 hover:bg-green-700 text-white rounded"
+                  onclick="updateStatus('resolved')"
+                >
+                  Resolver
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentMessageId = '';
+    
+    function viewMessage(message) {
+      currentMessageId = message.id;
+      document.getElementById('modalTitle').textContent = `Mensaje de ${message.name}`;
+      document.getElementById('modalFrom').textContent = `${message.name} <${message.email}${message.phone ? `, ${message.phone}` : ''}>`;
+      document.getElementById('modalSubject').textContent = message.subject || 'Sin asunto';
+      document.getElementById('modalMessage').textContent = message.message;
+      document.getElementById('modalDate').textContent = new Date(message.createdAt).toLocaleString();
+      
+      // Actualizar visibilidad de botones según el estado actual
+      document.getElementById('markInProgressBtn').classList.toggle('hidden', message.status === 'in_progress');
+      document.getElementById('markResolvedBtn').classList.toggle('hidden', message.status === 'resolved');
+      
+      // Mostrar el modal
+      document.getElementById('messageModal').classList.remove('hidden');
+    }
+    
+    async function updateStatus(newStatus) {
+      try {
+        const response = await fetch(`/api/messages/${currentMessageId}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: newStatus })
+        });
+        
+        if (response.ok) {
+          window.location.reload();
+        } else {
+          alert('Error al actualizar el estado del mensaje');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error al conectar con el servidor');
+      }
+    }
+    
+    // Cerrar modal al hacer clic fuera del contenido
+    document.getElementById('messageModal')?.addEventListener('click', (e) => {
+      if (e.target === document.getElementById('messageModal')) {
+        document.getElementById('messageModal').classList.add('hidden');
+      }
+    });
+  </script>
+</MainLayout>

@@ -1,35 +1,40 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-import { authenticateUser } from '../../middleware/auth';
+
+// Configuración de autenticación básica
+const ADMIN_USERNAME = 'admin';
+const ADMIN_PASSWORD = 'admin123'; // ¡Cambia esto en producción!
 
 let errorMessage = '';
-let logoutMessage = '';
 
-// Check for logout status
-if (Astro.url.searchParams.get('logout') === 'success') {
-  logoutMessage = 'Sesión cerrada exitosamente.';
-} else if (Astro.url.searchParams.get('logout') === 'error') {
-  logoutMessage = 'Hubo un problema al cerrar la sesión.';
+// Verificar si ya está autenticado
+const auth = Astro.cookies.get('auth')?.value;
+const isAuthenticated = auth === `${ADMIN_USERNAME}:${ADMIN_PASSWORD}`;
+
+// Si ya está autenticado, redirigir al panel
+if (isAuthenticated) {
+  return Astro.redirect('/admin/mensajes');
 }
 
+// Procesar el formulario de inicio de sesión
 if (Astro.request.method === 'POST') {
   const formData = await Astro.request.formData();
   const username = formData.get('username');
   const password = formData.get('password');
 
-  const token = await authenticateUser(username, password);
-
-  if (token) {
-    // Set secure HTTP-only cookie
-    Astro.cookies.set('admin_token', token, {
+  // Validar credenciales
+  if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+    // Establecer cookie de autenticación
+    Astro.cookies.set('auth', `${username}:${password}`, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7, // 1 semana
       sameSite: 'strict',
-      path: '/'
+      secure: import.meta.env.PROD
     });
-    return Astro.redirect('/admin/dashboard', 302);
-  } else {
-    errorMessage = 'Credenciales inválidas. Intente nuevamente.';
+    
+    // Redirigir al panel de mensajes
+    return Astro.redirect('/admin/mensajes');
   }
 }
 ---

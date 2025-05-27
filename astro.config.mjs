@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 
+import db from '@astrojs/db';
+
 // https://astro.build/config
 export default defineConfig({
   // Configuración del sitio
@@ -34,25 +36,22 @@ export default defineConfig({
   output: 'static',
   
   // Integraciones
-  integrations: [
-    tailwind({
-      // Opciones de configuración de Tailwind
-      config: {
-        // Ruta al archivo de configuración de Tailwind
-        path: './tailwind.config.mjs',
-        // Aplicar estilos base de Tailwind
-        applyBaseStyles: true
-      }
-    }),
-    icon({
-      include: {
-        'ph': ['*']
-      },
-      svgProps: {
-        'class': 'icon'
-      }
-    })
-  ],
+  integrations: [tailwind({
+    // Opciones de configuración de Tailwind
+    config: {
+      // Ruta al archivo de configuración de Tailwind
+      path: './tailwind.config.mjs',
+      // Aplicar estilos base de Tailwind
+      applyBaseStyles: true
+    }
+  }), icon({
+    include: {
+      'ph': ['*']
+    },
+    svgProps: {
+      'class': 'icon'
+    }
+  }), db()],
   
   // Configuración de compilación
   build: {

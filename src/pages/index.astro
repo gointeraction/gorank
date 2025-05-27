@@ -17,115 +17,244 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
 ---
 
 <MainLayout title="Inicio">
-  <!-- Hero Section Mejorada -->
-  <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-surface/80 to-primary/5 pt-1">
-    <!-- Patrón de fondo sutil -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] bg-center [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+  <!-- Hero Section con efectos 3D y parallax avanzados -->
+  <section class="relative min-h-[95vh] flex items-center justify-center overflow-hidden pt-1" aria-labelledby="hero-heading">
+    <h1 id="hero-heading" class="sr-only">Soluciones de Inteligencia Artificial para tu negocio</h1>
+    <!-- Fondo dinámico con efecto parallax -->
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-background via-surface/80 to-primary/5"></div>
+      <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] bg-center opacity-10 parallax-bg" data-speed="-0.05"></div>
+      
+      <!-- Estrellas/puntos brillantes animados -->
+      <div id="stars-container" class="absolute inset-0 overflow-hidden"></div>
+      
+      <!-- Líneas de conexión estilo neural -->
+      <div class="absolute inset-0 opacity-20" aria-hidden="true">
+        <svg class="w-full h-full" id="neural-network" aria-hidden="true"></svg>
+      </div>
     </div>
     
-    <!-- Partículas animadas -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute -top-10 -left-10 w-72 h-72 bg-accent/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-      <div class="absolute top-1/3 -right-10 w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-      <div class="absolute -bottom-20 left-1/3 w-80 h-80 bg-accent/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+    <!-- Precargar recursos críticos -->
+    <link rel="preload" href="/ai-hero.webp" as="image" type="image/webp">
+    <link rel="preload" href="/img/grid-pattern.svg" as="image" type="image/svg+xml">
+    
+    <!-- Partículas animadas con efecto 3D -->
+    <div class="absolute inset-0 overflow-hidden perspective-3d" aria-hidden="true">
+      <div class="absolute -top-10 -left-10 w-72 h-72 bg-accent/20 rounded-full mix-blend-multiply filter blur-3xl animate-float-slow parallax-element" data-speed="0.2"></div>
+      <div class="absolute top-1/3 -right-10 w-96 h-96 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl animate-float-slow-reverse parallax-element" data-speed="0.3"></div>
+      <div class="absolute -bottom-20 left-1/3 w-80 h-80 bg-accent/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow parallax-element" data-speed="0.25"></div>
+      
+      <!-- Partículas flotantes adicionales -->
+      <div class="particle absolute w-4 h-4 rounded-full bg-accent/30 top-1/4 left-1/4 animate-float-random"></div>
+      <div class="particle absolute w-3 h-3 rounded-full bg-primary/40 top-3/4 right-1/3 animate-float-random-delay"></div>
+      <div class="particle absolute w-2 h-2 rounded-full bg-white/30 bottom-1/3 right-1/4 animate-float-random"></div>
+      <div class="particle absolute w-5 h-5 rounded-full bg-accent/20 top-1/2 left-1/2 animate-float-random-delay"></div>
     </div>
 
     <div class="relative container mx-auto px-4 pt-0 md:pt-4 pb-6 md:pb-12 flex flex-col lg:flex-row items-center justify-between gap-4 z-10">
-      <!-- Contenido de texto -->
-      <div class="flex-1 text-center lg:text-left max-w-3xl mx-auto lg:mx-0">
-        <div class="inline-flex items-center gap-1 mb-2 px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent/75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+      <!-- Contenido de texto con animaciones avanzadas -->
+      <div class="flex-1 text-center lg:text-left max-w-3xl mx-auto lg:mx-0 perspective-container">
+        <!-- Badge con efecto 3D animado -->
+        <div class="inline-flex items-center gap-1 mb-4 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-medium transform hover:scale-105 transition-transform animate-float-slow">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
           </span>
-        
+          <span class="ml-1 tracking-wide uppercase">Tecnología de Vanguardia</span>
         </div>
         
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-2 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-accent/80">
-          Potencia tu negocio con <span class="text-accent">Inteligencia Artificial</span>
+        <!-- Título con efecto de revelación y animación 3D -->
+        <h1 class="hero-title text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight transform-gpu">
+          <span class="block reveal-text text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-accent/80 animate-gradient-text">Potencia tu negocio con</span>
+          <span class="block reveal-text-delay text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent/90 to-primary animate-gradient-text">Inteligencia Artificial</span>
         </h1>
         
-        <p class="text-base md:text-lg text-gray-300 mb-6 max-w-2xl mx-auto lg:mx-0 leading-snug">
-          Soluciones de IA personalizadas que impulsan la innovación, automatizan procesos y generan resultados medibles para tu empresa.
+        <!-- Subtítulo con animación de revelación -->
+        <p class="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed reveal-content">
+          Soluciones de IA personalizadas que <span class="text-accent font-medium">impulsan la innovación</span>, automatizan procesos y generan <span class="text-accent font-medium">resultados medibles</span> para tu empresa con tecnología de última generación.        
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+        <!-- Contador de estadísticas animado -->
+        <div class="grid grid-cols-3 gap-3 mb-8 reveal-content-delay">
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-3 px-2 transform hover:scale-105 transition-all duration-300">
+            <div class="text-2xl font-bold text-accent mb-1">
+              <span class="counter-value" data-target="98">0</span>%
+            </div>
+            <div class="text-xs text-white/70">Satisfacción</div>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-3 px-2 transform hover:scale-105 transition-all duration-300">
+            <div class="text-2xl font-bold text-accent mb-1">+<span class="counter-value" data-target="500">0</span></div>
+            <div class="text-xs text-white/70">Proyectos</div>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-3 px-2 transform hover:scale-105 transition-all duration-300">
+            <div class="text-2xl font-bold text-accent mb-1">+<span class="counter-value" data-target="50">0</span></div>
+            <div class="text-xs text-white/70">Empresas</div>
+          </div>
+        </div>
+        
+        <!-- Botones con efectos 3D y animaciones avanzadas -->
+        <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start reveal-content-delay-2">
           <a 
             href="/contacto" 
-            class="relative group inline-flex items-center justify-center px-8 py-4 overflow-hidden font-bold text-white rounded-2xl bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-5px_rgba(34,197,94,0.3)]"
-          >
-            <span class="relative z-10 flex items-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            aria-label="Contáctanos para más información"
+            class="relative group inline-flex items-center justify-center px-10 py-5 overflow-hidden font-bold text-lg rounded-2xl bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_15px_30px_-5px_rgba(0,240,255,0.5)] transform-gpu focus:outline-none focus:ring-4 focus:ring-accent/50">
+            <span class="relative z-10 flex items-center gap-2 text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
               </svg>
-              Comienza ahora
+              <strong>Comienza ahora</strong>
             </span>
             <span class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></span>
+            <!-- Efecto de partículas en hover -->
+            <span class="absolute inset-0 -z-10 group-hover:z-0">
+              <span class="absolute inset-0 transform group-hover:scale-105 transition-transform duration-500"></span>
+            </span>
           </a>
           
           <a 
             href="#servicios" 
-            class="inline-flex items-center justify-center px-8 py-4 font-medium text-white border-2 border-white/20 hover:border-accent/50 rounded-2xl hover:text-accent transition-all duration-300 hover:-translate-y-0.5"
-          >
-            <span class="flex items-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            class="relative group inline-flex items-center justify-center px-10 py-5 font-medium text-white text-lg border-2 border-white/20 hover:border-accent/50 rounded-2xl hover:text-accent transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-accent/5 overflow-hidden transform-gpu">
+            <span class="relative z-10 flex items-center gap-2">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              Ver demostración
+              <strong>Ver nuestros servicios</strong>
             </span>
+            <!-- Efecto de luz que recorre el botón -->
+            <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent"></span>
           </a>
         </div>
         
-        <div class="mt-12 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 text-sm text-text-secondary/70">
-          <div class="flex items-center gap-2">
+        <!-- Badges con efectos de revelación escalonados -->
+        <div class="mt-12 flex flex-wrap justify-center lg:justify-start gap-4 reveal-content-delay-3">
+          <div class="badge-item flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-white/80 border border-white/5 transform hover:scale-105 transition-all hover:border-accent/30 hover:bg-accent/5">
             <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
             </svg>
-            Implementación rápida
+            <span>Implementación rápida</span>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="badge-item flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-white/80 border border-white/5 transform hover:scale-105 transition-all hover:border-accent/30 hover:bg-accent/5">
             <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
             </svg>
-            Soporte 24/7
+            <span>Soporte 24/7</span>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="badge-item flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-white/80 border border-white/5 transform hover:scale-105 transition-all hover:border-accent/30 hover:bg-accent/5">
             <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
             </svg>
-            Resultados garantizados
+            <span>Resultados garantizados</span>
+          </div>
+          <div class="badge-item flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-white/80 border border-white/5 transform hover:scale-105 transition-all hover:border-accent/30 hover:bg-accent/5">
+            <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span>Tecnología de punta</span>
           </div>
         </div>
       </div>
       
-      <!-- Imagen del héroe con efecto 3D -->
-      <div class="relative flex-1 max-w-2xl mt-12 lg:mt-0">
-        <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/10 bg-gradient-to-br from-surface to-surface/80 backdrop-blur-sm" style="transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);">
-          <img 
-            src="/ai-hero.svg" 
-            alt="Dashboard de IA" 
-            class="w-full h-auto object-cover"
-            loading="eager"
-            width="1200"
-            height="800"
-          />
-          <!-- Efecto de brillo en la imagen -->
-          <div class="absolute inset-0 bg-gradient-to-tr from-accent/5 to-primary/5 mix-blend-overlay"></div>
+      <!-- Imagen del héroe con efecto 3D interactivo -->
+      <div class="relative flex-1 max-w-2xl mt-12 lg:mt-0 reveal-content">
+        <!-- Contenedor 3D avanzado -->
+        <div class="hero-3d-container" id="hero3DContainer">
+          <!-- Marco principal con efecto de profundidad -->
+          <div class="relative z-20 rounded-3xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)] border-4 border-white/10 bg-gradient-to-br from-surface to-surface/80 backdrop-blur-sm hero-image-card">
+            <!-- Capa de brillos y reflejos 3D -->
+            <div class="absolute inset-0 opacity-40 mix-blend-overlay overflow-hidden hero-glare"></div>
+            
+            <!-- Imagen principal con carga optimizada -->
+            <picture>
+              <source srcset="/ai-hero.webp" type="image/webp">
+              <source srcset="/ai-hero.svg" type="image/svg+xml">
+              <img 
+                src="/ai-hero.svg" 
+                alt="Dashboard de IA avanzada con análisis en tiempo real" 
+                class="w-full h-auto object-cover"
+                loading="eager"
+                width="1200"
+                height="800"
+                fetchpriority="high"
+              />
+            </picture>
+            
+            <!-- Overlay con efecto de profundidad y brillo -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-accent/10 to-primary/10 mix-blend-overlay opacity-70 hero-overlay">
+              <!-- SVG decorativo con efectos de profundidad -->
+              <svg class="absolute inset-0 w-full h-full opacity-40" viewBox="0 0 1000 800" preserveAspectRatio="xMidYMid slice">
+                <!-- Rejilla de puntos con animación -->
+                <g class="grid-dots">
+                  <pattern id="dotPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.5)" class="animate-pulse-slow" />
+                  </pattern>
+                  <rect width="100%" height="100%" fill="url(#dotPattern)" />
+                </g>
+                
+                <!-- Líneas de conexión flotantes -->
+                <g class="connection-lines">
+                  <path d="M100,100 C200,150 300,50 400,200 C500,300 600,200 700,250 C800,300 900,200 950,300" stroke="rgba(0,240,255,0.2)" fill="none" stroke-width="1" class="animate-float-slow" />
+                  <path d="M50,200 C150,250 250,150 350,300 C450,400 550,300 650,350 C750,400 850,300 900,400" stroke="rgba(100,100,255,0.2)" fill="none" stroke-width="1" class="animate-float-slow-reverse" style="animation-delay: 0.5s" />
+                </g>
+                
+                <!-- Elementos gráficos flotantes -->
+                <g class="floating-elements">
+                  <circle cx="200" cy="150" r="30" fill="rgba(0,240,255,0.05)" class="animate-float-slow" />
+                  <circle cx="700" cy="250" r="40" fill="rgba(100,100,255,0.05)" class="animate-float-slow-reverse" />
+                  <rect x="400" y="200" width="50" height="50" rx="10" fill="rgba(255,255,255,0.05)" transform="rotate(15)" class="animate-float-slow" />
+                </g>
+                
+                <!-- Nodos de datos con brillo -->
+                <g class="data-nodes">
+                  <circle cx="300" cy="200" r="5" fill="rgba(0,240,255,0.3)" class="animate-pulse" />
+                  <circle cx="500" cy="300" r="4" fill="rgba(100,100,255,0.3)" class="animate-pulse" style="animation-delay: 0.3s" />
+                  <circle cx="700" cy="150" r="6" fill="rgba(255,255,255,0.3)" class="animate-pulse" style="animation-delay: 0.6s" />
+                </g>
+              </svg>
+            </div>
+            
+            <!-- Elementos flotantes interactivos dentro de la imagen -->
+            <div class="absolute top-6 left-8 w-10 h-10 rounded-full bg-accent/30 backdrop-blur-md border border-accent/40 animate-pulse-slow hero-element" data-speed="0.05"></div>
+            <div class="absolute bottom-8 right-12 w-12 h-12 rounded-full bg-primary/30 backdrop-blur-md border border-primary/40 animate-float-slow hero-element" data-speed="-0.08"></div>
+          </div>
+          
+          <!-- Capas de profundidad con efecto parallax -->
+          <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 rounded-3xl backdrop-blur-sm border border-accent/20 z-10 animate-float-slow hero-layer" data-depth="0.2"></div>
+          <div class="absolute -top-10 -right-10 w-36 h-36 bg-primary/10 rounded-3xl backdrop-blur-sm border border-primary/20 z-0 animate-float-slow-reverse hero-layer" data-depth="0.3"></div>
+          
+          <!-- Capas geométricas decorativas con animación -->
+          <div class="absolute top-1/3 right-1/3 w-20 h-20 bg-accent/5 rotate-45 rounded-lg backdrop-blur-sm border border-accent/10 -z-10 animate-spin-slow hero-layer" data-depth="0.15"></div>
+          <div class="absolute bottom-1/3 left-1/4 w-16 h-16 bg-primary/5 rounded-full backdrop-blur-sm border border-primary/10 -z-10 animate-float hero-layer" data-depth="0.25"></div>
         </div>
         
-        <!-- Elementos flotantes -->
-        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/10 rounded-2xl backdrop-blur-sm border border-accent/20 -z-10 animate-float"></div>
-        <div class="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-2xl backdrop-blur-sm border border-primary/20 -z-10 animate-float animation-delay-2000"></div>
+        <!-- Badges flotantes con información -->
+        <div class="absolute -bottom-4 right-0 bg-gradient-to-r from-accent to-primary text-white px-4 py-2 rounded-full text-sm font-medium shadow-xl flex items-center gap-2 animate-float-slow z-30">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          Análisis en tiempo real
+        </div>
         
-        <!-- Badge flotante -->
-        <div class="absolute -bottom-4 -right-4 bg-gradient-to-r from-accent to-primary text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg flex items-center gap-2 animate-bounce">
-          <span class="relative flex h-3 w-3">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-          </span>
-          En tiempo real
+        <div class="absolute -top-4 left-0 bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg flex items-center gap-2 animate-float-slow-reverse z-30 border border-white/20">
+          <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          Tecnología segura
+        </div>
+        
+        <!-- Burbujas de datos flotantes -->
+        <div class="absolute -left-2 top-1/3 flex items-center gap-2 bg-accent/90 text-white px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg animate-float-slow z-20">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+          </svg>
+          +45% Rendimiento
+        </div>
+        
+        <div class="absolute -right-2 top-2/3 flex items-center gap-2 bg-primary/90 text-white px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg animate-float-slow-reverse z-20">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+          </svg>
+          Datos inteligentes
         </div>
       </div>
     </div>
@@ -155,140 +284,548 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
   Cada tarjeta tiene ícono, título, descripción y CTA específico.
   Estilos premium y animaciones de hover.
 -->
-<!-- SERVICIOS DESTACADOS -->
-<section id="servicios" class="relative py-16 md:py-20 bg-gradient-to-br from-surface via-surface/95 to-background/90 overflow-hidden scroll-mt-16">
-  <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-5"></div>
+<!-- SERVICIOS DESTACADOS CON EFECTOS 3D Y PARALLAX -->
+<section id="servicios" class="relative py-20 md:py-28 overflow-hidden scroll-mt-16">
+  <!-- Fondo con parallax y efectos visuales -->
+  <div class="absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute inset-0 bg-gradient-to-br from-surface via-surface/95 to-background/90"></div>
+    <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-5 parallax-bg" data-speed="-0.03" aria-hidden="true"></div>
+    
+    <!-- Partículas decorativas con efecto parallax -->
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-accent/5 rounded-full mix-blend-multiply filter blur-3xl parallax-element" data-speed="0.1"></div>
+    <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-primary/5 rounded-full mix-blend-multiply filter blur-3xl parallax-element" data-speed="0.15"></div>
+    
+    <!-- Líneas de conexión para servicios interconectados -->
+    <div class="absolute inset-0 opacity-10">
+    </div>
+  </div>
+  
   <div class="relative container mx-auto z-10 px-4 md:px-6">
-    <!-- Encabezado Mejorado -->
-    <div class="text-center max-w-4xl mx-auto mb-12 md:mb-16">
-      <div class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20">
-        <div class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></div>
-        <span class="text-accent font-medium text-xs md:text-sm tracking-wider">NUESTRAS SOLUCIONES</span>
+      <!-- Encabezado con animaciones de revelación -->
+      <div class="text-center max-w-4xl mx-auto mb-24 md:mb-32 reveal-block" aria-label="Sección de servicios">
+        <!-- Badge animada con mejor accesibilidad -->
+        <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-accent/10 backdrop-blur-sm border border-accent/20 transform hover:scale-105 transition-transform animate-float-slow" aria-label="Nuestras soluciones">
+          <div class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" aria-hidden="true"></div>
+          <span class="text-accent font-medium text-xs md:text-sm tracking-wider uppercase">Nuestras Soluciones</span>
+        </div>
+        
+        <!-- Título con mejor contraste y accesibilidad -->
+        <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight reveal-text" aria-label="Servicios de Inteligencia Artificial">
+          <span class="text-white">Servicios de </span>
+          <span class="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-gradient-text">Inteligencia Artificial</span>
+        </h2>
+        
+        <!-- Subtítulo mejorado con mejor contraste y accesibilidad -->
+        <p class="text-text-secondary text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed reveal-text-delay" aria-label="Descripción de servicios">
+          Soluciones de IA personalizadas que <span class="text-accent/90">impulsan la innovación</span> y transforman datos en <span class="text-accent/90">decisiones estratégicas</span> para tu negocio.
+        </p>
+        
+        <!-- Botón de llamada a la acción mejorado -->
+        <div class="mt-12 flex justify-center reveal-content-delay">
+          <a href="#servicios" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors duration-300 text-white hover:text-accent/90 text-sm font-medium">
+            <span>Explorar servicios</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+        </div>
+    </div>
+        <!-- Tarjetas de Servicios 3D Interactivas -->
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto perspective-container" role="list" aria-label="Nuestros servicios de Inteligencia Artificial">
+        <!-- Servicio 1: Machine Learning con efectos 3D avanzados -->
+        <div class="service-card group relative h-full flex flex-col rounded-xl bg-surface/60 backdrop-blur-sm border border-white/10 overflow-hidden transition-all duration-500 card-3d reveal-content-delay hover:shadow-[0_10px_30px_-10px_rgba(0,240,255,0.2)]" data-delay="0" role="listitem" tabindex="0" aria-label="Machine Learning">
+          <!-- Efecto de fondo generado con gradiente y patrones -->
+          <div class="absolute inset-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700 overflow-hidden" aria-hidden="true">
+            <!-- Fondo con gradiente animado -->
+            <div class="absolute inset-0 bg-gradient-to-br from-accent/20 via-primary/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-1000"></div>
+            
+            <!-- Patrón de cuadrícula sutil -->
+            <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-40 group-hover:opacity-60 transition-opacity duration-700 rotate-45"></div>
+            
+            <!-- Elementos SVG decorativos avanzados -->
+            <svg class="absolute inset-0 w-full h-full opacity-70" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <!-- Capa de puntos de datos -->
+              <g class="data-points">
+                <circle cx="15" cy="20" r="1.5" fill="rgba(0, 240, 255, 0.6)" class="animate-pulse" />
+                <circle cx="85" cy="30" r="1.2" fill="rgba(0, 240, 255, 0.4)" class="animate-pulse" style="animation-delay: 0.3s" />
+                <circle cx="25" cy="70" r="1" fill="rgba(0, 240, 255, 0.3)" class="animate-pulse" style="animation-delay: 0.6s" />
+                <circle cx="75" cy="80" r="0.8" fill="rgba(0, 240, 255, 0.2)" class="animate-pulse" style="animation-delay: 0.9s" />
+              </g>
+              
+              <!-- Líneas de conexión -->
+              <g class="connection-lines" stroke="rgba(0, 240, 255, 0.2)" stroke-width="0.3" fill="none">
+                <path d="M15,20 Q50,25 85,30" class="animate-float-slow" />
+                <path d="M25,70 Q50,65 75,80" class="animate-float-slow-reverse" style="animation-delay: 0.5s" />
+                <path d="M15,20 Q30,50 25,70" class="animate-float" style="animation-delay: 0.3s" />
+              </g>
+              
+              <!-- Nodos de red neuronal -->
+              <g class="neural-nodes">
+                <circle cx="50" cy="50" r="8" fill="rgba(0, 240, 255, 0.1)" stroke="rgba(0, 240, 255, 0.3)" stroke-width="0.5" class="group-hover:scale-110 transition-transform duration-500" />
+                <circle cx="30" cy="30" r="5" fill="rgba(0, 240, 255, 0.1)" stroke="rgba(0, 240, 255, 0.4)" stroke-width="0.5" class="group-hover:scale-110 transition-transform duration-500" style="transition-delay: 0.1s" />
+                <circle cx="70" cy="30" r="5" fill="rgba(0, 240, 255, 0.1)" stroke="rgba(0, 240, 255, 0.4)" stroke-width="0.5" class="group-hover:scale-110 transition-transform duration-500" style="transition-delay: 0.2s" />
+                <circle cx="30" cy="70" r="5" fill="rgba(0, 240, 255, 0.1)" stroke="rgba(0, 240, 255, 0.4)" stroke-width="0.5" class="group-hover:scale-110 transition-transform duration-500" style="transition-delay: 0.3s" />
+                <circle cx="70" cy="70" r="5" fill="rgba(0, 240, 255, 0.1)" stroke="rgba(0, 240, 255, 0.4)" stroke-width="0.5" class="group-hover:scale-110 transition-transform duration-500" style="transition-delay: 0.4s" />
+              </g>
+              
+              <!-- Conexiones de red -->
+              <g class="neural-connections" stroke="rgba(0, 240, 255, 0.15)" stroke-width="0.5" fill="none">
+                <line x1="30" y1="30" x2="50" y2="50" class="group-hover:stroke-[0.7px] transition-all duration-300" />
+                <line x1="70" y1="30" x2="50" y2="50" class="group-hover:stroke-[0.7px] transition-all duration-300" />
+                <line x1="30" y1="70" x2="50" y2="50" class="group-hover:stroke-[0.7px] transition-all duration-300" />
+                <line x1="70" y1="70" x2="50" y2="50" class="group-hover:stroke-[0.7px] transition-all duration-300" />
+              </g>
+            </svg>
+            
+            <!-- Efecto de partículas flotantes (estáticas) -->
+            <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+              <div class="absolute rounded-full bg-accent/30 pointer-events-none" style="width: 1.2px; height: 1.2px; left: 15%; top: 25%; opacity: 0.35; animation: float 8s ease-in-out 0.5s infinite alternate; filter: blur(0.5px);"></div>
+              <div class="absolute rounded-full bg-accent/30 pointer-events-none" style="width: 0.8px; height: 0.8px; left: 75%; top: 15%; opacity: 0.25; animation: float 10s ease-in-out 1.2s infinite alternate; filter: blur(0.5px);"></div>
+              <div class="absolute rounded-full bg-accent/30 pointer-events-none" style="width: 1.1px; height: 1.1px; left: 35%; top: 65%; opacity: 0.3; animation: float 12s ease-in-out 0.8s infinite alternate; filter: blur(0.5px);"></div>
+              <div class="absolute rounded-full bg-accent/30 pointer-events-none" style="width: 0.9px; height: 0.9px; left: 85%; top: 75%; opacity: 0.4; animation: float 9s ease-in-out 1.5s infinite alternate; filter: blur(0.5px);"></div>
+              <div class="absolute rounded-full bg-accent/30 pointer-events-none" style="width: 1.3px; height: 1.3px; left: 25%; top: 45%; opacity: 0.35; animation: float 11s ease-in-out 0.3s infinite alternate; filter: blur(0.5px);"></div>
+            </div>
+          </div>
+          
+          <!-- Efecto de brillo en hover -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-700 bg-gradient-to-tr from-accent/20 via-primary/10 to-transparent"></div>
+          
+          <!-- Efecto de borde resplandeciente en hover -->
+          <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 border border-white/10 group-hover:border-accent/30 group-hover:shadow-[0_0_25px_rgba(0,240,255,0.2)]"></div>
+          
+          <!-- Borde brillante animado -->
+          <div class="absolute inset-0 border border-accent/0 group-hover:border-accent/30 rounded-xl transition-colors duration-500 glow-border"></div>
+          
+          <!-- Badge flotante con mejor accesibilidad -->
+          <div class="absolute -top-3 -right-3 bg-accent/80 text-white text-xs font-bold py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 z-20" aria-label="Nivel de servicio: IA Avanzada">
+            IA Avanzada
+          </div>
+          
+          <!-- Contenido de la tarjeta -->
+          <div class="p-8 flex-1 relative z-10 flex flex-col">
+            <!-- Icono con animación 3D -->
+            <div class="mb-6 transform group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-accent/80 flex items-center justify-center shadow-lg relative overflow-hidden">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <div class="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+            </div>
+            
+            <!-- Título -->
+            <h3 class="text-2xl font-bold text-white mb-4 relative">
+              Machine Learning
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-transparent group-hover:w-full transition-all duration-700"></span>
+            </h3>
+            
+            <!-- Descripción -->
+            <p class="text-text-secondary mb-6 text-base leading-relaxed transition-all duration-500 group-hover:text-white/90">
+              Modelos predictivos avanzados que aprenden de tus datos para ofrecer insights valiosos y transformar tu negocio.
+            </p>
+            
+            <!-- Lista de características -->
+            <ul class="space-y-3 mb-8">
+              <li class="feature-item flex items-start gap-3 transform transition-all duration-300 group-hover:translate-x-1">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/40 transition-colors duration-500">
+                  <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Modelos predictivos personalizados</span>
+              </li>
+              <li class="feature-item flex items-start gap-3 transform transition-all duration-300 group-hover:translate-x-1" style="transition-delay: 0.1s">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/40 transition-colors duration-500">
+                  <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Análisis de datos en tiempo real</span>
+              </li>
+              <li class="feature-item flex items-start gap-3 transform transition-all duration-300 group-hover:translate-x-1" style="transition-delay: 0.2s">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/40 transition-colors duration-500">
+                  <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Automatización de procesos</span>
+              </li>
+            </ul>
+            
+            <!-- Botón de acción -->
+            <div class="mt-auto">
+              <a href="/machine-learning" class="group-btn relative overflow-hidden inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium transition-all duration-500 hover:bg-accent/80 hover:border-accent/40 hover:shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+                <span class="relative z-10">Explorar servicio</span>
+                <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+                <div class="absolute inset-0 bg-gradient-to-r from-accent/80 to-accent/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      <!-- Servicio 2: Aplicaciones Móviles con IA y efectos 3D avanzados -->
+      <div class="service-card group relative h-full flex flex-col rounded-xl bg-surface/80 backdrop-blur-sm border border-white/10 overflow-hidden transition-all duration-500 card-3d reveal-content-delay" data-delay="200">
+        <!-- Efecto de fondo generado con gradiente y patrones en lugar de imagen -->
+        <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500 overflow-hidden bg-gradient-to-br from-primary/30 via-accent/20 to-transparent">
+          <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-40 group-hover:opacity-60 transition-opacity duration-700 rotate-45"></div>
+          <!-- Elementos SVG decorativos para representar una interfaz móvil -->
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <!-- Representación esquemática de un dispositivo móvil -->
+            <rect x="30" y="15" width="40" height="70" rx="5" stroke="rgba(100, 100, 255, 0.2)" fill="none" stroke-width="1"/>
+            <rect x="35" y="25" width="30" height="40" fill="rgba(100, 100, 255, 0.1)" class="animate-pulse-slow"/>
+            <circle cx="50" cy="75" r="3" fill="rgba(100, 100, 255, 0.2)" />
+          </svg>
+        </div>
+        
+        <!-- Gradiente animado de fondo con tonos distintos -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <!-- Efecto de brillo en hover personalizado -->
+        <div class="absolute inset-0 card-shine opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+        
+        <!-- Borde brillante animado -->
+        <div class="absolute inset-0 border border-primary/0 group-hover:border-primary/30 rounded-xl transition-colors duration-500 glow-border-alt"></div>
+        
+        <!-- Badge flotante con estilo diferente -->
+        <div class="absolute -top-3 -right-3 bg-primary/80 text-white text-xs font-bold py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 z-20">
+          Móvil + IA
+        </div>
+        
+        <div class="p-8 flex-1 relative z-10">
+          <!-- Icono con animación 3D diferente -->
+          <div class="mb-6 transform group-hover:scale-110 group-hover:rotate-[5deg] transition-transform duration-500">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg relative overflow-hidden">
+              <!-- Efecto de partículas en el icono -->
+              <div class="absolute inset-0 icon-particles-alt opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <Icon name="mdi:cellphone" class="w-8 h-8 text-white relative z-10" />
+            </div>
+          </div>
+          
+          <!-- Título con efecto de brillo -->
+          <h3 class="text-2xl font-bold text-white mb-4 relative transform transition-all duration-500 group-hover:translate-x-1 group-hover:text-glow-alt">
+            Aplicaciones Móviles
+            <!-- Línea decorativa bajo el título con estilo diferente -->
+            <div class="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-transparent group-hover:w-1/2 transition-all duration-700"></div>
+          </h3>
+          
+          <!-- Descripción con animación en hover -->
+          <p class="text-text-secondary mb-6 text-base leading-relaxed transition-all duration-500 group-hover:text-white/90">
+            Aplicaciones móviles potenciadas con IA para ofrecer experiencias únicas y personalizadas a tus usuarios. Por información de creación de Agentes de IA y Chat Bots personalizados.
+          </p>
+          
+          <!-- Lista de características con animación escalonada -->
+          <ul class="space-y-3 mb-8">
+            <li class="feature-item flex items-start gap-3 transform transition-all duration-500" role="listitem" tabindex="0">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/40 transition-colors duration-500">
+                <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Modelos predictivos personalizados</span>
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors duration-500">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Reconocimiento de imágenes</span>
+            </li>
+            <li class="feature-item flex items-start gap-3 transform transition-all duration-500 delay-75">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors duration-500">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Procesamiento de lenguaje natural</span>
+            </li>
+            <li class="feature-item flex items-start gap-3 transform transition-all duration-500 delay-150">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors duration-500">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Experiencias hiper-personalizadas con Agentes de IA y Chat Bots inteligentes</span>
+            </li>
+            <!-- Nuevo punto destacando los agentes personalizados -->
+            <li class="feature-item flex items-start gap-3 transform transition-all duration-500 delay-200">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors duration-500">
+                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500 text-glow-alt group-hover:text-glow-alt">Agentes y Chat Bots 100% personalizados para tu negocio</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Botón con efecto de brillo al pasar el mouse, estilo alternativo -->
+        <div class="p-8 pt-0 relative z-10">
+          <a href="/aplicaciones-moviles" class="group-btn relative overflow-hidden block text-center py-3 px-6 rounded-xl bg-white/5 border border-white/10 text-white font-medium transition-all duration-500 hover:bg-primary/80 hover:border-primary/40 hover:shadow-[0_0_20px_rgba(100,100,255,0.4)]">
+            <span class="relative z-10 flex items-center justify-center gap-2">
+              Explorar servicio
+              <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </span>
+            <!-- Efecto de luz que recorre el botón, dirección inversa -->
+            <span class="absolute inset-0 translate-x-full group-hover:-translate-x-full transition-transform duration-700 bg-gradient-to-l from-transparent via-white/10 to-transparent"></span>
+          </a>
+        </div>
       </div>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-        Servicios de <span class="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">Inteligencia Artificial</span>
-      </h2>
-      <p class="text-text-secondary/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-        Soluciones de IA personalizadas que impulsan la innovación y eficiencia en tu negocio.
-      </p>
+
+      <!-- Servicio 3: Automatización de Procesos con efectos 3D avanzados -->
+      <div class="service-card group relative h-full flex flex-col rounded-xl bg-surface/80 backdrop-blur-sm border border-white/10 overflow-hidden transition-all duration-500 card-3d reveal-content-delay" data-delay="400">
+        <!-- Efecto de fondo generado con gradiente y patrones en lugar de imagen -->
+        <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500 overflow-hidden bg-gradient-to-br from-[#8e44ad]/30 via-accent/15 to-transparent">
+          <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-40 group-hover:opacity-60 transition-opacity duration-700 rotate-90"></div>
+          <!-- Elementos SVG decorativos para representar automatización y flujos de trabajo -->
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <!-- Representación esquemática de flujos de trabajo y automatización -->
+            <path d="M20,30 L40,30 L40,50 L60,50 L60,70 L80,70" stroke="rgba(142, 68, 173, 0.3)" fill="none" stroke-width="1.5" stroke-dasharray="5,3" class="animate-pulse-slow"/>
+            <circle cx="20" cy="30" r="3" fill="rgba(142, 68, 173, 0.2)" />
+            <circle cx="40" cy="50" r="3" fill="rgba(142, 68, 173, 0.2)" />
+            <circle cx="60" cy="70" r="3" fill="rgba(142, 68, 173, 0.2)" />
+            <circle cx="80" cy="70" r="3" fill="rgba(142, 68, 173, 0.2)" />
+          </svg>
+        </div>
+        
+        <!-- Gradiente animado de fondo con tonos únicos -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#8e44ad]/5 via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <!-- Efecto de brillo en hover personalizado -->
+        <div class="absolute inset-0 card-shine opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+        
+        <!-- Borde brillante animado -->
+        <div class="absolute inset-0 border border-[#8e44ad]/0 group-hover:border-[#8e44ad]/30 rounded-xl transition-colors duration-500 glow-border-purple"></div>
+        
+        <!-- Badge flotante con estilo diferente -->
+        <div class="absolute -top-3 -right-3 bg-[#8e44ad]/80 text-white text-xs font-bold py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 z-20">
+          Smart Auto
+        </div>
+        
+        <div class="p-8 flex-1 relative z-10">
+          <!-- Icono con animación 3D diferente -->
+          <div class="mb-6 transform group-hover:scale-110 group-hover:rotate-[-8deg] transition-transform duration-500">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#8e44ad] to-primary flex items-center justify-center shadow-lg relative overflow-hidden">
+              <!-- Efecto de partículas en el icono -->
+              <div class="absolute inset-0 icon-particles-purple opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <Icon name="mdi:robot" class="w-8 h-8 text-white relative z-10" />
+            </div>
+          </div>
+          
+          <!-- Título con efecto de brillo -->
+          <h3 class="text-2xl font-bold text-white mb-4 relative transform transition-all duration-500 group-hover:translate-x-1 group-hover:text-glow-purple">
+            Automatización
+            <!-- Línea decorativa bajo el título con estilo diferente -->
+            <div class="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-[#8e44ad] to-transparent group-hover:w-1/2 transition-all duration-700"></div>
+          </h3>
+          
+          <!-- Descripción con animación en hover -->
+          <p class="text-text-secondary mb-6 text-base leading-relaxed transition-all duration-500 group-hover:text-white/90">
+            Optimiza tus operaciones con soluciones de automatización inteligente que reducen costos y maximizan la eficiencia.
+          </p>
+          
+          <!-- Lista de características con animación escalonada -->
+          <ul class="space-y-3 mb-8">
+            <li class="feature-item flex items-start gap-3 transform transition-all duration-500" role="listitem" tabindex="0">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/40 transition-colors duration-500">
+                <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Modelos predictivos personalizados</span>
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#8e44ad]/20 flex items-center justify-center group-hover:bg-[#8e44ad]/40 transition-colors duration-500">
+                <svg class="w-4 h-4 text-[#8e44ad]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Automatización de tareas repetitivas</span>
+            </li>
+            <li class="feature-item flex items-start gap-3 transform transition-all duration-500 delay-75">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#8e44ad]/20 flex items-center justify-center group-hover:bg-[#8e44ad]/40 transition-colors duration-500">
+                <svg class="w-4 h-4 text-[#8e44ad]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Flujos de trabajo inteligentes</span>
+            </li>
+            <li class="feature-item flex items-start gap-3 transform transition-all duration-500 delay-150">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#8e44ad]/20 flex items-center justify-center group-hover:bg-[#8e44ad]/40 transition-colors duration-500">
+                <svg class="w-4 h-4 text-[#8e44ad]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-sm text-text-secondary group-hover:text-white/80 transition-colors duration-500">Integración con sistemas existentes</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Botón con efecto de brillo al pasar el mouse, estilo alternativo -->
+        <div class="p-8 pt-0 relative z-10">
+          <a href="/automatizacion" class="group-btn relative overflow-hidden block text-center py-3 px-6 rounded-xl bg-white/5 border border-white/10 text-white font-medium transition-all duration-500 hover:bg-[#8e44ad]/80 hover:border-[#8e44ad]/40 hover:shadow-[0_0_20px_rgba(142,68,173,0.4)]">
+            <span class="relative z-10 flex items-center justify-center gap-2">
+              Explorar servicio
+              <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </span>
+            <!-- Efecto de luz que recorre el botón, con patrón personalizado -->
+            <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Casos de Éxito con Imágenes Destacadas -->
+    <div class="mt-24 md:mt-32 reveal-block">
+      <div class="text-center max-w-4xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-accent/10 backdrop-blur-sm border border-accent/20 transform hover:scale-105 transition-transform animate-float-slow">
+          <div class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></div>
+          <span class="text-accent font-medium text-xs md:text-sm tracking-wider uppercase">Casos de Éxito</span>
+        </div>
+        
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+          <span class="text-white">Soluciones </span>
+          <span class="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-gradient-text">de alto impacto</span>
+        </h2>
+        
+        <p class="text-text-secondary text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+          Descubre cómo nuestras soluciones de Inteligencia Artificial han transformado negocios en diferentes industrias.
+        </p>
+      </div>
+      
+      <!-- Galería interactiva con elementos SVG y efectos CSS en lugar de imágenes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8 max-w-6xl mx-auto reveal-content-delay">
+        <!-- Caso 1: Análisis de datos en tiempo real -->
+        <div class="group relative overflow-hidden rounded-xl reveal-content-delay h-[320px]" data-delay="0">
+          <!-- Fondo con gradientes y grid pattern -->
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/30 via-accent/20 to-background/80 z-0"></div>
+          <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-20 group-hover:opacity-30 transition-all duration-700"></div>
+          
+          <!-- Elementos SVG decorativos para visualización de datos -->
+          <div class="absolute inset-0 overflow-hidden">
+            <svg class="w-full h-full" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+              <!-- Gráfico de barras -->
+              <rect x="15" y="70" width="10" height="20" fill="rgba(0, 240, 255, 0.3)" class="animate-pulse-slow" />
+              <rect x="30" y="50" width="10" height="40" fill="rgba(0, 240, 255, 0.4)" class="animate-pulse-slow" style="animation-delay: 0.2s" />
+              <rect x="45" y="40" width="10" height="50" fill="rgba(0, 240, 255, 0.5)" class="animate-pulse-slow" style="animation-delay: 0.4s" />
+              <rect x="60" y="30" width="10" height="60" fill="rgba(0, 240, 255, 0.6)" class="animate-pulse-slow" style="animation-delay: 0.6s" />
+              <rect x="75" y="20" width="10" height="70" fill="rgba(0, 240, 255, 0.7)" class="animate-pulse-slow" style="animation-delay: 0.8s" />
+              
+              <!-- Línea de tendencia -->
+              <path d="M10,80 Q25,70 40,60 T70,40 T90,20" stroke="rgba(255, 255, 255, 0.6)" fill="none" stroke-width="1" stroke-dasharray="5,3" class="animate-float-slow" />
+              <circle cx="10" cy="80" r="2" fill="white" />
+              <circle cx="40" cy="60" r="2" fill="white" />
+              <circle cx="70" cy="40" r="2" fill="white" />
+              <circle cx="90" cy="20" r="2" fill="white" />
+            </svg>
+          </div>
+          
+          <!-- Overlay con gradiente -->
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent opacity-80 z-10"></div>
+          
+          <!-- Contenido informativo -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+            <div class="bg-surface/80 backdrop-blur-md rounded-xl p-4 border border-white/10 shadow-lg">
+              <h3 class="text-white text-xl font-bold mb-2 group-hover:text-glow">Análisis Predictivo</h3>
+              <p class="text-text-secondary text-sm">Incremento del 45% en precisión de pronósticos para una empresa líder en retail.</p>
+            </div>
+          </div>
+          
+          <!-- Badge flotante -->
+          <div class="absolute top-4 right-4 px-3 py-1 bg-primary/80 text-white text-xs font-semibold z-30 transform group-hover:scale-110 transition-transform duration-300">+45% precisión</div>
+        </div>
+        
+        <!-- Caso 2: Chatbot empresarial -->
+        <div class="group relative overflow-hidden rounded-xl reveal-content-delay h-[320px]" data-delay="100">
+          <!-- Fondo con gradientes y grid pattern -->
+          <div class="absolute inset-0 bg-gradient-to-br from-accent/30 via-primary/20 to-background/80 z-0"></div>
+          <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-20 group-hover:opacity-30 transition-all duration-700 rotate-45" aria-hidden="true"></div>
+          
+          <!-- Elementos SVG decorativos para interfaz de chatbot -->
+          <div class="absolute inset-0 overflow-hidden">
+            <svg class="w-full h-full" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+              <!-- Representación de conversación de chatbot -->
+              <rect x="10" y="20" width="60" height="10" rx="5" fill="rgba(34, 197, 94, 0.3)" class="animate-pulse-slow" />
+              <rect x="30" y="40" width="60" height="10" rx="5" fill="rgba(255, 255, 255, 0.2)" class="animate-pulse-slow" style="animation-delay: 0.3s" />
+              <rect x="10" y="60" width="40" height="10" rx="5" fill="rgba(34, 197, 94, 0.3)" class="animate-pulse-slow" style="animation-delay: 0.6s" />
+              <rect x="40" y="80" width="50" height="10" rx="5" fill="rgba(255, 255, 255, 0.2)" class="animate-pulse-slow" style="animation-delay: 0.9s" />
+              
+              <!-- Círculos de usuario -->
+              <circle cx="90" cy="45" r="6" fill="rgba(255, 255, 255, 0.2)" />
+              <circle cx="5" cy="25" r="4" fill="rgba(34, 197, 94, 0.4)" />
+              <circle cx="5" cy="65" r="4" fill="rgba(34, 197, 94, 0.4)" />
+            </svg>
+          </div>
+          
+          <!-- Overlay con gradiente -->
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent opacity-80 z-10"></div>
+          
+          <!-- Contenido informativo -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+            <div class="bg-surface/80 backdrop-blur-md rounded-xl p-4 border border-white/10 shadow-lg">
+              <h3 class="text-white text-xl font-bold mb-2 group-hover:text-glow-alt">Asistente Virtual 24/7</h3>
+              <p class="text-text-secondary text-sm">Reducción del 65% en tiempo de respuesta al cliente para una institución financiera.</p>
+            </div>
+          </div>
+          
+          <!-- Badge flotante -->
+          <div class="absolute top-4 right-4 px-3 py-1 bg-accent/80 text-white text-xs font-semibold z-30 transform group-hover:scale-110 transition-transform duration-300">-65% tiempo respuesta</div>
+        </div>
+        
+        <!-- Caso 3: Automatización de procesos -->
+        <div class="group relative overflow-hidden rounded-xl reveal-content-delay h-[320px]" data-delay="200">
+          <!-- Fondo con gradientes y grid pattern -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[#8e44ad]/30 via-primary/20 to-background/80 z-0"></div>
+          <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-20 group-hover:opacity-30 transition-all duration-700 rotate-90" aria-hidden="true"></div>
+          
+          <!-- Elementos SVG decorativos para flujos de trabajo automatizados -->
+          <div class="absolute inset-0 overflow-hidden">
+            <svg class="w-full h-full" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+              <!-- Representación de flujo de trabajo -->
+              <rect x="10" y="20" width="15" height="15" rx="2" fill="rgba(142, 68, 173, 0.3)" class="animate-pulse-slow" />
+              <rect x="50" y="20" width="15" height="15" rx="2" fill="rgba(142, 68, 173, 0.4)" class="animate-pulse-slow" style="animation-delay: 0.3s" />
+              <rect x="10" y="65" width="15" height="15" rx="2" fill="rgba(142, 68, 173, 0.5)" class="animate-pulse-slow" style="animation-delay: 0.5s" />
+              <rect x="50" y="65" width="15" height="15" rx="2" fill="rgba(142, 68, 173, 0.6)" class="animate-pulse-slow" style="animation-delay: 0.7s" />
+              <rect x="80" y="42" width="15" height="15" rx="2" fill="rgba(142, 68, 173, 0.7)" class="animate-pulse-slow" style="animation-delay: 0.9s" />
+              
+              <!-- Flechas de conexión -->
+              <path d="M25,27 L50,27" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.5" stroke-dasharray="4,2" />
+              <path d="M65,27 L80,42" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.5" stroke-dasharray="4,2" />
+              <path d="M80,57 L65,65" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.5" stroke-dasharray="4,2" />
+              <path d="M50,65 L25,65" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.5" stroke-dasharray="4,2" />
+              <path d="M10,35 L10,65" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.5" stroke-dasharray="4,2" />
+            </svg>
+          </div>
+          
+          <!-- Overlay con gradiente -->
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent opacity-80 z-10"></div>
+          
+          <!-- Contenido informativo -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+            <div class="bg-surface/80 backdrop-blur-md rounded-xl p-4 border border-white/10 shadow-lg">
+              <h3 class="text-white text-xl font-bold mb-2 group-hover:text-glow-purple">Automatización Inteligente</h3>
+              <p class="text-text-secondary text-sm">Reducción del 78% en errores operativos para una compañía de logística internacional.</p>
+            </div>
+          </div>
+          
+          <!-- Badge flotante -->
+          <div class="absolute top-4 right-4 px-3 py-1 bg-[#8e44ad]/80 text-white text-xs font-semibold z-30 transform group-hover:scale-110 transition-transform duration-300">-78% errores</div>
+        </div>
+      </div>
     </div>
     
-    <!-- Tarjetas de Servicios Rediseñadas -->
-    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <!-- Servicio 1: Machine Learning -->
-      <div class="group h-full flex flex-col bg-surface/80 backdrop-blur-sm rounded-xl border border-white/5 hover:border-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-        <div class="p-6 flex-1">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg mb-4">
-            <Icon name="mdi:brain" class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">
-            Machine Learning
-          </h3>
-          <p class="text-text-secondary/80 mb-4 text-sm leading-relaxed">
-            Modelos predictivos avanzados que aprenden de tus datos para ofrecer insights valiosos.
-          </p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
-              <span class="text-text-secondary/80 text-sm">Modelos predictivos personalizados</span>
-            </li>
-            <li class="flex items-start">
-              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
-              <span class="text-text-secondary/80 text-sm">Análisis de tendencias avanzado</span>
-            </li>
-            <li class="flex items-start">
-              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
-              <span class="text-text-secondary/80 text-sm">Detección de patrones ocultos</span>
-            </li>
-          </ul>
-        </div>
-        <div class="px-6 pb-6 pt-2 border-t border-white/5">
-          <a href="/machine-learning" class="inline-flex items-center text-sm font-medium text-accent hover:text-white group">
-            Descubre más
-            <Icon name="mdi:arrow-right" class="ml-1.5 w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
-      </div>
-
-      <!-- Servicio 2: Aplicaciones Móviles con IA -->
-      <div class="group h-full flex flex-col bg-surface/80 backdrop-blur-sm rounded-xl border border-white/5 hover:border-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-        <div class="p-6 flex-1">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg mb-4">
-            <Icon name="mdi:cellphone" class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">
-            Aplicaciones Móviles
-          </h3>
-          <p class="text-text-secondary/80 mb-4 text-sm leading-relaxed">
-            Aplicaciones móviles potenciadas con IA para ofrecer experiencias únicas y personalizadas.
-          </p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
-              <span class="text-text-secondary/80 text-sm">Reconocimiento de imágenes</span>
-            </li>
-            <li class="flex items-start">
-              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
-              <span class="text-text-secondary/80 text-sm">Procesamiento de lenguaje natural</span>
-            </li>
-            <li class="flex items-start">
-              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
-              <span class="text-text-secondary/80 text-sm">Experiencias hiper-personalizadas</span>
-            </li>
-          </ul>
-        </div>
-        <div class="px-6 pb-6 pt-2 border-t border-white/5">
-          <a href="/aplicaciones-moviles" class="inline-flex items-center text-sm font-medium text-accent hover:text-white group">
-            Descubre más
-            <Icon name="mdi:arrow-right" class="ml-1.5 w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
-      </div>
-
-      <!-- Servicio 3: Automatización de Procesos -->
-      <div class="group h-full flex flex-col bg-surface/80 backdrop-blur-sm rounded-xl border border-white/5 hover:border-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-        <div class="p-6 flex-1">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center shadow-lg mb-4">
-            <Icon name="mdi:robot" class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">
-            Automatización
-          </h3>
-          <p class="text-text-secondary/80 mb-4 text-sm leading-relaxed">
-            Optimiza tus operaciones con soluciones de automatización inteligente que reducen costos.
-          </p>
-          <ul class="space-y-2 mb-6">
-            <li class="flex items-start">
-              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
-              <span class="text-text-secondary/80 text-sm">Automatización de tareas</span>
-            </li>
-            <li class="flex items-start">
-              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
-              <span class="text-text-secondary/80 text-sm">Flujos de trabajo inteligentes</span>
-            </li>
-            <li class="flex items-start">
-              <Icon name="mdi:check" class="text-accent mt-0.5 mr-2 flex-shrink-0 text-sm" />
-              <span class="text-text-secondary/80 text-sm">Integración con sistemas</span>
-            </li>
-          </ul>
-        </div>
-        <div class="px-6 pb-6 pt-2 border-t border-white/5">
-          <a href="/automatizacion" class="inline-flex items-center text-sm font-medium text-accent hover:text-white group">
-            Descubre más
-            <Icon name="mdi:arrow-right" class="ml-1.5 w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
-      </div>
-    </div>
-
     <!-- CTA Section -->
     <div class="mt-16">
       <div class="relative rounded-xl overflow-hidden bg-gradient-to-r from-primary/5 to-accent/5 p-6 md:p-8 border border-white/5">
         <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div class="relative z-10">
+        <div class="relative z-10" aria-hidden="true">
           <div class="max-w-3xl mx-auto text-center">
             <h3 class="text-xl md:text-2xl font-bold text-white mb-3">¿Listo para transformar tu negocio con IA?</h3>
-            <p class="text-text-secondary/80 mb-6 text-base max-w-2xl mx-auto">Descubre cómo nuestras soluciones pueden impulsar tu productividad y reducir costos.</p>
+            <p class="text-text-secondary mb-6 text-base max-w-2xl mx-auto">Descubre cómo nuestras soluciones pueden impulsar tu productividad y reducir costos.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-3">
               <a href="/contacto" class="inline-flex items-center justify-center bg-gradient-to-r from-accent to-primary text-white font-medium px-6 py-2.5 rounded-lg text-sm transition-all hover:shadow-[0_0_20px_#00F0FF33]">
                 Solicitar consulta
@@ -303,8 +840,321 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
       </div>
     </div>
   </div>
-</section>
+  </section>
 
+  <!-- Sección de Imágenes de Impacto de IA -->
+  <section class="py-16 md:py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-surface to-background/95 -z-10" aria-hidden="true"></div>
+    
+    <!-- Elementos decorativos de fondo -->
+    <div class="absolute -top-20 -right-20 w-64 h-64 bg-accent/5 rounded-full filter blur-3xl opacity-30" aria-hidden="true"></div>
+    <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-primary/5 rounded-full filter blur-3xl opacity-30"></div>
+    
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center mb-16 reveal-block">
+        <div class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-accent/10 backdrop-blur-sm border border-accent/20 transform hover:scale-105 transition-transform animate-float-slow">
+          <div class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></div>
+          <span class="text-accent font-medium text-xs md:text-sm tracking-wider uppercase">Tecnología Avanzada</span>
+        </div>
+        
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+          <span class="text-white">La IA transformando </span>
+          <span class="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-gradient-text">el mundo real</span>
+        </h2>
+        
+        <p class="text-text-secondary text-base md:text-lg max-w-3xl mx-auto">
+          Visualiza el poder de la inteligencia artificial en acción a través de estas aplicaciones revolucionarias
+        </p>
+      </div>
+      
+      <!-- Galería de imágenes de impacto con efectos avanzados -->
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto reveal-content-delay">
+        <!-- Imagen 1: Análisis de datos avanzado (SVG en lugar de imagen) -->
+        <div class="group relative rounded-2xl overflow-hidden h-96 transform hover:-translate-y-2 transition-all duration-500 shadow-lg hover:shadow-2xl">
+          <!-- Fondo con gradientes y patrón de cuadrícula -->
+          <div class="absolute inset-0 bg-gradient-to-br from-accent/20 via-primary/10 to-background/90" aria-hidden="true"></div>
+          <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-20 group-hover:opacity-30 transition-all duration-700"></div>
+          
+          <!-- Elementos SVG decorativos para visualización de datos -->
+          <div class="absolute inset-0 overflow-hidden">
+            <svg class="w-full h-full" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+              <!-- Gráficos de datos -->
+              <g transform="translate(50, 80)">
+                <!-- Gráfico de líneas -->
+                <path d="M0,200 L50,180 L100,120 L150,160 L200,60 L250,90 L300,20" stroke="rgba(0, 240, 255, 0.4)" stroke-width="3" fill="none" class="animate-pulse-slow" />
+                <!-- Puntos de datos -->
+                <circle cx="0" cy="200" r="4" fill="rgba(0, 240, 255, 0.7)" />
+                <circle cx="50" cy="180" r="4" fill="rgba(0, 240, 255, 0.7)" />
+                <circle cx="100" cy="120" r="4" fill="rgba(0, 240, 255, 0.7)" />
+                <circle cx="150" cy="160" r="4" fill="rgba(0, 240, 255, 0.7)" />
+                <circle cx="200" cy="60" r="4" fill="rgba(0, 240, 255, 0.7)" />
+                <circle cx="250" cy="90" r="4" fill="rgba(0, 240, 255, 0.7)" />
+                <circle cx="300" cy="20" r="4" fill="rgba(0, 240, 255, 0.7)" />
+              </g>
+              
+              <!-- Representación de clusters de datos -->
+              <g transform="translate(200, 250)">
+                <circle cx="0" cy="0" r="25" fill="rgba(0, 240, 255, 0.15)" class="animate-pulse-slow" />
+                <circle cx="-60" cy="30" r="20" fill="rgba(0, 240, 255, 0.1)" class="animate-pulse-slow" style="animation-delay: 0.5s" />
+                <circle cx="40" cy="-20" r="15" fill="rgba(0, 240, 255, 0.2)" class="animate-pulse-slow" style="animation-delay: 1s" />
+              </g>
+              
+              <!-- Elementos decorativos adicionales -->
+              <g transform="translate(320, 150)">
+                <rect x="0" y="0" width="30" height="100" fill="rgba(0, 240, 255, 0.1)" rx="4" />
+                <rect x="40" y="20" width="30" height="80" fill="rgba(0, 240, 255, 0.15)" rx="4" />
+                <rect x="80" y="40" width="30" height="60" fill="rgba(0, 240, 255, 0.2)" rx="4" />
+              </g>
+            </svg>
+          </div>
+          
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background/90" aria-hidden="true"></div>
+          
+          <!-- Badge superior -->
+          <div class="absolute top-4 left-4 px-3 py-1 bg-accent/90 text-white text-xs rounded-full font-medium z-10">
+            Análisis Predictivo
+          </div>
+          
+          <!-- Texto flotante -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20" aria-hidden="true">
+            <h3 class="text-white text-xl font-bold mb-2 group-hover:text-glow">Inteligencia de Datos</h3>
+            <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Algoritmos avanzados que transforman terabytes de datos en insights accionables en tiempo real</p>
+          </div>
+          
+          <!-- Efecto de brillo en hover -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 bg-gradient-to-t from-accent/30 to-transparent" aria-hidden="true"></div>
+        </div>
+        
+        <!-- Imagen 2: Realidad aumentada con IA (SVG en lugar de imagen) -->
+        <div class="group relative rounded-2xl overflow-hidden h-96 transform hover:-translate-y-2 transition-all duration-500 shadow-lg hover:shadow-2xl">
+          <!-- Fondo con gradientes y patrón de cuadrícula -->
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-background/90"></div>
+          <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-20 group-hover:opacity-30 transition-all duration-700 rotate-45" aria-hidden="true"></div>
+          
+          <!-- Elementos SVG decorativos para representar realidad aumentada -->
+          <div class="absolute inset-0 overflow-hidden">
+            <svg class="w-full h-full" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+              <!-- Elementos de interfaz AR -->
+              <g transform="translate(200, 200)">
+                <!-- Marco de la interfaz -->
+                <rect x="-150" y="-100" width="300" height="200" fill="none" stroke="rgba(100, 100, 255, 0.3)" stroke-width="2" rx="10" class="animate-pulse-slow" />
+                
+                <!-- Elementos flotantes -->
+                <circle cx="-100" cy="-50" r="15" fill="rgba(100, 100, 255, 0.2)" class="animate-float-slow" />
+                <circle cx="50" cy="-70" r="10" fill="rgba(100, 100, 255, 0.15)" class="animate-float-slow" style="animation-delay: 0.7s" />
+                <circle cx="100" cy="50" r="20" fill="rgba(100, 100, 255, 0.1)" class="animate-float-slow" style="animation-delay: 1.2s" />
+                
+                <!-- Líneas de conexión -->
+                <path d="M-100,-50 L50,30" stroke="rgba(100, 100, 255, 0.3)" stroke-width="1" stroke-dasharray="5,3" />
+                <path d="M50,-70 L-20,70" stroke="rgba(100, 100, 255, 0.3)" stroke-width="1" stroke-dasharray="5,3" />
+                <path d="M100,50 L0,0" stroke="rgba(100, 100, 255, 0.3)" stroke-width="1" stroke-dasharray="5,3" />
+              </g>
+              
+              <!-- Interfaz de AR sobre objeto -->
+              <g transform="translate(100, 200)">
+                <!-- Objeto físico representado -->
+                <rect x="-40" y="-40" width="80" height="80" fill="rgba(100, 100, 255, 0.05)" />
+                
+                <!-- Elementos de reconocimiento -->
+                <path d="M-40,-40 L40,40" stroke="rgba(100, 100, 255, 0.4)" stroke-width="1" />
+                <path d="M40,-40 L-40,40" stroke="rgba(100, 100, 255, 0.4)" stroke-width="1" />
+                
+                <!-- Marco de reconocimiento -->
+                <rect x="-45" y="-45" width="90" height="90" fill="none" stroke="rgba(100, 100, 255, 0.6)" stroke-width="1" stroke-dasharray="2,2" class="animate-pulse-slow" />
+              </g>
+              
+              <!-- HUD elementos de interfaz -->
+              <g transform="translate(300, 100)">
+                <!-- Indicadores -->
+                <rect x="-80" y="-10" width="60" height="6" rx="3" fill="rgba(100, 100, 255, 0.4)" class="animate-pulse-slow" />
+                <rect x="-80" y="5" width="40" height="6" rx="3" fill="rgba(100, 100, 255, 0.3)" class="animate-pulse-slow" style="animation-delay: 0.3s" />
+                <rect x="-80" y="20" width="70" height="6" rx="3" fill="rgba(100, 100, 255, 0.5)" class="animate-pulse-slow" style="animation-delay: 0.6s" />
+              </g>
+            </svg>
+          </div>
+          
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background/90" aria-hidden="true"></div>
+          
+          <!-- Badge superior -->
+          <div class="absolute top-4 left-4 px-3 py-1 bg-primary/90 text-white text-xs rounded-full font-medium z-10">
+            Experiencia Inmersiva
+          </div>
+          
+          <!-- Texto flotante -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20" aria-hidden="true">
+            <h3 class="text-white text-xl font-bold mb-2 group-hover:text-glow-alt">Realidad Aumentada</h3>
+            <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Interfaces de usuario que combinan el mundo físico con capas de información digital inteligente</p>
+          </div>
+          
+          <!-- Efecto de brillo en hover -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 bg-gradient-to-t from-primary/30 to-transparent"></div>
+        </div>
+        
+        <!-- Imagen 3: Medicina de precisión con IA (SVG en lugar de imagen) -->
+        <div class="group relative rounded-2xl overflow-hidden h-96 transform hover:-translate-y-2 transition-all duration-500 shadow-lg hover:shadow-2xl">
+          <!-- Fondo con gradientes y patrón de cuadrícula -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[#8e44ad]/20 via-primary/10 to-background/90" aria-hidden="true"></div>
+          <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-20 group-hover:opacity-30 transition-all duration-700 rotate-90" aria-hidden="true"></div>
+          
+          <!-- Elementos SVG decorativos para medicina de precisión -->
+          <div class="absolute inset-0 overflow-hidden">
+            <svg class="w-full h-full" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+              <!-- Representación de ADN y genómica -->
+              <g transform="translate(200, 150)">
+                <!-- Hélice de ADN -->
+                <path d="M-100,100 C-70,70 -30,130 0,100 C30,70 70,130 100,100" stroke="rgba(142, 68, 173, 0.4)" fill="none" stroke-width="2" class="animate-pulse-slow" />
+                <path d="M-100,80 C-70,50 -30,110 0,80 C30,50 70,110 100,80" stroke="rgba(142, 68, 173, 0.3)" fill="none" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 0.2s" />
+                <path d="M-100,60 C-70,30 -30,90 0,60 C30,30 70,90 100,60" stroke="rgba(142, 68, 173, 0.2)" fill="none" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 0.4s" />
+                
+                <!-- Conexiones -->
+                <line x1="-70" y1="70" x2="-70" y2="50" stroke="rgba(142, 68, 173, 0.5)" stroke-width="1" />
+                <line x1="-30" y1="130" x2="-30" y2="110" stroke="rgba(142, 68, 173, 0.5)" stroke-width="1" />
+                <line x1="30" y1="70" x2="30" y2="50" stroke="rgba(142, 68, 173, 0.5)" stroke-width="1" />
+                <line x1="70" y1="130" x2="70" y2="110" stroke="rgba(142, 68, 173, 0.5)" stroke-width="1" />
+              </g>
+              
+              <!-- Representación de células y microbiología -->
+              <g transform="translate(120, 100)">
+                <circle cx="0" cy="0" r="30" fill="rgba(142, 68, 173, 0.1)" class="animate-pulse-slow" />
+                <circle cx="0" cy="0" r="20" fill="rgba(142, 68, 173, 0.15)" class="animate-pulse-slow" style="animation-delay: 0.5s" />
+                <circle cx="0" cy="0" r="10" fill="rgba(142, 68, 173, 0.2)" class="animate-pulse-slow" style="animation-delay: 1s" />
+                
+                <!-- Elementos celulares -->
+                <circle cx="-10" cy="-5" r="3" fill="rgba(142, 68, 173, 0.4)" />
+                <circle cx="8" cy="7" r="4" fill="rgba(142, 68, 173, 0.3)" />
+              </g>
+              
+              <!-- Elementos de interfaz médica -->
+              <g transform="translate(280, 80)">
+                <!-- Monitor de signos vitales -->
+                <rect x="-50" y="-30" width="100" height="60" rx="4" fill="rgba(142, 68, 173, 0.05)" stroke="rgba(142, 68, 173, 0.3)" stroke-width="1" />
+                
+                <!-- Línea de ECG -->
+                <path d="M-40,-5 L-30,-5 L-25,10 L-15,-20 L-5,-5 L5,-5 L15,-5 L20,15 L30,-10 L40,-5" stroke="rgba(142, 68, 173, 0.6)" fill="none" stroke-width="1.5" class="animate-pulse-slow" />
+              </g>
+              
+              <!-- Agrupación molecular -->
+              <g transform="translate(180, 300)">
+                <circle cx="0" cy="0" r="8" fill="rgba(142, 68, 173, 0.4)" />
+                <circle cx="15" cy="-10" r="6" fill="rgba(142, 68, 173, 0.4)" />
+                <circle cx="-12" cy="-15" r="7" fill="rgba(142, 68, 173, 0.4)" />
+                <circle cx="-5" cy="12" r="5" fill="rgba(142, 68, 173, 0.4)" />
+                
+                <!-- Enlaces moleculares -->
+                <line x1="0" y1="0" x2="15" y2="-10" stroke="rgba(142, 68, 173, 0.3)" stroke-width="1" />
+                <line x1="0" y1="0" x2="-12" y2="-15" stroke="rgba(142, 68, 173, 0.3)" stroke-width="1" />
+                <line x1="0" y1="0" x2="-5" y2="12" stroke="rgba(142, 68, 173, 0.3)" stroke-width="1" />
+              </g>
+            </svg>
+          </div>
+          
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background/90" aria-hidden="true"></div>
+          
+          <!-- Badge superior -->
+          <div class="absolute top-4 left-4 px-3 py-1 bg-[#8e44ad]/90 text-white text-xs rounded-full font-medium z-10">
+            Medicina Avanzada
+          </div>
+          
+          <!-- Texto flotante -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20" aria-hidden="true">
+            <h3 class="text-white text-xl font-bold mb-2 group-hover:text-glow-purple">Salud Inteligente</h3>
+            <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Sistemas de diagnóstico basados en IA que detectan patrones sutiles invisibles para el ojo humano</p>
+          </div>
+          
+          <!-- Efecto de brillo en hover -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 bg-gradient-to-t from-[#8e44ad]/30 to-transparent" aria-hidden="true"></div>
+        </div>
+        
+        <!-- Imagen 4: Smart Cities (SVG en lugar de imagen) -->
+        <div class="group relative rounded-2xl overflow-hidden h-96 transform hover:-translate-y-2 transition-all duration-500 shadow-lg hover:shadow-2xl">
+          <!-- Fondo con gradientes y patrón de cuadrícula -->
+          <div class="absolute inset-0 bg-gradient-to-br from-accent/20 via-primary/10 to-background/90" aria-hidden="true"></div>
+          <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-20 group-hover:opacity-30 transition-all duration-700 rotate-180"></div>
+          
+          <!-- Elementos SVG decorativos para Smart Cities -->
+          <div class="absolute inset-0 overflow-hidden">
+            <svg class="w-full h-full" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+              <!-- Silueta de ciudad -->
+              <g transform="translate(200, 250)">
+                <!-- Edificios -->
+                <rect x="-180" y="-120" width="20" height="120" fill="rgba(34, 197, 94, 0.15)" />
+                <rect x="-150" y="-150" width="25" height="150" fill="rgba(34, 197, 94, 0.2)" />
+                <rect x="-115" y="-80" width="15" height="80" fill="rgba(34, 197, 94, 0.1)" />
+                <rect x="-90" y="-180" width="30" height="180" fill="rgba(34, 197, 94, 0.25)" />
+                <rect x="-50" y="-100" width="20" height="100" fill="rgba(34, 197, 94, 0.15)" />
+                <rect x="-20" y="-140" width="25" height="140" fill="rgba(34, 197, 94, 0.2)" />
+                <rect x="15" y="-90" width="20" height="90" fill="rgba(34, 197, 94, 0.1)" />
+                <rect x="45" y="-160" width="30" height="160" fill="rgba(34, 197, 94, 0.25)" />
+                <rect x="85" y="-110" width="25" height="110" fill="rgba(34, 197, 94, 0.15)" />
+                <rect x="120" y="-130" width="20" height="130" fill="rgba(34, 197, 94, 0.2)" />
+                <rect x="150" y="-70" width="30" height="70" fill="rgba(34, 197, 94, 0.1)" />
+              </g>
+              
+              <!-- Redes y conexiones -->
+              <g transform="translate(200, 150)">
+                <!-- Nodos -->
+                <circle cx="-150" cy="-50" r="4" fill="rgba(34, 197, 94, 0.6)" class="animate-pulse-slow" />
+                <circle cx="-100" cy="0" r="4" fill="rgba(34, 197, 94, 0.6)" class="animate-pulse-slow" style="animation-delay: 0.2s" />
+                <circle cx="-50" cy="-30" r="4" fill="rgba(34, 197, 94, 0.6)" class="animate-pulse-slow" style="animation-delay: 0.4s" />
+                <circle cx="0" cy="20" r="4" fill="rgba(34, 197, 94, 0.6)" class="animate-pulse-slow" style="animation-delay: 0.6s" />
+                <circle cx="50" cy="-40" r="4" fill="rgba(34, 197, 94, 0.6)" class="animate-pulse-slow" style="animation-delay: 0.8s" />
+                <circle cx="100" cy="10" r="4" fill="rgba(34, 197, 94, 0.6)" class="animate-pulse-slow" style="animation-delay: 1s" />
+                <circle cx="150" cy="-20" r="4" fill="rgba(34, 197, 94, 0.6)" class="animate-pulse-slow" style="animation-delay: 1.2s" />
+                
+                <!-- Conexiones -->
+                <line x1="-150" y1="-50" x2="-100" y2="0" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" stroke-dasharray="2,2" />
+                <line x1="-100" y1="0" x2="-50" y2="-30" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" stroke-dasharray="2,2" />
+                <line x1="-50" y1="-30" x2="0" y2="20" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" stroke-dasharray="2,2" />
+                <line x1="0" y1="20" x2="50" y2="-40" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" stroke-dasharray="2,2" />
+                <line x1="50" y1="-40" x2="100" y2="10" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" stroke-dasharray="2,2" />
+                <line x1="100" y1="10" x2="150" y2="-20" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" stroke-dasharray="2,2" />
+                
+                <!-- Conexiones adicionales para formar una red -->
+                <line x1="-150" y1="-50" x2="-50" y2="-30" stroke="rgba(34, 197, 94, 0.2)" stroke-width="1" stroke-dasharray="2,2" />
+                <line x1="-100" y1="0" x2="0" y2="20" stroke="rgba(34, 197, 94, 0.2)" stroke-width="1" stroke-dasharray="2,2" />
+                <line x1="-50" y1="-30" x2="50" y2="-40" stroke="rgba(34, 197, 94, 0.2)" stroke-width="1" stroke-dasharray="2,2" />
+                <line x1="0" y1="20" x2="100" y2="10" stroke="rgba(34, 197, 94, 0.2)" stroke-width="1" stroke-dasharray="2,2" />
+              </g>
+              
+              <!-- Elementos de sensores -->
+              <g transform="translate(100, 100)">
+                <circle cx="0" cy="0" r="15" fill="none" stroke="rgba(34, 197, 94, 0.4)" stroke-width="1" class="animate-pulse-slow" />
+                <circle cx="0" cy="0" r="8" fill="rgba(34, 197, 94, 0.3)" />
+                
+                <!-- Ondas de sensor -->
+                <circle cx="0" cy="0" r="25" fill="none" stroke="rgba(34, 197, 94, 0.2)" stroke-width="1" stroke-dasharray="3,3" class="animate-pulse-slow" style="animation-delay: 0.5s" />
+                <circle cx="0" cy="0" r="35" fill="none" stroke="rgba(34, 197, 94, 0.1)" stroke-width="1" stroke-dasharray="3,3" class="animate-pulse-slow" style="animation-delay: 1s" />
+              </g>
+              
+              <!-- Elementos de tráfico y movilidad -->
+              <g transform="translate(300, 180)">
+                <path d="M-30,0 C-20,-10 -10,-10 0,0 C10,10 20,10 30,0" stroke="rgba(34, 197, 94, 0.4)" fill="none" stroke-width="2" />
+                <circle cx="-20" cy="-5" r="3" fill="rgba(34, 197, 94, 0.5)" class="animate-float-slow" />
+                <circle cx="0" cy="0" r="3" fill="rgba(34, 197, 94, 0.5)" class="animate-float-slow" style="animation-delay: 0.3s" />
+                <circle cx="20" cy="-5" r="3" fill="rgba(34, 197, 94, 0.5)" class="animate-float-slow" style="animation-delay: 0.6s" />
+              </g>
+            </svg>
+          </div>
+          
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background/90" aria-hidden="true"></div>
+          
+          <!-- Badge superior -->
+          <div class="absolute top-4 left-4 px-3 py-1 bg-accent/90 text-white text-xs rounded-full font-medium z-10">
+            Ciudades Inteligentes
+          </div>
+          
+          <!-- Texto flotante -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-20" aria-hidden="true">
+            <h3 class="text-white text-xl font-bold mb-2 group-hover:text-glow">Smart Cities</h3>
+            <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Optimización de recursos urbanos y mejora de la calidad de vida mediante redes de sensores inteligentes</p>
+          </div>
+          
+          <!-- Efecto de brillo en hover -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 bg-gradient-to-t from-accent/30 to-transparent" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class='mt-4 md:mt-6 bg-surface/80 backdrop-blur-xl border-2 border-accent/40 rounded-3xl shadow-lg text-white py-6 md:py-8'>
     <div class='container mx-auto px-4 text-center'>
@@ -333,8 +1183,8 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
       <div class='mt-8'></div>
       <div class='grid md:grid-cols-2 gap-6 mb-8'>
         <div class='relative bg-gradient-to-br from-background/80 via-primary/30 to-accent/20 border border-accent/30 rounded-3xl shadow-2xl px-8 py-10 mb-4 overflow-hidden group transition-all duration-500 hover:scale-105 hover:shadow-[0_0_48px_#00F0FF88] hover:border-accent' style='backdrop-filter: blur(10px);'>
-  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;"></div>
-  <div class="relative z-10">
+  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;" aria-hidden="true"></div>
+  <div class="relative z-10" aria-hidden="true">
           <h3 class='text-2xl md:text-3xl font-extrabold text-white mb-4 flex items-center'>
             <span class='mr-3 text-2xl'>🚀</span>Eficiencia y Productividad
           </h3>
@@ -345,8 +1195,8 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
     </div>
   </div>
         <div class='relative bg-gradient-to-br from-background/80 via-primary/30 to-accent/20 border border-accent/30 rounded-3xl shadow-2xl px-8 py-10 mb-4 overflow-hidden group transition-all duration-500 hover:scale-105 hover:shadow-[0_0_48px_#00F0FF88] hover:border-accent' style='backdrop-filter: blur(10px);'>
-  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;"></div>
-  <div class="relative z-10">
+  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;" aria-hidden="true"></div>
+  <div class="relative z-10" aria-hidden="true">
           <h3 class='text-2xl md:text-3xl font-extrabold text-white mb-4 flex items-center'>
             <span class='mr-3 text-2xl'>💡</span>Innovación y Mejora Continua
           </h3>
@@ -357,8 +1207,8 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
     </div>
   </div>
         <div class='relative bg-gradient-to-br from-background/80 via-primary/30 to-accent/20 border border-accent/30 rounded-3xl shadow-2xl px-8 py-10 mb-4 overflow-hidden group transition-all duration-500 hover:scale-105 hover:shadow-[0_0_48px_#00F0FF88] hover:border-accent' style='backdrop-filter: blur(10px);'>
-  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;"></div>
-  <div class="relative z-10">
+  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;" aria-hidden="true"></div>
+  <div class="relative z-10" aria-hidden="true">
           <h3 class='text-2xl md:text-3xl font-extrabold text-white mb-4 flex items-center justify-center'>
             Tecnología al Servicio del Cliente
           </h3>
@@ -369,8 +1219,8 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
     </div>
   </div>
         <div class='relative bg-gradient-to-br from-background/80 via-primary/30 to-accent/20 border border-accent/30 rounded-3xl shadow-2xl px-8 py-10 mb-4 overflow-hidden group transition-all duration-500 hover:scale-105 hover:shadow-[0_0_48px_#00F0FF88] hover:border-accent' style='backdrop-filter: blur(10px);'>
-  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;"></div>
-  <div class="relative z-10">
+  <div class="absolute inset-0 pointer-events-none rounded-3xl" style="box-shadow: 0 8px 64px 0 #00F0FF22, 0 2px 8px 0 #6A6AFF11;" aria-hidden="true"></div>
+  <div class="relative z-10" aria-hidden="true">
           <h3 class='text-2xl md:text-3xl font-extrabold text-white mb-4 flex items-center'>
             <span class='mr-3 text-2xl'>📈</span>Marketing Inteligente
           </h3>
@@ -390,9 +1240,10 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
   </section>
 
   <!-- Sección de confianza con efecto de movimiento -->
-  <div class="mt-4 md:mt-6 pt-2 pb-8 md:pb-12 bg-surface/50 backdrop-blur-sm overflow-hidden relative">
+  <section class="mt-4 md:mt-6 pt-2 pb-8 md:pb-12 bg-surface/50 backdrop-blur-sm overflow-hidden relative" aria-labelledby="clientes-aliados">
+      <h2 id="clientes-aliados" class="sr-only">Clientes y Aliados</h2>
     <div class="container mx-auto px-4">
-      <p class="text-center text-text-secondary/70 text-sm uppercase tracking-wider mb-4">Clientes y aliados</p>
+      <p class="text-center text-text-secondary/70 text-sm uppercase tracking-wider mb-4" aria-hidden="true">Clientes y aliados</p>
       
       <!-- Contenedor del carrusel con gradiente para efecto de desvanecimiento -->
       <div class="relative">
@@ -458,8 +1309,10 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
     </div>
     
     <style>
-      /* Animación del carrusel */
-      @keyframes slide {
+      /* Optimización de animaciones */
+      @media (prefers-reduced-motion: no-preference) {
+        /* Animación del carrusel */
+        @keyframes slide {
         0% { transform: translateX(0); }
         100% { transform: translateX(calc(-100% / 3)); }
       }
@@ -507,6 +1360,7 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
           0% { transform: translateX(calc(-100% / 1.5)); }
           100% { transform: translateX(0); }
         }
+        }
       }
     </style>
   </div>
@@ -521,42 +1375,642 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
 
 </MainLayout>
 
-<!-- Animación Fade-in (puedes mover esto a tu CSS global si usas Tailwind o similar) -->
+<!-- Animaciones y efectos 3D mejorados -->
 <style>
-  .animate-fade-in {
-    animation: fadeIn 1.2s ease-in;
+  /* Efectos de revelación para texto y contenido */
+  .reveal-text, .reveal-text-delay, .reveal-content, .reveal-content-delay, .reveal-content-delay-2, .reveal-content-delay-3 {
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
   }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(32px); }
+  
+  .reveal-text {
+    transform: translateY(20px);
+    animation: revealText 0.8s 0.2s forwards;
+  }
+  
+  .reveal-text-delay {
+    transform: translateY(20px);
+    animation: revealText 0.8s 0.4s forwards;
+  }
+  
+  .reveal-content {
+    transform: translateY(20px);
+    animation: revealContent 1s 0.6s forwards;
+  }
+  
+  .reveal-content-delay {
+    transform: translateY(20px);
+    animation: revealContent 1s 0.8s forwards;
+  }
+  
+  .reveal-content-delay-2 {
+    transform: translateY(20px);
+    animation: revealContent 1s 1s forwards;
+  }
+  
+  .reveal-content-delay-3 {
+    transform: translateY(20px);
+    animation: revealContent 1s 1.2s forwards;
+  }
+  
+  @keyframes revealText {
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-</style>
-
-<!-- Estilos adicionales -->
-<style>
-  /* Animaciones personalizadas */
+  
+  @keyframes revealContent {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Efectos 3D y perspectiva */
+  .perspective-container {
+    perspective: 1000px;
+  }
+  
+  .perspective-3d {
+    perspective: 1500px;
+    transform-style: preserve-3d;
+  }
+  
+  .hero-3d-container {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+    transition: transform 0.3s ease;
+  }
+  
+  .hero-image-card {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: translateZ(20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hero-layer {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Animación de texto con gradiente */
+  @keyframes gradient-text {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-gradient-text {
+    background-size: 200% auto;
+    animation: gradient-text 4s linear infinite;
+  }
+  
+  /* Animaciones para las burbujas de fondo y partículas */
+  @keyframes float-slow {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-15px) translateX(10px); }
+    100% { transform: translateY(0) translateX(0); }
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+  
+  @keyframes float-slow-reverse {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(15px) translateX(-10px); }
+    100% { transform: translateY(0) translateX(0); }
+  }
+  
+  .animate-float-slow-reverse {
+    animation: float-slow-reverse 7s ease-in-out infinite;
+  }
+  
+  @keyframes float-random {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-10px, 10px); }
+    50% { transform: translate(5px, -15px); }
+    75% { transform: translate(10px, 5px); }
+    100% { transform: translate(0, 0); }
+  }
+  
+  .animate-float-random {
+    animation: float-random 12s ease-in-out infinite;
+  }
+  
+  .animate-float-random-delay {
+    animation: float-random 10s ease-in-out 2s infinite;
+  }
+  
+  /* Animación de rotación lenta */
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  
+  /* Animación de pulso lento */
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(0.95); }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 5s ease-in-out infinite;
+  }
+  
+  /* Animación para efecto de flotar */
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
   }
   
-  @keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  /* Clases de utilidad */
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
   
+  /* Estilos para el efecto de partículas y estrellas */
+  .particle {
+    filter: blur(1px);
+  }
+  
+  .star {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    filter: blur(1px);
+  }
+</style>
+
+<!-- Scripts para los efectos 3D interactivos -->
+<script>
+  // Generar estrellas en el fondo
+  document.addEventListener('DOMContentLoaded', function() {
+    // Verificar preferencias de reducción de movimiento
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      document.documentElement.classList.add('reduce-motion');
+      return;
+    }
+    // Crear estrellas en el fondo solo si no hay preferencia de reducción de movimiento
+    const starsContainer = document.getElementById('stars-container');
+    if (starsContainer && !prefersReducedMotion) {
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random() * 2;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.opacity = Math.random() * 0.8;
+        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        star.style.animationDelay = `${Math.random() * 2}s`;
+        starsContainer.appendChild(star);
+      }
+    }
+
+    // Crear líneas para la red neural
+    const neuralNetworkSvg = document.getElementById('neural-network');
+    if (neuralNetworkSvg) {
+      const points = [];
+      // Crear puntos aleatorios
+      for (let i = 0; i < 20; i++) {
+        points.push({
+          x: Math.random() * 100,
+          y: Math.random() * 100,
+          vx: Math.random() * 0.2 - 0.1,
+          vy: Math.random() * 0.2 - 0.1
+        });
+      }
+      
+      // Crear líneas entre puntos cercanos
+      for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+          const dx = points[i].x - points[j].x;
+          const dy = points[i].y - points[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 30) {
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', `${points[i].x}%`);
+            line.setAttribute('y1', `${points[i].y}%`);
+            line.setAttribute('x2', `${points[j].x}%`);
+            line.setAttribute('y2', `${points[j].y}%`);
+            line.setAttribute('stroke', 'rgba(0, 240, 255, 0.3)');
+            line.setAttribute('stroke-width', '0.5');
+            neuralNetworkSvg.appendChild(line);
+          }
+        }
+        
+        // Crear nodo (punto)
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', `${points[i].x}%`);
+        circle.setAttribute('cy', `${points[i].y}%`);
+        circle.setAttribute('r', '1');
+        circle.setAttribute('fill', 'rgba(0, 240, 255, 0.4)');
+        neuralNetworkSvg.appendChild(circle);
+      }
+    }
+
+    // Efecto 3D para el contenedor del hero
+    const hero3DContainer = document.getElementById('hero3DContainer');
+    if (hero3DContainer) {
+      const heroCard = hero3DContainer.querySelector('.hero-image-card');
+      const heroLayers = hero3DContainer.querySelectorAll('.hero-layer');
+      const heroElements = hero3DContainer.querySelectorAll('.hero-element');
+
+      // Efecto de movimiento 3D al mover el ratón
+      document.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const { left, top, width, height } = hero3DContainer.getBoundingClientRect();
+        
+        // Calcular posición relativa del ratón (de -0.5 a 0.5)
+        const xRel = ((clientX - left) / width) - 0.5;
+        const yRel = ((clientY - top) / height) - 0.5;
+        
+        // Aplicar transformación 3D al contenedor principal
+        hero3DContainer.style.transform = `
+          perspective(1000px) 
+          rotateX(${yRel * -10}deg) 
+          rotateY(${xRel * 10}deg)
+        `;
+        
+        // Aplicar transformación a la tarjeta principal
+        if (heroCard) {
+          heroCard.style.transform = `
+            translateZ(30px) 
+            scale(${1 + Math.abs(xRel) * 0.05 + Math.abs(yRel) * 0.05})
+          `;
+        }
+        
+        // Animar capas con diferentes profundidades
+        heroLayers.forEach(layer => {
+          const depth = parseFloat(layer.getAttribute('data-depth') || 0.1);
+          layer.style.transform = `
+            translate(${xRel * 50 * depth}px, ${yRel * 50 * depth}px) 
+            translateZ(${depth * 100}px)
+          `;
+        });
+        
+        // Animar elementos dentro de la imagen
+        heroElements.forEach(element => {
+          const speed = parseFloat(element.getAttribute('data-speed') || 0.1);
+          element.style.transform = `
+            translate(${xRel * 30 * speed}px, ${yRel * 30 * speed}px)
+          `;
+        });
+      });
+    }
+
+    // Efecto parallax para el fondo y elementos
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      
+      // Aplicar parallax a elementos con la clase .parallax-bg
+      document.querySelectorAll('.parallax-bg').forEach(element => {
+        const speed = parseFloat(element.getAttribute('data-speed') || 0.2);
+        element.style.transform = `translateY(${scrollY * speed}px)`;
+      });
+      
+      // Aplicar parallax a elementos con la clase .parallax-element
+      document.querySelectorAll('.parallax-element').forEach(element => {
+        const speed = parseFloat(element.getAttribute('data-speed') || 0.2);
+        element.style.transform = `translateY(${scrollY * speed}px)`;
+      });
+    });
+
+    // Iniciar contadores
+    const counters = document.querySelectorAll('.counter-value');
+    const observerOptions = {
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.getAttribute('data-target'));
+          const duration = 2000; // ms
+          const frameDuration = 1000/60; // 60fps
+          const totalFrames = Math.round(duration / frameDuration);
+          let frame = 0;
+          
+          const animate = () => {
+            frame++;
+            const progress = frame / totalFrames;
+            const currentCount = Math.round(progress * target);
+            counter.textContent = currentCount;
+            
+            if (frame < totalFrames) {
+              requestAnimationFrame(animate);
+            }
+          };
+          
+          animate();
+          observer.unobserve(counter);
+        }
+      });
+    }, observerOptions);
+
+    counters.forEach(counter => {
+      observer.observe(counter);
+    });
+    
+    // Efectos 3D para las tarjetas de servicios
+    const initServiceCards3DEffect = () => {
+      const cards = document.querySelectorAll('.service-card.card-3d');
+      const container = document.querySelector('.perspective-container');
+      
+      if (!container || cards.length === 0) return;
+      
+      // Aplicar perspectiva al contenedor
+      container.style.perspective = '1500px';
+      
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const mouseX = e.clientX - centerX;
+          const mouseY = e.clientY - centerY;
+          
+          // Calcular rotación basada en la posición del mouse
+          const rotateX = mouseY / -10;
+          const rotateY = mouseX / 10;
+          
+          // Aplicar transformación 3D
+          card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+          
+          // Efecto de brillo personalizado
+          const shine = card.querySelector('.card-shine');
+          if (shine) {
+            shine.style.background = `radial-gradient(
+              circle at ${e.clientX - rect.left}px ${e.clientY - rect.top}px, 
+              rgba(255,255,255,0.2) 0%, 
+              rgba(255,255,255,0) 80%
+            )`;
+          }
+        });
+        
+        // Restablecer posición al salir
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
+          const shine = card.querySelector('.card-shine');
+          if (shine) {
+            shine.style.background = 'none';
+          }
+        });
+      });
+    };
+    
+    // Crear red de líneas de conexión para servicios
+    const createServiceNetwork = () => {
+      const networkSvg = document.getElementById('services-network');
+      if (!networkSvg) return;
+      
+      const cards = document.querySelectorAll('.service-card');
+      if (cards.length < 2) return;
+      
+      // Limpiar SVG existente
+      networkSvg.innerHTML = '';
+      
+      // Crear conexiones aleatorias entre tarjetas
+      for (let i = 0; i < cards.length; i++) {
+        const rect1 = cards[i].getBoundingClientRect();
+        
+        for (let j = i + 1; j < cards.length; j++) {
+          const rect2 = cards[j].getBoundingClientRect();
+          
+          // Calcular puntos de conexión
+          const x1 = rect1.left + rect1.width / 2 - networkSvg.getBoundingClientRect().left;
+          const y1 = rect1.top + rect1.height / 2 - networkSvg.getBoundingClientRect().top;
+          const x2 = rect2.left + rect2.width / 2 - networkSvg.getBoundingClientRect().left;
+          const y2 = rect2.top + rect2.height / 2 - networkSvg.getBoundingClientRect().top;
+          
+          // Dibujar línea entre tarjetas
+          const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line.setAttribute('x1', x1);
+          line.setAttribute('y1', y1);
+          line.setAttribute('x2', x2);
+          line.setAttribute('y2', y2);
+          line.setAttribute('stroke', 'rgba(255, 255, 255, 0.1)');
+          line.setAttribute('stroke-width', '1');
+          line.setAttribute('stroke-dasharray', '4 4');
+          
+          networkSvg.appendChild(line);
+        }
+      }
+    };
+    
+    // Inicializar animaciones de partículas en iconos
+    const initParticleEffects = () => {
+      const iconParticles = document.querySelectorAll('.icon-particles, .icon-particles-alt, .icon-particles-purple');
+      
+      iconParticles.forEach(el => {
+        // Generar partículas aleatorias
+        for (let i = 0; i < 8; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          
+          // Posición aleatoria
+          const posX = Math.random() * 100;
+          const posY = Math.random() * 100;
+          const size = 1 + Math.random() * 3;
+          const animDuration = 2 + Math.random() * 3;
+          
+          // Estilo personalizado para cada tipo de partícula
+          let color = 'rgba(0, 240, 255, 0.7)';
+          if (el.classList.contains('icon-particles-alt')) {
+            color = 'rgba(100, 100, 255, 0.7)';
+          } else if (el.classList.contains('icon-particles-purple')) {
+            color = 'rgba(142, 68, 173, 0.7)';
+          }
+          
+          particle.style.cssText = `
+            position: absolute;
+            top: ${posY}%;
+            left: ${posX}%;
+            width: ${size}px;
+            height: ${size}px;
+            background-color: ${color};
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float ${animDuration}s infinite ease-in-out;
+          `;
+          
+          el.appendChild(particle);
+        }
+      });
+    };
+    
+    // Efectos de revelación al hacer scroll
+    const initRevealEffects = () => {
+      const elements = document.querySelectorAll('.reveal-block, .reveal-text, .reveal-text-delay, .reveal-content-delay');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Aplicar delay personalizado si está especificado
+            const delay = entry.target.dataset.delay || 0;
+            setTimeout(() => {
+              entry.target.classList.add('revealed');
+              entry.target.classList.remove('not-revealed');
+            }, delay);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      
+      elements.forEach(el => {
+        observer.observe(el);
+        // Establecer estado inicial como no revelado
+        el.classList.add('not-revealed');
+      });
+    };
+    
+    // Inicializar todos los efectos de la sección de servicios
+    initServiceCards3DEffect();
+    createServiceNetwork();
+    initParticleEffects();
+    initRevealEffects();
+    
+    // Actualizar red de conexiones al redimensionar la ventana
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        createServiceNetwork();
+      }, 250);
+    });
+  });
+</script>
+
+<!-- Animación Fade-in base (compatible con las nuevas) -->
+<style>
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Estilos para efectos de las tarjetas 3D */
+  .perspective-container {
+    perspective: 1500px;
+  }
+  
+  .card-3d {
+    transition: transform 0.5s cubic-bezier(0.2, 0.85, 0.4, 1);
+    transform-style: preserve-3d;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+  }
+  
+  .text-glow-alt {
+    text-shadow: 0 0 10px rgba(100, 100, 255, 0.7);
+  }
+  
+  .text-glow-purple {
+    text-shadow: 0 0 10px rgba(142, 68, 173, 0.7);
+  }
+  
+  .glow-border {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  }
+  
+  .glow-border-alt {
+    box-shadow: 0 0 15px rgba(100, 100, 255, 0.2);
+  }
+  
+  .glow-border-purple {
+    box-shadow: 0 0 15px rgba(142, 68, 173, 0.2);
+  }
+  
+  /* Animaciones para efectos de revelación */
+  .reveal-text.not-revealed, 
+  .reveal-text-delay.not-revealed {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .reveal-block.not-revealed {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  
+  .reveal-content-delay.not-revealed {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .reveal-text.revealed, 
+  .reveal-block.revealed,
+  .reveal-text-delay.revealed,
+  .reveal-content-delay.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .reveal-text-delay.revealed {
+    transition-delay: 0.2s;
+  }
+  
+  .reveal-content-delay.revealed {
+    transition-delay: 0.4s;
+  }
+  
+  /* Efectos para las características */
+  .feature-item {
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-item:hover {
+    transform: translateX(5px);
+  }
+  
+  /* Animación del gradiente de texto */
+  @keyframes gradient-text {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-gradient-text {
+    background-size: 200% 200%;
+    animation: gradient-text 5s ease infinite;
+  }
+  
+  /* Animación para partículas flotantes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    25% { transform: translateY(-5px) translateX(3px); }
+    50% { transform: translateY(-10px) translateX(-2px); }
+    75% { transform: translateY(-5px) translateX(-4px); }
+  }
+  
+  .animate-float-slow {
+    animation: float 5s infinite ease-in-out;
+  }
+  
+  /* Animación para efecto de desplazamiento de luz */
+  @keyframes sweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+</style>
+<style>
   .animate-blob {
     animation: blob 7s infinite;
   }
@@ -593,5 +2047,31 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel.astro';
   svg {
     display: inline-block;
     vertical-align: middle;
+  }
+  
+  /* Estilos adicionales para efectos de texto brillante */
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+  }
+  
+  .text-glow-alt {
+    text-shadow: 0 0 10px rgba(100, 100, 255, 0.7);
+  }
+  
+  .text-glow-purple {
+    text-shadow: 0 0 10px rgba(142, 68, 173, 0.7);
+  }
+  
+  /* Efectos de hover para las imágenes de impacto */
+  .group:hover .group-hover\:text-glow {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+  }
+  
+  .group:hover .group-hover\:text-glow-alt {
+    text-shadow: 0 0 10px rgba(100, 100, 255, 0.7);
+  }
+  
+  .group:hover .group-hover\:text-glow-purple {
+    text-shadow: 0 0 10px rgba(142, 68, 173, 0.7);
   }
 </style>

@@ -1,0 +1,70 @@
+---
+// Componente de breadcrumbs para mejorar la navegación
+// Uso: <Breadcrumbs paths={[{title: "Inicio", url: "/"}, {title: "Servicios", url: "/servicios"}, {title: "Machine Learning"}]} />
+
+export interface BreadcrumbItem {
+  title: string;
+  url?: string;
+}
+
+interface Props {
+  paths: BreadcrumbItem[];
+}
+
+const { paths } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="py-3 px-4 w-full max-w-7xl mx-auto">
+  <ol class="flex flex-wrap items-center space-x-1 text-sm">
+    {
+      paths.map((path, index) => (
+        <>
+          {index > 0 && (
+            <li aria-hidden="true" class="flex items-center">
+              <svg class="w-4 h-4 text-text-secondary/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </li>
+          )}
+          <li class={`${index === paths.length - 1 ? 'flex items-center' : ''}`}>
+            {path.url ? (
+              <a 
+                href={path.url} 
+                class="hover:text-accent transition-colors whitespace-nowrap overflow-hidden overflow-ellipsis"
+              >
+                {path.title}
+              </a>
+            ) : (
+              <span class="text-accent font-medium whitespace-nowrap overflow-hidden overflow-ellipsis" aria-current="page">
+                {path.title}
+              </span>
+            )}
+          </li>
+        </>
+      ))
+    }
+  </ol>
+</nav>
+
+<style>
+  /* Estilos para dispositivos móviles - breadcrumbs compactos */
+  @media (max-width: 640px) {
+    ol {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 0.25rem;
+    }
+    
+    /* Ocultar todos los items excepto el primero y el último */
+    li:not(:first-child):not(:last-child):not(:nth-last-child(2)) {
+      display: none;
+    }
+    
+    /* Si hay más de 2 items, mostrar indicador de elementos ocultos */
+    li:nth-last-child(2):not(:nth-child(2))::before {
+      content: "...";
+      margin: 0 0.5rem;
+      color: var(--text-secondary);
+    }
+  }
+</style>

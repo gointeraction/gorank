@@ -13,16 +13,86 @@ const { title, description = 'Servicios de Automatización e Inteligencia Artifi
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | Go Rank Firts AI Services</title>
+    
+    <!-- SEO Metatags -->
+    <title>{title} | Go Rank First AI Services</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Go Rank First" />
+    <meta name="keywords" content="inteligencia artificial, machine learning, automatización, AI, servicios de IA, desarrollo de IA, consultoría IA" />
+    <link rel="canonical" href={Astro.url.href} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={`${title} | Go Rank First AI Services`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/img/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url.href} />
+    <meta property="twitter:title" content={`${title} | Go Rank First AI Services`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/img/og-image.jpg" />
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap" rel="stylesheet" />
+    
+    <!-- Preload important assets -->
+    <link rel="preload" href="/ai-hero.webp" as="image" fetchpriority="high" />
+    
+    <!-- Schema.org markup para SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Go Rank First AI Services",
+        "url": "https://gorankfirst.com",
+        "logo": "https://gorankfirst.com/favicon.svg",
+        "description": "Servicios de inteligencia artificial y machine learning para empresas y emprendedores.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Torre Exa, Piso 8 Oficina 808, El Rosal",
+          "addressLocality": "Caracas",
+          "addressRegion": "Distrito Capital",
+          "postalCode": "1060",
+          "addressCountry": "VE"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+584126074572",
+          "contactType": "customer service",
+          "email": "contacto@gorankfirst.com",
+          "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/go-rank-first",
+          "https://github.com/gorankfirst"
+        ],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "highPrice": "5000",
+          "lowPrice": "500",
+          "offerCount": "10"
+        }
+      }
+    </script>
   </head>
   <body class="bg-background text-text-primary font-sans antialiased">
+    <!-- Skip link para accesibilidad -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-md focus:outline-none focus:shadow-lg">Saltar al contenido principal</a>
     <header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-lg shadow-soft border-b border-border">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-4">
+      <div class="max-w-7xl mx-auto flex flex-row items-center justify-between px-6 py-4">
         <a href="/" class="flex items-center gap-3 text-2xl font-bold tracking-wide text-primary drop-shadow-glow">
           <svg width="36" height="36" viewBox="0 0 100 100" class="fill-current">
             <circle cx="50" cy="50" r="45" fill="#18181F" />
@@ -30,7 +100,16 @@ const { title, description = 'Servicios de Automatización e Inteligencia Artifi
           </svg>
           <span class="font-black tracking-widest uppercase text-accent">AI Services</span>
         </a>
-        <nav class="mt-4 md:mt-0">
+        
+        <!-- Botón de menú móvil -->
+        <button id="mobile-menu-toggle" class="md:hidden flex items-center p-2 rounded-md text-accent hover:bg-accent/10 transition-colors" aria-label="Abrir menú">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        
+        <!-- Navegación para desktop -->
+        <nav class="hidden md:block">
           <ul class="flex flex-wrap gap-4 md:gap-8 text-text-secondary text-base md:text-lg font-medium">
             <li><a href="/" class="hover:text-accent transition-colors px-3 py-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent" data-astro-prefetch="hover">Inicio</a></li>
             <li class="relative group">
@@ -112,9 +191,88 @@ const { title, description = 'Servicios de Automatización e Inteligencia Artifi
           </ul>
         </nav>
       </div>
+      
+      <!-- Menú móvil (oculto por defecto) -->
+      <div id="mobile-menu" class="hidden bg-surface/95 backdrop-blur-xl border-b border-border">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+          <nav class="space-y-3">
+            <a href="/" class="block py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">Inicio</a>
+            
+            <!-- Acordeón para Servicios -->
+            <div class="mobile-accordion">
+              <button class="w-full flex justify-between items-center py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">
+                <span>Servicios</span>
+                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path class="accordion-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="mobile-submenu hidden pl-4 mt-1 border-l border-accent/20 ml-4 space-y-1">
+                <a href="/servicios/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Servicios IA</a>
+                <a href="/machine-learning/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Machine Learning</a>
+                <a href="/ingenieria-de-datos/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Ingeniería de Datos</a>
+                <a href="/inteligencia-de-negocios/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Inteligencia de Negocios</a>
+              </div>
+            </div>
+            
+            <!-- Acordeón para Capacitación IA -->
+            <div class="mobile-accordion">
+              <button class="w-full flex justify-between items-center py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">
+                <span>Capacitación IA</span>
+                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path class="accordion-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="mobile-submenu hidden pl-4 mt-1 border-l border-accent/20 ml-4 space-y-1">
+                <a href="/capacitacion/conferencia-ia" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Conferencia de IA</a>
+                <a href="/capacitacion/charla-ia-ongs" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Charla de IA para ONGs</a>
+                <a href="/capacitacion/curso-ia-emprendedores" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">IA para Emprendedores</a>
+                <a href="/capacitacion/curso-agentes-voz-ia" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Agentes de Voz IA</a>
+                <a href="/capacitacion/curso-automatizacion-ia" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Automatización con IA</a>
+                <a href="/capacitacion/curso-ia-ecommerce" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">IA para E-commerce</a>
+                <a href="/capacitacion/curso-prompt-engineering" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Prompt Engineering</a>
+              </div>
+            </div>
+            
+            <!-- Acordeón para Bots IA -->
+            <div class="mobile-accordion">
+              <button class="w-full flex justify-between items-center py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">
+                <span>Bots IA</span>
+                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path class="accordion-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="mobile-submenu hidden pl-4 mt-1 border-l border-accent/20 ml-4 space-y-1">
+                <a href="/bots/empresas" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Para Empresas</a>
+                <a href="/bots/whatsapp" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">ChatBot WhatsApp</a>
+                <a href="/bots/restaurantes" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Para Restaurantes</a>
+              </div>
+            </div>
+            
+            <!-- Acordeón para Nosotros -->
+            <div class="mobile-accordion">
+              <button class="w-full flex justify-between items-center py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">
+                <span>Nosotros</span>
+                <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path class="accordion-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="mobile-submenu hidden pl-4 mt-1 border-l border-accent/20 ml-4 space-y-1">
+                <a href="/nosotros/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Sobre Nosotros</a>
+                <a href="/precios/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Precios</a>
+                <a href="/industrias/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Industrias</a>
+                <a href="/tecnologias/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Tecnologías</a>
+                <a href="/preguntas-frecuentes/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Preguntas Frecuentes</a>
+              </div>
+            </div>
+            
+            <a href="/blog/" class="block py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">Blog</a>
+            <a href="/contacto/" class="block py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">Contacto</a>
+          </nav>
+        </div>
+      </div>
     </header>
     
-    <main class="container mx-auto px-4 py-2 bg-dark-background text-dark-text-primary">
+    <main id="main-content" class="container mx-auto px-4 py-2 bg-dark-background text-dark-text-primary">
       <slot />
     </main>
     
@@ -381,6 +539,69 @@ const { title, description = 'Servicios de Automatización e Inteligencia Artifi
       });
     </script>
   
+  <script>
+  // Funcionalidad para el menú móvil
+  document.addEventListener('DOMContentLoaded', function() {
+    // Referencia al botón de menú y al contenedor del menú móvil
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    // Toggle del menú móvil
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function() {
+        // Cambiar visibilidad del menú
+        mobileMenu.classList.toggle('hidden');
+        
+        // Cambiar ícono del botón (opcional)
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+          menuToggle.innerHTML = `
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          `;
+        } else {
+          menuToggle.innerHTML = `
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          `;
+        }
+      });
+    }
+    
+    // Inicializar los acordeones del menú móvil
+    const accordionButtons = document.querySelectorAll('.mobile-accordion > button');
+    
+    accordionButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Obtener el submenú asociado a este botón
+        const submenu = this.nextElementSibling;
+        
+        // Toggle de la clase hidden
+        submenu.classList.toggle('hidden');
+        
+        // Rotar el ícono
+        const icon = this.querySelector('svg');
+        icon.style.transform = submenu.classList.contains('hidden') ? '' : 'rotate(180deg)';
+      });
+    });
+    
+    // Cerrar el menú móvil cuando se hace clic en un enlace
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+        
+        // Restablecer el ícono del botón
+        menuToggle.innerHTML = `
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        `;
+      });
+    });
+  });
 </script>
   </body>
 </html>
