@@ -31,7 +31,7 @@
 .integration-card:hover {
   transform: translateY(-5px) scale(1.02);
   border-color: rgba(0, 240, 255, 0.3);
-  box-shadow: 0 20px 40px -10px rgba(0, 240, 255, 0.15);
+  box-shadow: 0 20px 40px -10px rgba(254, 255, 255, 0.15);
 }
 
 .integration-card:hover::before {
@@ -55,21 +55,48 @@
   transition: all 0.3s ease;
   filter: grayscale(100%) brightness(0.8);
   opacity: 0.8;
+  width: 100%;
+  height: auto;
+}
+
+.integration-logo > div {
+  width: 160px !important;  /* Reducir el ancho del contenedor */
+  height: 100px !important; /* Reducir la altura del contenedor */
+  padding: 0.8rem !important; /* Reducir el espacio interno */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.integration-logo img {
+  max-width: 120px !important; /* Mantener el tamaño máximo de la imagen */
+  max-height: 80px !important;
+  width: auto;
+  height: auto;
+  transition: all 0.3s ease;
+  object-fit: contain !important;
 }
 
 .integration-logo:hover {
   filter: grayscale(0%) brightness(1.1);
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.05);
   animation: float 3s ease-in-out infinite;
+}
+
+.integration-logo:hover img {
+  transform: scale(1.1);
 }
 
 /* Grid de logos con efecto de profundidad */
 .logos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1.2rem;
   perspective: 1000px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem;
 }
 
 .logo-item {
@@ -134,7 +161,7 @@
   height: 200%;
   background: radial-gradient(circle at center, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.0 ease;
   pointer-events: none;
 }
 
@@ -170,7 +197,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgb(255, 248, 248), transparent);
   transition: 0.5s;
 }
 
