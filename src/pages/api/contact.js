@@ -1,5 +1,3 @@
-import { db } from 'astro:db';
-
 export async function POST({ request }) {
   try {
     const data = await request.json();
@@ -8,28 +6,24 @@ export async function POST({ request }) {
     if (!data.name || !data.email || !data.message) {
       return new Response(
         JSON.stringify({ success: false, error: 'Nombre, email y mensaje son campos requeridos' }),
-        { status: 400 }
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    // Insertar el mensaje en la base de datos
-    const newMessage = await db.insert('contactMessages').values({
-      id: crypto.randomUUID(),
+    // En un entorno real, aquí se guardaría el mensaje en una base de datos
+    console.log('Nuevo mensaje de contacto recibido:', {
       name: data.name,
       email: data.email,
       phone: data.phone || '',
       subject: data.subject || 'Sin asunto',
       message: data.message,
-      createdAt: new Date(),
-      isRead: false,
-      status: 'new'
-    }).run();
+      receivedAt: new Date().toISOString()
+    });
 
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: 'Mensaje enviado correctamente',
-        data: newMessage 
+        message: 'Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.'
       }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );

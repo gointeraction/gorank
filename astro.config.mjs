@@ -1,16 +1,14 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
-
-import db from '@astrojs/db';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
   // Configuración del sitio
   site: process.env.NODE_ENV === 'production' 
-    ? 'https://gointeraction.github.io/gorank' 
+    ? 'https://tudominio.com' 
     : 'http://localhost:3003',
-  base: process.env.NODE_ENV === 'production' ? '/gorank/' : '/',
   // Configuración del servidor
   server: {
     port: 3003,
@@ -33,7 +31,11 @@ export default defineConfig({
   },
   
   // Configuración de salida
-  output: 'static',
+  output: 'server',
+  adapter: vercel({
+    // Configuración del adaptador de Vercel
+    edgeMiddleware: true
+  }),
   
   // Integraciones
   integrations: [tailwind({
@@ -51,7 +53,7 @@ export default defineConfig({
     svgProps: {
       'class': 'icon'
     }
-  }), db()],
+  })], // db() deshabilitado temporalmente
   
   // Configuración de compilación
   build: {

@@ -1,5 +1,3 @@
-import { db } from 'astro:db';
-
 // En un entorno real, esto debería estar en variables de entorno
 const ADMIN_USERNAME = 'admin';
 const ADMIN_PASSWORD = 'admin123'; // ¡Cambia esto en producción!

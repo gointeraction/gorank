@@ -1,7 +1,4 @@
-import { db } from 'astro:db';
-import { ContactMessages } from '../../../db/schema';
-import { eq } from 'astro:db';
-
+// En un entorno real, aquí se actualizaría el estado del mensaje en la base de datos
 export async function PATCH({ params, request }) {
   try {
     const { status } = await request.json();
@@ -14,10 +11,8 @@ export async function PATCH({ params, request }) {
       );
     }
     
-    // Actualizar el estado del mensaje
-    await db.update(ContactMessages)
-      .set({ status })
-      .where(eq(ContactMessages.id, id));
+    // Simular actualización exitosa
+    console.log(`Mensaje ${id} actualizado a estado: ${status}`);
     
     return new Response(
       JSON.stringify({ success: true }),

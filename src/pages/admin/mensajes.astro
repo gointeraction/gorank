@@ -1,12 +1,9 @@
 ---
-import { db } from 'astro:db';
-import { ContactMessages } from '../../../db/schema';
-import MainLayout from '../../../layouts/MainLayout.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
 
 // Configuración de autenticación básica
 const ADMIN_USERNAME = 'admin';
 const ADMIN_PASSWORD = 'admin123'; // ¡Cambia esto en producción!
-
 
 // Verificar autenticación básica
 const auth = Astro.cookies.get('auth')?.value;
@@ -17,11 +14,31 @@ if (!isAuthenticated) {
   return Astro.redirect('/admin/login');
 }
 
-// Obtener mensajes
-const messages = await db.select()
-  .from(ContactMessages)
-  .orderBy(ContactMessages.createdAt.desc())
-  .all();
+// Datos de ejemplo para mensajes (en un entorno real, estos vendrían de una API o base de datos)
+const messages = [
+  {
+    id: '1',
+    name: 'Juan Pérez',
+    email: 'juan@example.com',
+    phone: '1234567890',
+    subject: 'Consulta sobre servicios',
+    message: 'Hola, me gustaría obtener más información sobre sus servicios de desarrollo web.',
+    createdAt: new Date('2025-05-26T10:30:00'),
+    status: 'new',
+    isRead: false
+  },
+  {
+    id: '2',
+    name: 'María García',
+    email: 'maria@example.com',
+    phone: '0987654321',
+    subject: 'Cotización',
+    message: 'Buen día, necesito una cotización para una página web corporativa.',
+    createdAt: new Date('2025-05-25T15:45:00'),
+    status: 'in_progress',
+    isRead: true
+  }
+];
 ---
 
 <MainLayout title="Panel de Administración - Mensajes">
@@ -30,7 +47,7 @@ const messages = await db.select()
       <div class="flex justify-between items-center mb-8">
         <h1 class="text-3xl font-bold">Mensajes de Contacto</h1>
         <a 
-          href="/admin-logout" 
+          href="/admin/login?logout=true" 
           class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
         >
           Cerrar Sesión
