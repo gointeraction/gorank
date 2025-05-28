@@ -1,96 +1,53 @@
 ---
 // src/pages/machine-learning/index.astro
+import Layout from '../../layouts/MainLayout.astro';
+
 const title = "Machine Learning";
-const description = "Soluciones avanzadas de Machine Learning para impulsar tu negocio.";
+const description = "Soluciones avanzadas de Machine Learning para impulsar tu negocio con inteligencia artificial predictiva y análisis de datos.";
 ---
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="description" content={description} />
-  <title>{title}</title>
-</head>
-<body>
-  <main class="container">
-    <h1>{title}</h1>
+<Layout title={title} description={description}>
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold text-primary mb-6">{title}</h1>
     
-    <section class="content">
+    <section class="prose prose-lg max-w-none">
       <article>
-        <h2>Nuestros Servicios de Machine Learning</h2>
-        <p>Ofrecemos soluciones personalizadas de Machine Learning adaptadas a las necesidades específicas de tu negocio.</p>
+        <h2 class="text-3xl font-semibold text-primary mt-8 mb-4">Nuestros Servicios de Machine Learning</h2>
+        <p class="text-lg text-text-secondary mb-6">Ofrecemos soluciones personalizadas de Machine Learning adaptadas a las necesidades específicas de tu negocio, impulsando la toma de decisiones basada en datos.</p>
         
-        <h3>Áreas de Especialización</h3>
-        <ul>
-          <li>Modelos predictivos</li>
-          <li>Procesamiento de lenguaje natural (NLP)</li>
-          <li>Visión por computadora</li>
-          <li>Sistemas de recomendación</li>
-          <li>Análisis de series temporales</li>
+        <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Áreas de Especialización</h3>
+        <ul class="space-y-2 mb-8">
+          <li class="flex items-start">
+            <span class="text-accent mr-2">▹</span>
+            <span>Modelos predictivos avanzados</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-accent mr-2">▹</span>
+            <span>Procesamiento de lenguaje natural (NLP)</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-accent mr-2">▹</span>
+            <span>Visión por computadora</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-accent mr-2">▹</span>
+            <span>Sistemas de recomendación personalizados</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-accent mr-2">▹</span>
+            <span>Análisis de series temporales</span>
+          </li>
         </ul>
         
-        <div class="cta">
-          <a href="/contacto" class="btn">Solicitar Cotización</a>
+        <div class="text-center mt-12">
+          <a 
+            href="/contacto" 
+            class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-accent hover:bg-accent/90 transition-colors duration-200 md:py-4 md:text-lg md:px-10"
+          >
+            Solicitar Cotización
+          </a>
         </div>
       </article>
     </section>
   </main>
-  
-  <style>
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    
-    .content {
-      margin-top: 2rem;
-      line-height: 1.6;
-    }
-    
-    h1 {
-      color: #1e40af;
-      margin-bottom: 1.5rem;
-    }
-    
-    h2 {
-      color: #1e40af;
-      margin: 2rem 0 1rem;
-    }
-    
-    h3 {
-      color: #1e40af;
-      margin: 1.5rem 0 0.5rem;
-    }
-    
-    ul {
-      padding-left: 1.5rem;
-    }
-    
-    li {
-      margin-bottom: 0.5rem;
-    }
-    
-    .cta {
-      margin-top: 2.5rem;
-      text-align: center;
-    }
-    
-    .btn {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background-color 0.2s;
-    }
-    
-    .btn:hover {
-      background: #1d4ed8;
-    }
-  </style>
-</body>
-</html>
+</Layout>

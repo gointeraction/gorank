@@ -153,6 +153,18 @@ const { title, description = 'Servicios de Automatización e Inteligencia Artifi
                 </svg>
               </button>
               <div id="bots-menu" class="absolute left-0 top-full mt-2 hidden group-hover:block bg-surface/90 backdrop-blur-xl border-2 border-accent/30 rounded-2xl shadow-lg py-2 w-80 z-50 animate-fade-in">
+                <a href="/ecommerce" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">
+                  <div class="flex items-center">
+                    <span class="mr-2">🛍️</span>
+                    <span>Para E-commerce</span>
+                  </div>
+                </a>
+                <a href="/contact-center" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">
+                  <div class="flex items-center">
+                    <span class="mr-2">📞</span>
+                    <span>Contact Center</span>
+                  </div>
+                </a>
                 <a href="/bots/empresas" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">
                   <div class="flex items-center">
                     <span class="mr-2">🏢</span>
@@ -182,6 +194,7 @@ const { title, description = 'Servicios de Automatización e Inteligencia Artifi
               </button>
               <div id="nosotros-menu" class="absolute left-0 top-full mt-2 hidden group-hover:block bg-surface/90 backdrop-blur-xl border-2 border-accent/30 rounded-2xl shadow-lg py-2 w-64 z-50 animate-fade-in">
                 <a href="/nosotros/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Sobre Nosotros</a>
+                <a href="/metodologia" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Metodología</a>
                 <a href="/precios/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Precios</a>
                 <a href="/industrias/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Industrias</a>
                 <a href="/tecnologias/" class="block px-5 py-3 text-text-secondary hover:bg-accent/10 hover:text-accent transition-all rounded-xl font-medium" data-astro-prefetch="hover">Tecnologías</a>
@@ -244,9 +257,36 @@ const { title, description = 'Servicios de Automatización e Inteligencia Artifi
                 </svg>
               </button>
               <div class="mobile-submenu hidden pl-4 mt-1 border-l border-accent/20 ml-4 space-y-1">
-                <a href="/bots/empresas" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Para Empresas</a>
-                <a href="/bots/whatsapp" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">ChatBot WhatsApp</a>
-                <a href="/bots/restaurantes" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Para Restaurantes</a>
+                <a href="/ecommerce" class="block py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">
+                  <div class="flex items-center">
+                    <span class="mr-2">🛍️</span>
+                    <span>Para E-commerce</span>
+                  </div>
+                </a>
+                <a href="/contact-center" class="block py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">
+                  <div class="flex items-center">
+                    <span class="mr-2">📞</span>
+                    <span>Contact Center</span>
+                  </div>
+                </a>
+                <a href="/bots/empresas" class="block py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">
+                  <div class="flex items-center">
+                    <span class="mr-2">🏢</span>
+                    <span>Para Empresas</span>
+                  </div>
+                </a>
+                <a href="/bots/whatsapp" class="block py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">
+                  <div class="flex items-center">
+                    <span class="mr-2">💬</span>
+                    <span>ChatBot WhatsApp</span>
+                  </div>
+                </a>
+                <a href="/bots/restaurantes" class="block py-2 px-4 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">
+                  <div class="flex items-center">
+                    <span class="mr-2">🍽️</span>
+                    <span>Para Restaurantes</span>
+                  </div>
+                </a>
               </div>
             </div>
             
@@ -259,11 +299,12 @@ const { title, description = 'Servicios de Automatización e Inteligencia Artifi
                 </svg>
               </button>
               <div class="mobile-submenu hidden pl-4 mt-1 border-l border-accent/20 ml-4 space-y-1">
-                <a href="/nosotros/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Sobre Nosotros</a>
-                <a href="/precios/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Precios</a>
-                <a href="/industrias/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Industrias</a>
-                <a href="/tecnologias/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Tecnologías</a>
-                <a href="/preguntas-frecuentes/" class="block py-2 px-4 text-text-secondary hover:text-accent transition-colors">Preguntas Frecuentes</a>
+                <a href="/nosotros/" class="block py-2 px-6 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">Sobre Nosotros</a>
+                <a href="/metodologia" class="block py-2 px-6 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">Metodología</a>
+                <a href="/precios/" class="block py-2 px-6 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">Precios</a>
+                <a href="/industrias/" class="block py-2 px-6 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">Industrias</a>
+                <a href="/tecnologias/" class="block py-2 px-6 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">Tecnologías</a>
+                <a href="/preguntas-frecuentes/" class="block py-2 px-6 text-text-secondary hover:text-accent hover:bg-accent/5 rounded-lg transition-colors">Preguntas Frecuentes</a>
               </div>
             </div>
             
