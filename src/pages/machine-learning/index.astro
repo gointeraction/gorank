@@ -1,53 +1,197 @@
 ---
 // src/pages/machine-learning/index.astro
 import Layout from '../../layouts/MainLayout.astro';
+import { Icon } from 'astro-icon/components';
 
 const title = "Machine Learning";
-const description = "Soluciones avanzadas de Machine Learning para impulsar tu negocio con inteligencia artificial predictiva y análisis de datos.";
+const description = "Soluciones avanzadas de Machine Learning para transformar tus datos en ventajas competitivas. Automatización, predicción y análisis de datos con IA.";
+
+const servicios = [
+  {
+    titulo: "Modelos Predictivos",
+    descripcion: "Anticipa tendencias y comportamientos con modelos estadísticos avanzados.",
+    icono: "mdi:chart-line"
+  },
+  {
+    titulo: "Procesamiento de Lenguaje Natural",
+    descripcion: "Analiza y procesa lenguaje humano para extraer información valiosa.",
+    icono: "mdi:chat-processing"
+  },
+  {
+    titulo: "Visión por Computadora",
+    descripcion: "Sistemas que interpretan y analizan imágenes y videos automáticamente.",
+    icono: "mdi:eye-outline"
+  },
+  {
+    titulo: "Sistemas de Recomendación",
+    descripcion: "Personaliza la experiencia del usuario con recomendaciones inteligentes.",
+    icono: "mdi:thumb-up"
+  }
+];
+
+const beneficios = [
+  "Automatización de procesos complejos",
+  "Mayor precisión en predicciones",
+  "Reducción de costos operativos",
+  "Toma de decisiones basada en datos",
+  "Escalabilidad de soluciones",
+  "Integración con sistemas existentes"
+];
 ---
 
 <Layout title={title} description={description}>
-  <main class="container mx-auto px-4 py-12 max-w-4xl">
-    <h1 class="text-4xl font-bold text-primary mb-6">{title}</h1>
+  <!-- Hero Section -->
+  <section class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute inset-0 bg-gradient-to-br from-background via-surface/80 to-primary/5"></div>
+      <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] bg-center opacity-10"></div>
+    </div>
     
-    <section class="prose prose-lg max-w-none">
-      <article>
-        <h2 class="text-3xl font-semibold text-primary mt-8 mb-4">Nuestros Servicios de Machine Learning</h2>
-        <p class="text-lg text-text-secondary mb-6">Ofrecemos soluciones personalizadas de Machine Learning adaptadas a las necesidades específicas de tu negocio, impulsando la toma de decisiones basada en datos.</p>
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-accent/10 backdrop-blur-sm border border-accent/20 transform hover:scale-105 transition-transform">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+          <span class="text-accent font-medium text-sm tracking-wider">Tecnología de Vanguardia</span>
+        </div>
         
-        <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Áreas de Especialización</h3>
-        <ul class="space-y-2 mb-8">
-          <li class="flex items-start">
-            <span class="text-accent mr-2">▹</span>
-            <span>Modelos predictivos avanzados</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-accent mr-2">▹</span>
-            <span>Procesamiento de lenguaje natural (NLP)</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-accent mr-2">▹</span>
-            <span>Visión por computadora</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-accent mr-2">▹</span>
-            <span>Sistemas de recomendación personalizados</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-accent mr-2">▹</span>
-            <span>Análisis de series temporales</span>
-          </li>
-        </ul>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          Potencia tu negocio con <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">Machine Learning</span>
+        </h1>
         
-        <div class="text-center mt-12">
+        <p class="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto mb-8">
+          Transformamos tus datos en decisiones estratégicas con soluciones de IA personalizadas que se adaptan a tus necesidades específicas.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a 
             href="/contacto" 
-            class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-accent hover:bg-accent/90 transition-colors duration-200 md:py-4 md:text-lg md:px-10"
+            class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-medium rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 flex items-center justify-center gap-2"
           >
-            Solicitar Cotización
+            <Icon name="mdi:rocket-launch" class="w-5 h-5" />
+            Comenzar Proyecto
+          </a>
+          <a 
+            href="#servicios" 
+            class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <Icon name="mdi:lightbulb-on" class="w-5 h-5" />
+            Ver Servicios
           </a>
         </div>
-      </article>
-    </section>
-  </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Destacados -->
+  <section id="servicios" class="py-16 md:py-24 relative">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuestros Servicios de <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">Machine Learning</span></h2>
+        <p class="text-text-secondary text-lg">Soluciones personalizadas que aprovechan el poder de la inteligencia artificial para impulsar tu negocio.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {servicios.map((servicio, index) => (
+          <div 
+            key={index}
+            class="relative p-8 bg-surface/50 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-accent/30 transition-all duration-300 group"
+          >
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-accent/30 group-hover:scale-110">
+              <Icon name={servicio.icono} class="w-8 h-8 text-accent" />
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-3">{servicio.titulo}</h3>
+            <p class="text-text-secondary">{servicio.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="py-16 md:py-24 bg-gradient-to-b from-surface/50 to-background">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Beneficios de Nuestras <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">Soluciones</span></h2>
+          <p class="text-text-secondary text-lg">Descubre cómo el Machine Learning puede transformar tu negocio</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="p-8 bg-surface/50 backdrop-blur-sm rounded-2xl border border-white/5">
+            <h3 class="text-xl font-semibold text-white mb-6">¿Por qué elegir nuestras soluciones?</h3>
+            <ul class="space-y-4">
+              {beneficios.map((beneficio, index) => (
+                <li key={index} class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center mt-0.5">
+                    <Icon name="mdi:check" class="w-3.5 h-3.5 text-accent" />
+                  </span>
+                  <span class="text-text-secondary">{beneficio}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div class="p-8 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl border border-white/5 relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl"></div>
+            <h3 class="text-xl font-semibold text-white mb-6">Nuestro Enfoque</h3>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <Icon name="mdi:lightbulb-on" class="w-6 h-6 text-accent" />
+                </div>
+                <div>
+                  <h4 class="font-medium text-white mb-1">Análisis Personalizado</h4>
+                  <p class="text-sm text-text-secondary">Evaluamos tus necesidades específicas para ofrecerte la mejor solución.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Icon name="mdi:chart-box" class="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h4 class="font-medium text-white mb-1">Implementación Ágil</h4>
+                  <p class="text-sm text-text-secondary">Desarrollo rápido con metodologías ágiles para obtener resultados rápidos.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
+                  <Icon name="mdi:chart-line" class="w-6 h-6 text-purple-400" />
+                </div>
+                <div>
+                  <h4 class="font-medium text-white mb-1">Soporte Continuo</h4>
+                  <p class="text-sm text-text-secondary">Acompañamiento post-implementación para garantizar el éxito a largo plazo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-24 bg-gradient-to-r from-primary/10 via-surface/50 to-accent/10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Listo para transformar tu negocio con <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">Machine Learning</span>?</h2>
+        <p class="text-text-secondary text-lg max-w-2xl mx-auto mb-8">Nuestro equipo de expertos está listo para ayudarte a implementar soluciones de IA que impulsen el crecimiento de tu empresa.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/contacto" 
+            class="px-8 py-4 bg-accent hover:bg-accent/90 text-white font-medium rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 flex items-center justify-center gap-2"
+          >
+            <Icon name="mdi:message-text" class="w-5 h-5" />
+            Contáctanos
+          </a>
+          <a 
+            href="#" 
+            class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <Icon name="mdi:calendar" class="w-5 h-5" />
+            Agendar Llamada
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
